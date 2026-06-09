@@ -883,57 +883,57 @@
     
     <div class="photo-grid reveal" id="photo-grid">
       
-      <div class="photo-item" data-cat="nightlife" onclick="openLightbox(this)">
+      <div class="photo-item" data-cat="nightlife" data-show-in-all="true" onclick="openLightbox(this)">
         <img src="images/dj1.jpeg" alt="DJ Nightlife Valencia" style="width:100%; height:100%; object-fit:cover; display:block;">
         <div class="photo-overlay"><span class="photo-tag">Nightlife</span></div>
       </div>
       
-      <div class="photo-item" data-cat="nightlife" onclick="openLightbox(this)">
+      <div class="photo-item" data-cat="nightlife" data-show-in-all="true" onclick="openLightbox(this)">
         <img src="images/dj2.jpeg" alt="DJ Nightlife Valencia" style="width:100%; height:100%; object-fit:cover; display:block;">
         <div class="photo-overlay"><span class="photo-tag">Nightlife</span></div>
       </div>
       
-      <div class="photo-item" data-cat="fitness" onclick="openLightbox(this)">
+      <div class="photo-item" data-cat="fitness" data-show-in-all="true" onclick="openLightbox(this)">
         <img src="images/fitness3.jpeg" alt="Fitness Valencia" style="width:100%; height:100%; object-fit:cover; display:block;">
         <div class="photo-overlay"><span class="photo-tag">Fitness</span></div>
       </div>
       
-      <div class="photo-item" data-cat="nightlife" onclick="openLightbox(this)">
+      <div class="photo-item" data-cat="nightlife" data-show-in-all="true" onclick="openLightbox(this)">
         <img src="images/dj3.jpeg" alt="DJ Nightlife Valencia" style="width:100%; height:100%; object-fit:cover; display:block;">
         <div class="photo-overlay"><span class="photo-tag">Nightlife</span></div>
       </div>
       
-      <div class="photo-item" data-cat="fitness" onclick="openLightbox(this)">
+      <div class="photo-item" data-cat="fitness" data-show-in-all="true" onclick="openLightbox(this)">
         <img src="images/fitness4.jpeg" alt="Fitness Valencia" style="width:100%; height:100%; object-fit:cover; display:block;">
         <div class="photo-overlay"><span class="photo-tag">Fitness</span></div>
       </div>
       
-      <div class="photo-item" data-cat="nightlife" onclick="openLightbox(this)">
+      <div class="photo-item" data-cat="nightlife" data-show-in-all="true" onclick="openLightbox(this)">
         <img src="images/dj4.jpeg" alt="DJ Nightlife Valencia" style="width:100%; height:100%; object-fit:cover; display:block;">
         <div class="photo-overlay"><span class="photo-tag">Nightlife</span></div>
       </div>
       
-      <div class="photo-item" data-cat="nightlife" onclick="openLightbox(this)">
+      <div class="photo-item" data-cat="nightlife" data-show-in-all="true" onclick="openLightbox(this)">
         <img src="images/dj5.jpeg" alt="DJ Nightlife Valencia" style="width:100%; height:100%; object-fit:cover; display:block;">
         <div class="photo-overlay"><span class="photo-tag">Nightlife</span></div>
       </div>
       
-      <div class="photo-item" data-cat="nightlife" onclick="openLightbox(this)">
+      <div class="photo-item" data-cat="nightlife" data-show-in-all="true" onclick="openLightbox(this)">
         <img src="images/dj6.jpeg" alt="DJ Nightlife Valencia" style="width:100%; height:100%; object-fit:cover; display:block;">
         <div class="photo-overlay"><span class="photo-tag">Nightlife</span></div>
       </div>
 
-      <div class="photo-item" data-cat="fitness" onclick="openLightbox(this)">
+      <div class="photo-item" data-cat="fitness" data-show-in-all="false" style="display:none;" onclick="openLightbox(this)">
         <img src="images/fitness1.jpeg" alt="Fitness Valencia" style="width:100%; height:100%; object-fit:cover; display:block;">
         <div class="photo-overlay"><span class="photo-tag">Fitness</span></div>
       </div>
 
-      <div class="photo-item" data-cat="fitness" onclick="openLightbox(this)">
+      <div class="photo-item" data-cat="fitness" data-show-in-all="false" style="display:none;" onclick="openLightbox(this)">
         <img src="images/fitness2.jpeg" alt="Fitness Valencia" style="width:100%; height:100%; object-fit:cover; display:block;">
         <div class="photo-overlay"><span class="photo-tag">Fitness</span></div>
       </div>
 
-      <div class="photo-item" data-cat="fitness" onclick="openLightbox(this)">
+      <div class="photo-item" data-cat="fitness" data-show-in-all="false" style="display:none;" onclick="openLightbox(this)">
         <img src="images/fitness5.jpeg" alt="Fitness Valencia" style="width:100%; height:100%; object-fit:cover; display:block;">
         <div class="photo-overlay"><span class="photo-tag">Fitness</span></div>
       </div>
@@ -963,24 +963,22 @@
       setTimeout(() => { lightbox.style.display = 'none'; }, 300);
     }
 
-    // Nueva función de filtrado con tu regla personalizada incorporada
-    function filterPhotos(cat, btn) {
+    // Sobrescribimos la función global de forma agresiva para que use nuestra regla
+    window.filterPhotos = function(cat, btn) {
       document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
       btn.classList.add('active');
       
       document.querySelectorAll('.photo-item').forEach(item => {
-        const imgSrc = item.querySelector('img').src;
-        
         if (cat === 'all') {
-          // En la pestaña "Todo", ocultamos fitness1, fitness2 y fitness5 analizando la URL de la imagen
-          if (imgSrc.includes('fitness1.jpeg') || imgSrc.includes('fitness2.jpeg') || imgSrc.includes('fitness5.jpeg')) {
-            item.style.display = 'none';
-          } else {
+          // Si es la pestaña "Todo", miramos nuestra etiqueta personalizada
+          if (item.getAttribute('data-show-in-all') === 'true') {
             item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
           }
         } else {
-          // En las pestañas específicas, filtramos de manera estándar por la categoría asignada
-          if (item.dataset.cat === cat) {
+          // Si es una pestaña específica (fitness o nightlife)
+          if (item.getAttribute('data-cat') === cat) {
             item.style.display = 'block';
           } else {
             item.style.display = 'none';
@@ -988,12 +986,6 @@
         }
       });
     }
-
-    // Ejecutar el filtro inicial al cargar por primera vez para ocultar fitness 1, 2 y 5
-    document.addEventListener("DOMContentLoaded", function() {
-      const allBtn = document.querySelector(".filter-tab");
-      if (allBtn) filterPhotos('all', allBtn);
-    });
   </script>
 </section>
 
