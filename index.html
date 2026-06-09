@@ -872,9 +872,9 @@
         <h2 class="section-title">FOTO<span style="color:var(--orange)">GRAFÍA</span></h2>
       </div>
       <div class="filter-tabs">
-        <button class="filter-tab active" onclick="filterPhotos('all', this)">Todo</button>
-        <button class="filter-tab" onclick="filterPhotos('fitness', this)">Fitness</button>
-        <button class="filter-tab" onclick="filterPhotos('nightlife', this)">Nightlife</button>
+        <button class="filter-tab active" onclick="filterMyPhotos('all', this)">Todo</button>
+        <button class="filter-tab" onclick="filterMyPhotos('fitness', this)">Fitness</button>
+        <button class="filter-tab" onclick="filterMyPhotos('nightlife', this)">Nightlife</button>
       </div>
     </div>
     
@@ -935,6 +935,11 @@
         <div class="photo-overlay"><span class="photo-tag">Fitness</span></div>
       </div>
 
+      <div class="photo-item" data-cat="nightlife" data-show-in-all="true" style="grid-column: span 2; aspect-ratio: 2/1;" onclick="openLightbox(this)">
+        <img src="images/dj1 horizontal.jpeg" alt="DJ Nightlife Valencia " style="width:100%; height:100%; object-fit:cover; display:block;">
+        <div class="photo-overlay"><span class="photo-tag">Nightlife</span></div>
+      </div>
+
     </div>
   </div>
 
@@ -960,21 +965,19 @@
       setTimeout(() => { lightbox.style.display = 'none'; }, 300);
     }
 
-    // Sobrescribimos la función global de forma agresiva para que use nuestra regla
-    window.filterPhotos = function(cat, btn) {
+    // Usamos una función independiente y blindada para que no sufra interferencias
+    function filterMyPhotos(cat, btn) {
       document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
       btn.classList.add('active');
       
       document.querySelectorAll('.photo-item').forEach(item => {
         if (cat === 'all') {
-          // Si es la pestaña "Todo", miramos nuestra etiqueta personalizada
           if (item.getAttribute('data-show-in-all') === 'true') {
             item.style.display = 'block';
           } else {
             item.style.display = 'none';
           }
         } else {
-          // Si es una pestaña específica (fitness o nightlife)
           if (item.getAttribute('data-cat') === cat) {
             item.style.display = 'block';
           } else {
@@ -983,6 +986,9 @@
         }
       });
     }
+
+    // Forzamos también a que herede globalmente por si acaso
+    window.filterPhotos = filterMyPhotos;
   </script>
 </section>
 
