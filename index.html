@@ -962,6 +962,38 @@
       lightbox.style.opacity = '0';
       setTimeout(() => { lightbox.style.display = 'none'; }, 300);
     }
+
+    // Nueva función de filtrado con tu regla personalizada incorporada
+    function filterPhotos(cat, btn) {
+      document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      
+      document.querySelectorAll('.photo-item').forEach(item => {
+        const imgSrc = item.querySelector('img').src;
+        
+        if (cat === 'all') {
+          // En la pestaña "Todo", ocultamos fitness1, fitness2 y fitness5 analizando la URL de la imagen
+          if (imgSrc.includes('fitness1.jpeg') || imgSrc.includes('fitness2.jpeg') || imgSrc.includes('fitness5.jpeg')) {
+            item.style.display = 'none';
+          } else {
+            item.style.display = 'block';
+          }
+        } else {
+          // En las pestañas específicas, filtramos de manera estándar por la categoría asignada
+          if (item.dataset.cat === cat) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        }
+      });
+    }
+
+    // Ejecutar el filtro inicial al cargar por primera vez para ocultar fitness 1, 2 y 5
+    document.addEventListener("DOMContentLoaded", function() {
+      const allBtn = document.querySelector(".filter-tab");
+      if (allBtn) filterPhotos('all', allBtn);
+    });
   </script>
 </section>
 
@@ -1054,7 +1086,7 @@
           <li class="pack-feature">1 Reel épico cinematográfico (con diseño de sonido y color)</li>
           <li class="pack-feature">15 fotos de alta resolución editadas</li>
           <li class="pack-feature">Clips seleccionados en bruto para Instagram Stories</li>
-          <li class="pack-feature">Galería online en 4–5 días</li>
+          <li class="pack-feature">Galería online en 1-3 días</li>
         </ul>
         <a href="#contacto" class="pack-cta">Solicitar info</a>
       </div>
@@ -1067,7 +1099,7 @@
         <ul class="pack-features">
           <li class="pack-feature">Hasta 4 horas de cobertura completa</li>
           <li class="pack-feature">Acceso total: cabina + backstage + zona VIP</li>
-          <li class="pack-feature">3 Reels personalizados (1 Drop épico, 1 Vlog tras bambalinas, 1 Tendencias)</li>
+          <li class="pack-feature">2 Reels personalizados (1 Drop épico, 1 Tendencias)</li>
           <li class="pack-feature">25 fotos premium editadas (contenido para todo el mes)</li>
           <li class="pack-feature">Entrega prioritaria</li>
           <li class="pack-feature">Galería online prioritaria en 72 horas</li>
@@ -1138,7 +1170,7 @@
   <div class="footer-copy">© 2026 ismaavisuals · Valencia, España</div>
   <div class="footer-social">
     <a href="https://instagram.com/ismaavisuals" target="_blank">Instagram</a>
-    <a href="https://www.tiktok.com/@ismaavisuals">TikTok</a>
+    <a href="https://www.tiktok.com/@ismaavisuals" target="_blank">TikTok</a>
   </div>
 </footer>
 
