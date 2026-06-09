@@ -880,33 +880,89 @@
         <button class="filter-tab" onclick="filterPhotos('nightlife', this)">Nightlife</button>
       </div>
     </div>
+    
     <div class="photo-grid reveal" id="photo-grid">
-      <div class="photo-item" data-cat="nightlife">
+      
+      <div class="photo-item" data-cat="nightlife" onclick="openLightbox(this)">
         <img src="images/dj1.jpeg" alt="DJ Nightlife Valencia" style="width:100%; height:100%; object-fit:cover; display:block;">
         <div class="photo-overlay"><span class="photo-tag">Nightlife</span></div>
       </div>
-      <div class="photo-item" data-cat="nightlife">
+      
+      <div class="photo-item" data-cat="nightlife" onclick="openLightbox(this)">
         <img src="images/dj2.jpeg" alt="DJ Nightlife Valencia" style="width:100%; height:100%; object-fit:cover; display:block;">
         <div class="photo-overlay"><span class="photo-tag">Nightlife</span></div>
       </div>
-      <div class="photo-item" data-cat="nightlife">
+      
+      <div class="photo-item" data-cat="fitness" onclick="openLightbox(this)">
+        <img src="images/fitness3.jpeg" alt="Fitness Valencia" style="width:100%; height:100%; object-fit:cover; display:block;">
+        <div class="photo-overlay"><span class="photo-tag">Fitness</span></div>
+      </div>
+      
+      <div class="photo-item" data-cat="nightlife" onclick="openLightbox(this)">
         <img src="images/dj3.jpeg" alt="DJ Nightlife Valencia" style="width:100%; height:100%; object-fit:cover; display:block;">
         <div class="photo-overlay"><span class="photo-tag">Nightlife</span></div>
       </div>
-      <div class="photo-item" data-cat="nightlife">
+      
+      <div class="photo-item" data-cat="fitness" onclick="openLightbox(this)">
+        <img src="images/fitness4.jpeg" alt="Fitness Valencia" style="width:100%; height:100%; object-fit:cover; display:block;">
+        <div class="photo-overlay"><span class="photo-tag">Fitness</span></div>
+      </div>
+      
+      <div class="photo-item" data-cat="nightlife" onclick="openLightbox(this)">
         <img src="images/dj4.jpeg" alt="DJ Nightlife Valencia" style="width:100%; height:100%; object-fit:cover; display:block;">
         <div class="photo-overlay"><span class="photo-tag">Nightlife</span></div>
       </div>
-      <div class="photo-item" data-cat="nightlife">
+      
+      <div class="photo-item" data-cat="nightlife" onclick="openLightbox(this)">
         <img src="images/dj5.jpeg" alt="DJ Nightlife Valencia" style="width:100%; height:100%; object-fit:cover; display:block;">
         <div class="photo-overlay"><span class="photo-tag">Nightlife</span></div>
       </div>
-      <div class="photo-item" data-cat="nightlife">
+      
+      <div class="photo-item" data-cat="nightlife" onclick="openLightbox(this)">
         <img src="images/dj6.jpeg" alt="DJ Nightlife Valencia" style="width:100%; height:100%; object-fit:cover; display:block;">
         <div class="photo-overlay"><span class="photo-tag">Nightlife</span></div>
       </div>
+
+      <div class="photo-item" data-cat="fitness" onclick="openLightbox(this)">
+        <img src="images/fitness1.jpeg" alt="Fitness Valencia" style="width:100%; height:100%; object-fit:cover; display:block;">
+        <div class="photo-overlay"><span class="photo-tag">Fitness</span></div>
+      </div>
+
+      <div class="photo-item" data-cat="fitness" onclick="openLightbox(this)">
+        <img src="images/fitness2.jpeg" alt="Fitness Valencia" style="width:100%; height:100%; object-fit:cover; display:block;">
+        <div class="photo-overlay"><span class="photo-tag">Fitness</span></div>
+      </div>
+
+      <div class="photo-item" data-cat="fitness" onclick="openLightbox(this)">
+        <img src="images/fitness5.jpeg" alt="Fitness Valencia" style="width:100%; height:100%; object-fit:cover; display:block;">
+        <div class="photo-overlay"><span class="photo-tag">Fitness</span></div>
+      </div>
+
     </div>
   </div>
+
+  <div id="customLightbox" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.95); z-index:9999; justify-content:center; align-items:center; opacity:0; transition:opacity 0.3s ease; cursor:zoom-out;" onclick="closeLightbox()">
+    <span style="position:absolute; top:20px; right:30px; color:#fff; font-size:40px; font-weight:300; cursor:pointer; font-family:sans-serif;">&times;</span>
+    <img id="lightboxImg" src="" alt="Vista ampliada" style="max-width:90%; max-height:85vh; border-radius:4px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); object-fit:contain;">
+  </div>
+
+  <script>
+    function openLightbox(element) {
+      const imgSrc = element.querySelector('img').src;
+      const lightbox = document.getElementById('customLightbox');
+      const lightboxImg = document.getElementById('lightboxImg');
+      
+      lightboxImg.src = imgSrc;
+      lightbox.style.display = 'flex';
+      setTimeout(() => { lightbox.style.opacity = '1'; }, 10);
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById('customLightbox');
+      lightbox.style.opacity = '0';
+      setTimeout(() => { lightbox.style.display = 'none'; }, 300);
+    }
+  </script>
 </section>
 
 <div class="section-divider"></div>
