@@ -1,15 +1,1169 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Mi Primera Página Web</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; background-color: #f0f0f0; padding: 50px; }
-        h1 { color: #333; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ismaavisuals — Fotografía & Vídeo Valencia</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --orange: #FF4D00;
+    --black: #0e0e0e;
+    --dark: #1a1a1a;
+    --cream: #F7F4EF;
+    --cream-2: #EDE9E0;
+    --white: #ffffff;
+    --gray: #888;
+    --bebas: 'Bebas Neue', Impact, sans-serif;
+    --inter: 'Inter', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--inter);
+    background: var(--black);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 2.5rem;
+    background: rgba(14,14,14,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid rgba(255,255,255,0.06);
+  }
+
+  .nav-logo {
+    font-family: var(--bebas);
+    font-size: 1.4rem;
+    letter-spacing: .04em;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--orange); }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: .8rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    transition: color .2s;
+  }
+
+  .nav-links a:hover { color: var(--orange); }
+
+  .nav-cta {
+    background: var(--orange);
+    color: var(--white) !important;
+    padding: .45rem 1.2rem;
+    border-radius: 2px;
+    font-weight: 600 !important;
+  }
+
+  .nav-cta:hover { background: #e04300; color: var(--white) !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 8rem 2.5rem 4rem;
+    position: relative;
+    overflow: hidden;
+    background: var(--black);
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 70% 40%, rgba(255,77,0,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(255,77,0,0.06) 0%, transparent 60%);
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .hero-content { position: relative; z-index: 2; max-width: 900px; }
+
+  .hero-eyebrow {
+    font-size: .75rem;
+    font-weight: 500;
+    color: var(--orange);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1.5px;
+    background: var(--orange);
+  }
+
+  .hero-title {
+    font-family: var(--bebas);
+    font-size: clamp(4rem, 10vw, 9rem);
+    line-height: .9;
+    letter-spacing: .01em;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title .line-1 { color: var(--white); display: block; }
+  .hero-title .line-2 { color: var(--orange); display: block; }
+  .hero-title .line-3 { color: var(--white); display: block; }
+
+  .hero-sub {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.6;
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+
+  .btn-primary {
+    background: var(--orange);
+    color: var(--white);
+    font-family: var(--inter);
+    font-size: .85rem;
+    font-weight: 600;
+    padding: .9rem 2rem;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    transition: background .2s, transform .15s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { background: #e04300; transform: translateY(-1px); }
+
+  .btn-secondary {
+    color: rgba(255,255,255,0.6);
+    font-size: .85rem;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 2px;
+    transition: color .2s, border-color .2s;
+  }
+
+  .btn-secondary:hover { color: var(--white); border-color: var(--white); }
+
+  .hero-stats {
+    position: absolute;
+    right: 2.5rem;
+    bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    z-index: 2;
+  }
+
+  .stat { text-align: right; }
+  .stat-num { font-family: var(--bebas); font-size: 2.2rem; color: var(--orange); line-height: 1; }
+  .stat-label { font-size: .7rem; color: rgba(255,255,255,0.35); letter-spacing: .08em; text-transform: uppercase; }
+
+  /* SECTION BASE */
+  section { position: relative; }
+
+  .section-eyebrow {
+    font-size: .7rem;
+    font-weight: 600;
+    color: var(--orange);
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    margin-bottom: .6rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+  }
+
+  .section-eyebrow::before {
+    content: '';
+    display: block;
+    width: 16px;
+    height: 1.5px;
+    background: var(--orange);
+  }
+
+  .section-title {
+    font-family: var(--bebas);
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: .95;
+    letter-spacing: .01em;
+  }
+
+  /* SOBRE MÍ — cream section */
+  .about {
+    background: var(--cream);
+    padding: 6rem 2.5rem;
+  }
+
+  .about-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .about .section-eyebrow { color: var(--orange); }
+  .about .section-eyebrow::before { background: var(--orange); }
+
+  .about .section-title { color: var(--black); }
+  .about .section-title span { color: var(--orange); }
+
+  .about-text {
+    font-size: .95rem;
+    color: #555;
+    line-height: 1.8;
+    margin-top: 1.2rem;
+  }
+
+  .about-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    margin-top: 1.5rem;
+  }
+
+  .tag {
+    font-size: .7rem;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: .4rem .9rem;
+    border-radius: 2px;
+  }
+
+  .tag-orange { background: var(--orange); color: var(--white); }
+  .tag-dark { background: var(--black); color: var(--white); }
+  .tag-outline { border: 1px solid #ccc; color: #555; }
+
+  .about-img {
+    aspect-ratio: 3/4;
+    background: var(--cream-2);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about-img-placeholder {
+    font-size: .8rem;
+    color: #aaa;
+    text-align: center;
+    padding: 2rem;
+    line-height: 1.6;
+  }
+
+  .about-img-badge {
+    position: absolute;
+    bottom: 1.2rem;
+    left: 1.2rem;
+    background: var(--orange);
+    color: var(--white);
+    font-family: var(--bebas);
+    font-size: 1.1rem;
+    padding: .4rem .9rem;
+    border-radius: 2px;
+    letter-spacing: .04em;
+  }
+
+  /* FOTOGRAFÍA — dark section */
+  .photography {
+    background: var(--black);
+    padding: 6rem 2.5rem;
+  }
+
+  .photography-inner { max-width: 1100px; margin: 0 auto; }
+  .photography .section-title { color: var(--white); }
+  .photography .section-title span { color: var(--orange); }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .filter-tabs {
+    display: flex;
+    gap: .5rem;
+  }
+
+  .filter-tab {
+    font-size: .75rem;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: .45rem 1rem;
+    border-radius: 2px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all .2s;
+    background: none;
+    color: rgba(255,255,255,0.4);
+    border-color: rgba(255,255,255,0.1);
+  }
+
+  .filter-tab.active, .filter-tab:hover {
+    background: var(--orange);
+    color: var(--white);
+    border-color: var(--orange);
+  }
+
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+  }
+
+  .photo-item {
+    aspect-ratio: 1/1;
+    background: var(--dark);
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .photo-item:first-child { grid-column: span 2; aspect-ratio: 2/1; }
+
+  .photo-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: .5rem;
+    color: rgba(255,255,255,0.15);
+    font-size: .75rem;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+
+  .photo-placeholder-icon { font-size: 2rem; opacity: .3; }
+
+  .photo-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(255,77,0,0);
+    display: flex;
+    align-items: flex-end;
+    padding: 1rem;
+    transition: background .3s;
+  }
+
+  .photo-item:hover .photo-overlay { background: rgba(255,77,0,0.15); }
+
+  .photo-tag {
+    font-size: .65rem;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: rgba(0,0,0,0.6);
+    padding: .2rem .6rem;
+    border-radius: 2px;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: all .2s;
+  }
+
+  .photo-item:hover .photo-tag { opacity: 1; transform: translateY(0); }
+
+  /* VIDEO — cream section */
+  .video-section {
+    background: var(--cream);
+    padding: 6rem 2.5rem;
+  }
+
+  .video-inner { max-width: 1100px; margin: 0 auto; }
+  .video-section .section-title { color: var(--black); }
+  .video-section .section-title span { color: var(--orange); }
+  .video-section .section-eyebrow { color: var(--orange); }
+  .video-section .section-eyebrow::before { background: var(--orange); }
+
+  .showreel {
+    margin: 2.5rem 0;
+    aspect-ratio: 16/9;
+    background: var(--black);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .showreel-placeholder {
+    text-align: center;
+    color: rgba(255,255,255,0.3);
+  }
+
+  .showreel-play {
+    width: 64px;
+    height: 64px;
+    background: var(--orange);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    cursor: pointer;
+    transition: transform .2s;
+  }
+
+  .showreel-play:hover { transform: scale(1.08); }
+
+  .showreel-play svg { width: 24px; height: 24px; fill: var(--white); margin-left: 3px; }
+
+  .showreel-label { font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; }
+
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+    margin-top: 3px;
+  }
+
+  .video-item {
+    aspect-ratio: 16/9;
+    background: #222;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .video-item-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: .4rem;
+    color: rgba(255,255,255,0.2);
+    font-size: .7rem;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+  }
+
+  /* PACKS — dark section */
+  .packs {
+    background: var(--dark);
+    padding: 6rem 2.5rem;
+    border-top: 0.5px solid rgba(255,255,255,0.06);
+  }
+
+  .packs-inner { max-width: 1100px; margin: 0 auto; }
+  .packs .section-title { color: var(--white); }
+  .packs .section-title span { color: var(--orange); }
+
+  .packs-subtitle {
+    font-size: .95rem;
+    color: rgba(255,255,255,0.4);
+    margin-top: .8rem;
+    margin-bottom: 3rem;
+    max-width: 480px;
+    line-height: 1.6;
+  }
+
+  .packs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+  }
+
+  .pack-card {
+    background: #111;
+    padding: 2.5rem 2rem;
+    position: relative;
+    transition: transform .2s;
+    border: 1px solid transparent;
+  }
+
+  .pack-card:hover { transform: translateY(-3px); border-color: rgba(255,77,0,0.3); }
+
+  .pack-card.featured {
+    background: var(--orange);
+    border-color: var(--orange);
+  }
+
+  .pack-badge {
+    font-size: .65rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 1rem;
+  }
+
+  .pack-card.featured .pack-badge { color: rgba(255,255,255,0.7); }
+
+  .pack-name {
+    font-family: var(--bebas);
+    font-size: 2rem;
+    letter-spacing: .02em;
+    color: var(--white);
+    margin-bottom: .3rem;
+  }
+
+  .pack-card.featured .pack-name { color: var(--white); }
+
+  .pack-desc {
+    font-size: .82rem;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.6;
+    margin-bottom: 1.8rem;
+  }
+
+  .pack-card.featured .pack-desc { color: rgba(255,255,255,0.75); }
+
+  .pack-features { list-style: none; margin-bottom: 2rem; display: flex; flex-direction: column; gap: .7rem; }
+
+  .pack-feature {
+    font-size: .82rem;
+    color: rgba(255,255,255,0.6);
+    display: flex;
+    align-items: flex-start;
+    gap: .6rem;
+    line-height: 1.4;
+  }
+
+  .pack-card.featured .pack-feature { color: rgba(255,255,255,0.9); }
+
+  .pack-feature::before {
+    content: '✓';
+    color: var(--orange);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: .05rem;
+  }
+
+  .pack-card.featured .pack-feature::before { color: var(--white); }
+
+  .pack-cta {
+    display: block;
+    text-align: center;
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: .8rem;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: all .2s;
+    border: 1px solid rgba(255,255,255,0.15);
+    color: var(--white);
+    background: transparent;
+  }
+
+  .pack-cta:hover { background: var(--orange); border-color: var(--orange); }
+
+  .pack-card.featured .pack-cta {
+    background: var(--white);
+    color: var(--orange);
+    border-color: var(--white);
+  }
+
+  .pack-card.featured .pack-cta:hover { background: var(--black); color: var(--white); border-color: var(--black); }
+
+  .pack-note {
+    font-size: .75rem;
+    color: rgba(255,255,255,0.25);
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  /* CONTACTO — cream section */
+  .contact {
+    background: var(--cream);
+    padding: 6rem 2.5rem;
+  }
+
+  .contact-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .contact .section-eyebrow { color: var(--orange); }
+  .contact .section-eyebrow::before { background: var(--orange); }
+  .contact .section-title { color: var(--black); }
+  .contact .section-title span { color: var(--orange); }
+
+  .contact-text {
+    font-size: .9rem;
+    color: #666;
+    line-height: 1.8;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .contact-links { display: flex; flex-direction: column; gap: .8rem; }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    font-size: .85rem;
+    color: #444;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color .2s;
+  }
+
+  .contact-link:hover { color: var(--orange); }
+
+  .contact-link-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--black);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: .9rem;
+    flex-shrink: 0;
+  }
+
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .form-group { display: flex; flex-direction: column; gap: .4rem; }
+
+  .form-label {
+    font-size: .7rem;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: #888;
+  }
+
+  .form-input, .form-textarea, .form-select {
+    font-family: var(--inter);
+    font-size: .9rem;
+    color: var(--black);
+    background: var(--white);
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    padding: .75rem 1rem;
+    transition: border-color .2s;
+    outline: none;
+    -webkit-appearance: none;
+  }
+
+  .form-input:focus, .form-textarea:focus, .form-select:focus {
+    border-color: var(--orange);
+  }
+
+  .form-textarea { resize: vertical; min-height: 120px; }
+
+  .form-submit {
+    background: var(--orange);
+    color: var(--white);
+    font-family: var(--inter);
+    font-size: .85rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: 1rem;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background .2s, transform .15s;
+    margin-top: .5rem;
+  }
+
+  .form-submit:hover { background: #e04300; transform: translateY(-1px); }
+
+  /* FOOTER */
+  footer {
+    background: var(--black);
+    padding: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 0.5px solid rgba(255,255,255,0.06);
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-logo {
+    font-family: var(--bebas);
+    font-size: 1.2rem;
+    color: var(--white);
+    letter-spacing: .04em;
+  }
+
+  .footer-logo span { color: var(--orange); }
+
+  .footer-copy { font-size: .75rem; color: rgba(255,255,255,0.25); }
+
+  .footer-social { display: flex; gap: 1rem; }
+
+  .footer-social a {
+    font-size: .75rem;
+    font-weight: 500;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    text-decoration: none;
+    transition: color .2s;
+  }
+
+  .footer-social a:hover { color: var(--orange); }
+
+  /* DIVIDER */
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255,77,0,0.4), transparent);
+  }
+
+  /* SCROLL REVEAL */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { padding: 6rem 1.5rem 3rem; }
+    .hero-stats { display: none; }
+    .about-inner, .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about-img { display: none; }
+    .photo-grid { grid-template-columns: repeat(2, 1fr); }
+    .photo-item:first-child { grid-column: span 2; }
+    .video-grid { grid-template-columns: repeat(2, 1fr); }
+    .packs-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    section { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
+  }
+</style>
 </head>
 <body>
-    <h1>¡Hola, mundo!</h1>
-    <p>Acabo de crear mi propia página web gratis usando GitHub Pages. 🚀</p>
+
+<nav>
+  <a href="#" class="nav-logo">ismaa<span>visuals</span></a>
+  <ul class="nav-links">
+    <li><a href="#fotografia">Fotografía</a></li>
+    <li><a href="#video">Vídeo</a></li>
+    <li><a href="#packs">Packs</a></li>
+    <li><a href="#contacto" class="nav-cta">Contacto</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content reveal">
+    <div class="hero-eyebrow">Valencia · Fitness & Nightlife</div>
+    <h1 class="hero-title">
+      <span class="line-1">FOTOGRAFÍA</span>
+      <span class="line-2">&amp; VÍDEO</span>
+      <span class="line-3">CINEMATOGRÁFICO</span>
+    </h1>
+    <p class="hero-sub">Creo contenido visual para gimnasios, deportistas y DJs que quieren destacar en redes y conseguir más clientes.</p>
+    <div class="hero-actions">
+      <a href="#packs" class="btn-primary">Ver packs</a>
+      <a href="#fotografia" class="btn-secondary">Ver trabajos</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">2</div>
+      <div class="stat-label">Nichos</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">Valencia</div>
+      <div class="stat-label">Disponible para viajar</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="about" id="sobre-mi">
+  <div class="about-inner">
+    <div class="reveal">
+      <div class="section-eyebrow">Sobre mí</div>
+      <h2 class="section-title">ISMA.<br><span>VISUALS</span></h2>
+      <p class="about-text">Fotógrafo, filmmaker y especialista en marketing visual. Combino dos mundos que aparentemente no tienen nada en común — el fitness y el nightlife — porque los dos necesitan lo mismo: contenido que transmita emoción antes de que el espectador pueda salir del scroll.</p>
+      <p class="about-text">Basado en Valencia. Disponible para viajar a donde el trabajo lo requiera.</p>
+      <div class="about-tags">
+        <span class="tag tag-orange">Fotografía</span>
+        <span class="tag tag-dark">Vídeo</span>
+        <span class="tag tag-outline">Fitness</span>
+        <span class="tag tag-outline">Nightlife</span>
+        <span class="tag tag-outline">Marketing Visual</span>
+        <span class="tag tag-outline">Valencia</span>
+      </div>
+    </div>
+    <div class="about-img reveal">
+      <div class="about-img-placeholder">
+        📷<br><br>
+        Añade aquí tu foto<br>con la cámara<br><br>
+        <small>Reemplaza este div con<br>tu imagen en &lt;img&gt;</small>
+      </div>
+      <div class="about-img-badge">ismaavisuals</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="photography" id="fotografia">
+  <div class="photography-inner">
+    <div class="section-header reveal">
+      <div>
+        <div class="section-eyebrow">Portfolio</div>
+        <h2 class="section-title">FOTO<span style="color:var(--orange)">GRAFÍA</span></h2>
+      </div>
+      <div class="filter-tabs">
+        <button class="filter-tab active" onclick="filterPhotos('all', this)">Todo</button>
+        <button class="filter-tab" onclick="filterPhotos('fitness', this)">Fitness</button>
+        <button class="filter-tab" onclick="filterPhotos('nightlife', this)">Nightlife</button>
+      </div>
+    </div>
+    <div class="photo-grid reveal" id="photo-grid">
+      <div class="photo-item" data-cat="fitness">
+        <div class="photo-placeholder">
+          <div class="photo-placeholder-icon">💪</div>
+          Fitness
+        </div>
+        <div class="photo-overlay"><span class="photo-tag">Fitness</span></div>
+      </div>
+      <div class="photo-item" data-cat="nightlife">
+        <div class="photo-placeholder">
+          <div class="photo-placeholder-icon">🎧</div>
+          DJ / Nightlife
+        </div>
+        <div class="photo-overlay"><span class="photo-tag">Nightlife</span></div>
+      </div>
+      <div class="photo-item" data-cat="nightlife">
+        <div class="photo-placeholder">
+          <div class="photo-placeholder-icon">🎧</div>
+          DJ / Nightlife
+        </div>
+        <div class="photo-overlay"><span class="photo-tag">Nightlife</span></div>
+      </div>
+      <div class="photo-item" data-cat="fitness">
+        <div class="photo-placeholder">
+          <div class="photo-placeholder-icon">🏋️</div>
+          Fitness
+        </div>
+        <div class="photo-overlay"><span class="photo-tag">Fitness</span></div>
+      </div>
+      <div class="photo-item" data-cat="fitness">
+        <div class="photo-placeholder">
+          <div class="photo-placeholder-icon">🏃</div>
+          Running
+        </div>
+        <div class="photo-overlay"><span class="photo-tag">Running</span></div>
+      </div>
+      <div class="photo-item" data-cat="nightlife">
+        <div class="photo-placeholder">
+          <div class="photo-placeholder-icon">🔊</div>
+          Evento
+        </div>
+        <div class="photo-overlay"><span class="photo-tag">Evento</span></div>
+      </div>
+      <div class="photo-item" data-cat="fitness">
+        <div class="photo-placeholder">
+          <div class="photo-placeholder-icon">💪</div>
+          Gym
+        </div>
+        <div class="photo-overlay"><span class="photo-tag">Gym</span></div>
+      </div>
+      <div class="photo-item" data-cat="nightlife">
+        <div class="photo-placeholder">
+          <div class="photo-placeholder-icon">🎵</div>
+          Club
+        </div>
+        <div class="photo-overlay"><span class="photo-tag">Club</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="video-section" id="video">
+  <div class="video-inner">
+    <div class="reveal">
+      <div class="section-eyebrow">Showreel</div>
+      <h2 class="section-title" style="color:var(--black);">VÍ<span style="color:var(--orange)">DEO</span></h2>
+    </div>
+    <div class="showreel reveal">
+      <div class="showreel-placeholder">
+        <div class="showreel-play">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="showreel-label">Pega aquí tu embed de YouTube / Vimeo</div>
+        <div style="font-size:.75rem;color:rgba(255,255,255,0.2);margin-top:.4rem;">
+          &lt;iframe src="https://www.youtube.com/embed/TU_VIDEO_ID"&gt;&lt;/iframe&gt;
+        </div>
+      </div>
+    </div>
+    <div class="reels-grid reveal">
+      <div class="reel-item">
+        <div class="reel-placeholder">
+          <span style="font-size:1.8rem">🎬</span>
+          <span>Fitness Reel</span>
+          <span class="reel-hint">Pega tu embed aquí</span>
+        </div>
+      </div>
+      <div class="reel-item">
+        <div class="reel-placeholder">
+          <span style="font-size:1.8rem">🎧</span>
+          <span>DJ Set</span>
+          <span class="reel-hint">Pega tu embed aquí</span>
+        </div>
+      </div>
+      <div class="reel-item">
+        <div class="reel-placeholder">
+          <span style="font-size:1.8rem">🌃</span>
+          <span>Evento</span>
+          <span class="reel-hint">Pega tu embed aquí</span>
+        </div>
+      </div>
+      <div class="reel-item">
+        <div class="reel-placeholder">
+          <span style="font-size:1.8rem">💪</span>
+          <span>Gym Reel</span>
+          <span class="reel-hint">Pega tu embed aquí</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="packs" id="packs">
+  <div class="packs-inner">
+    <div class="reveal">
+      <div class="section-eyebrow">Servicios</div>
+      <h2 class="section-title">PACK<span style="color:var(--orange)">S</span></h2>
+      <p class="packs-subtitle">Todo lo que necesitas para que tu negocio o proyecto se vea como lo que es — profesional.</p>
+    </div>
+    <div class="packs-grid reveal">
+
+      <div class="pack-card">
+        <div class="pack-badge">Pack Básico</div>
+        <div class="pack-name">BÁSICO</div>
+        <div style="font-family:var(--bebas);font-size:2.8rem;color:var(--orange);line-height:1;margin-bottom:1rem;">60€</div>
+        <p class="pack-desc">Cobertura de hasta 1 hora en 1 sala o discoteca. Ideal para empezar.</p>
+        <ul class="pack-features">
+          <li class="pack-feature">Hasta 1 hora de cobertura</li>
+          <li class="pack-feature">1 sala / discoteca</li>
+          <li class="pack-feature">10 fotos de alta resolución editadas</li>
+          <li class="pack-feature">Clips de vídeo en bruto para Instagram Stories</li>
+          <li class="pack-feature">Galería online en 48 horas</li>
+        </ul>
+        <a href="#contacto" class="pack-cta">Solicitar info</a>
+      </div>
+
+      <div class="pack-card featured">
+        <div class="pack-badge">⭐ Más solicitado</div>
+        <div class="pack-name">ESTÁNDAR</div>
+        <div style="font-family:var(--bebas);font-size:2.8rem;color:var(--white);line-height:1;margin-bottom:1rem;">150€</div>
+        <p class="pack-desc">El equilibrio perfecto entre calidad y cobertura para eventos de DJ.</p>
+        <ul class="pack-features">
+          <li class="pack-feature">Hasta 3 horas de cobertura</li>
+          <li class="pack-feature">1 sala / discoteca</li>
+          <li class="pack-feature">1 Reel épico cinematográfico (con diseño de sonido y color)</li>
+          <li class="pack-feature">15 fotos de alta resolución editadas</li>
+          <li class="pack-feature">Clips seleccionados en bruto para Instagram Stories</li>
+          <li class="pack-feature">Galería online en 4–5 días</li>
+        </ul>
+        <a href="#contacto" class="pack-cta">Solicitar info</a>
+      </div>
+
+      <div class="pack-card">
+        <div class="pack-badge">Pack Premium</div>
+        <div class="pack-name">PREMIUM</div>
+        <div style="font-family:var(--bebas);font-size:2.8rem;color:var(--orange);line-height:1;margin-bottom:1rem;">250€</div>
+        <p class="pack-desc">Cobertura total del evento. Cabina, backstage y zona VIP incluidos.</p>
+        <ul class="pack-features">
+          <li class="pack-feature">Hasta 4 horas de cobertura completa</li>
+          <li class="pack-feature">Acceso total: cabina + backstage + zona VIP</li>
+          <li class="pack-feature">3 Reels personalizados (1 Drop épico, 1 Vlog tras bambalinas, 1 Tendencias)</li>
+          <li class="pack-feature">25 fotos premium editadas (contenido para todo el mes)</li>
+          <li class="pack-feature">Entrega prioritaria</li>
+          <li class="pack-feature">Galería online prioritaria en 72 horas</li>
+        </ul>
+        <a href="#contacto" class="pack-cta">Solicitar info</a>
+      </div>
+
+    </div>
+    <p class="pack-note reveal">¿Necesitas algo diferente? Contáctame para recibir un paquete personalizado.</p>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="contact" id="contacto">
+  <div class="contact-inner">
+    <div class="reveal">
+      <div class="section-eyebrow">Hablemos</div>
+      <h2 class="section-title">CON<span>TACTO</span></h2>
+      <p class="contact-text">¿Tienes un gimnasio, eres DJ o gestionas eventos en Valencia? Cuéntame tu proyecto y te preparo una propuesta personalizada.</p>
+      <div class="contact-links">
+        <a href="https://instagram.com/ismaavisuals" target="_blank" class="contact-link">
+          <div class="contact-link-icon">📸</div>
+          @ismaavisuals
+        </a>
+        <a href="mailto:tu@email.com" class="contact-link">
+          <div class="contact-link-icon">✉️</div>
+          tu@email.com
+        </a>
+        <a href="https://wa.me/34644846097" target="_blank" class="contact-link">
+          <div class="contact-link-icon">💬</div>
+          +34 644 846 097
+        </a>
+      </div>
+    </div>
+    <form class="contact-form reveal" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Nombre</label>
+          <input type="text" class="form-input" placeholder="Tu nombre" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-input" placeholder="tu@email.com" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Tipo de proyecto</label>
+        <select class="form-select">
+          <option value="">Selecciona una opción</option>
+          <option>Gym / Box de CrossFit</option>
+          <option>DJ / Evento de música</option>
+          <option>Deportista / Atleta</option>
+          <option>Otro</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Cuéntame tu proyecto</label>
+        <textarea class="form-textarea" placeholder="¿Qué necesitas? Fechas, tipo de contenido, ubicación..."></textarea>
+      </div>
+      <button type="submit" class="form-submit">Enviar mensaje →</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">ismaa<span>visuals</span></div>
+  <div class="footer-copy">© 2026 ismaavisuals · Valencia, España</div>
+  <div class="footer-social">
+    <a href="https://instagram.com/ismaavisuals" target="_blank">Instagram</a>
+    <a href="#">TikTok</a>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Filter photos
+  function filterPhotos(cat, btn) {
+    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.photo-item').forEach(item => {
+      if (cat === 'all' || item.dataset.cat === cat) {
+        item.style.display = 'block';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  }
+
+  // Form submit
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-submit');
+    btn.textContent = '✓ Mensaje enviado';
+    btn.style.background = '#111';
+    setTimeout(() => {
+      btn.textContent = 'Enviar mensaje →';
+      btn.style.background = '';
+      e.target.reset();
+    }, 3000);
+  }
+
+  // Nav active on scroll
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    nav.style.borderBottomColor = window.scrollY > 50
+      ? 'rgba(255,77,0,0.2)'
+      : 'rgba(255,255,255,0.06)';
+  });
+</script>
 </body>
 </html>
