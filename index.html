@@ -808,42 +808,142 @@
 
 <div class="section-divider"></div>
 
-<section class="video-section" id="video">
+<section class="video-section" id="video" style="background: var(--cream); padding-bottom: 2rem !important;">
   <div class="video-inner">
     <div class="reveal">
-      <div class="section-eyebrow">Social Media Content</div>
-      <h2 class="section-title" style="color:var(--black);">VÍ<span style="color:var(--orange)">DEOS</span></h2>
-      <p style="font-size: .95rem; color: #666; margin-top: .5rem; margin-bottom: 2.5rem;">Contenido de alto impacto en formato vertical (9:16) optimizado para Reels y TikTok.</p>
+      <div class="section-eyebrow">Portfolio</div>
+      <h2 class="section-title" style="color:var(--black);">VÍ<span style="color:var(--orange)">DEO</span> COMMERCIAL</h2>
+      <p style="font-size: .95rem; color: #666; margin-top: .5rem; margin-bottom: 2.5rem;">Contenido visual y publicitario de alto impacto optimizado para redes sociales.</p>
+    </div>
+    
+    <div class="single-video-centered reveal">
+      <div class="vertical-reel-item">
+        <iframe src="https://www.youtube.com/embed/ftpyt2ZxIuE" style="width:100%; height:100%; border:none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="video-section" id="docuserie" style="background: var(--black); border-top: 1px solid rgba(255,255,255,0.05); padding-top: 5rem !important;">
+  <div class="video-inner">
+    <div class="reveal">
+      <div class="section-eyebrow" style="color:var(--orange);">Personal Project</div>
+      <h2 class="section-title" style="color:var(--white);">10 DÍAS CREANDO<br><span style="color:var(--orange)">MI EMPRESA</span></h2>
+      <p style="font-size: .95rem; color: rgba(255,255,255,0.4); margin-top: .5rem; margin-bottom: 3rem;">Sigue el proceso diario, los retos y el detrás de cámaras construyendo Isma Visuals desde cero.</p>
     </div>
     
     <div class="vertical-reels-grid reveal">
       
-      <div class="vertical-reel-item">
-        <iframe src="https://www.youtube.com/embed/ftpyt2ZxIuE" style="width:100%; height:100%; border:none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <div class="vertical-reel-item docu-item">
+        <iframe src="https://www.youtube.com/embed/TU_ID_DEL_DIA_1" style="width:100%; height:100%; border:none;" allowfullscreen></iframe>
+        <div class="docu-label">DÍA 01</div>
       </div>
 
-  
+      <div class="vertical-reel-item docu-item coming-soon">
+        <div class="coming-soon-content"><span>🔒</span><p>DÍA 02</p><small>Próximamente</small></div>
+      </div>
+
+      <div class="vertical-reel-item docu-item coming-soon">
+        <div class="coming-soon-content"><span>🔒</span><p>DÍA 03</p><small>Próximamente</small></div>
+      </div>
+
+      <div class="vertical-reel-item docu-item coming-soon">
+        <div class="coming-soon-content"><span>🔒</span><p>DÍA 04</p><small>Próximamente</small></div>
+      </div>
+
+      <div class="vertical-reel-item docu-item coming-soon">
+        <div class="coming-soon-content"><span>🔒</span><p>DÍA 05</p><small>Próximamente</small></div>
+      </div>
+
+      <div class="vertical-reel-item docu-item coming-soon">
+        <div class="coming-soon-content"><span>🔒</span><p>DÍA 06</p><small>Próximamente</small></div>
+      </div>
+
+      <div class="vertical-reel-item docu-item coming-soon">
+        <div class="coming-soon-content"><span>🔒</span><p>DÍA 07</p><small>Próximamente</small></div>
+      </div>
+
+      <div class="vertical-reel-item docu-item coming-soon">
+        <div class="coming-soon-content"><span>🔒</span><p>DÍA 08</p><small>Próximamente</small></div>
+      </div>
+
+      <div class="vertical-reel-item docu-item coming-soon">
+        <div class="coming-soon-content"><span>🔒</span><p>DÍA 09</p><small>Próximamente</small></div>
+      </div>
+
+      <div class="vertical-reel-item docu-item coming-soon">
+        <div class="coming-soon-content"><span>🔒</span><p>DÍA 10</p><small>Próximamente</small></div>
+      </div>
+
     </div>
   </div>
 
   <style>
+    /* Centrar un único vídeo */
+    .single-video-centered {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+    .single-video-centered .vertical-reel-item {
+      width: 100%;
+      max-width: 320px; /* Tamaño perfecto de teléfono en pantalla grande */
+    }
+
+    /* Cuadrícula de la docuserie */
     .vertical-reels-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 15px;
+      grid-template-columns: repeat(5, 1fr); /* 5 columnas en PC (2 filas de 5 = 10 días) */
+      gap: 20px;
     }
     .vertical-reel-item {
       aspect-ratio: 9/16;
       background: #111;
       border-radius: 8px;
       overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 25px rgba(0,0,0,0.3);
+      position: relative;
+    }
+    
+    /* Etiquetas para los días */
+    .docu-item { border: 1px solid rgba(255,77,0,0.1); }
+    .docu-label {
+      position: absolute;
+      top: 10px; left: 10px;
+      background: var(--orange);
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 3px;
+      letter-spacing: 0.05em;
+      pointer-events: none;
+    }
+
+    /* Tarjetas de diseño Próximamente (Ocultas/Candado) */
+    .coming-soon {
+      background: #141414;
+      border: 1px dashed rgba(255,255,255,0.06);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .coming-soon-content {
+      text-align: center;
+      color: rgba(255,255,255,0.2);
+    }
+    .coming-soon-content span { font-size: 1.5rem; display: block; margin-bottom: 5px; opacity: 0.4; }
+    .coming-soon-content p { font-family: var(--bebas); font-size: 1.3rem; letter-spacing: 0.05em; color: rgba(255,255,255,0.3); }
+    .coming-soon-content small { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.5; }
+
+    /* Adaptación móvil estricta */
+    @media (max-width: 1024px) {
+      .vertical-reels-grid { grid-template-columns: repeat(3, 1fr); gap: 15px; }
     }
     @media (max-width: 768px) {
-      .vertical-reels-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-      }
+      .vertical-reels-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .single-video-centered .vertical-reel-item { max-width: 280px; }
     }
   </style>
 </section>
