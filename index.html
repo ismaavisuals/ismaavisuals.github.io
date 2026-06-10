@@ -811,51 +811,52 @@
 <section class="video-section" id="video">
   <div class="video-inner">
     <div class="reveal">
-      <div class="section-eyebrow">Showreel</div>
-      <h2 class="section-title" style="color:var(--black);">VÍ<span style="color:var(--orange)">DEO</span></h2>
+      <div class="section-eyebrow">Social Media Content</div>
+      <h2 class="section-title" style="color:var(--black);">VÍ<span style="color:var(--orange)">DEOS</span></h2>
+      <p style="font-size: .95rem; color: #666; margin-top: .5rem; margin-bottom: 2.5rem;">Contenido de alto impacto en formato vertical (9:16) optimizado para Reels y TikTok.</p>
     </div>
-    <div class="showreel reveal">
-      <div class="showreel-placeholder">
-        <div class="showreel-play">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-        <div class="showreel-label">Pega aquí tu embed de YouTube / Vimeo</div>
-        <div style="font-size:.75rem;color:rgba(255,255,255,0.2);margin-top:.4rem;">
-          &lt;iframe src="https://www.youtube.com/embed/TU_VIDEO_ID"&gt;&lt;/iframe&gt;
-        </div>
+    
+    <div class="vertical-reels-grid reveal">
+      
+      <div class="vertical-reel-item">
+        <iframe src="https://www.youtube.com/embed/ftpyt2ZxIuE" style="width:100%; height:100%; border:none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
-    </div>
-    <div class="reels-grid reveal">
-      <div class="reel-item">
-        <div class="reel-placeholder">
-          <span style="font-size:1.8rem">🎬</span>
-          <span>Fitness Reel</span>
-          <span class="reel-hint">Pega tu embed aquí</span>
-        </div>
+
+      <div class="vertical-reel-item">
+        <iframe src="https://www.youtube.com/embed/TU_ID_AQUÍ" style="width:100%; height:100%; border:none;" allowfullscreen></iframe>
       </div>
-      <div class="reel-item">
-        <div class="reel-placeholder">
-          <span style="font-size:1.8rem">🎧</span>
-          <span>DJ Set</span>
-          <span class="reel-hint">Pega tu embed aquí</span>
-        </div>
+
+      <div class="vertical-reel-item">
+        <iframe src="https://www.youtube.com/embed/TU_ID_AQUÍ" style="width:100%; height:100%; border:none;" allowfullscreen></iframe>
       </div>
-      <div class="reel-item">
-        <div class="reel-placeholder">
-          <span style="font-size:1.8rem">🌃</span>
-          <span>Evento</span>
-          <span class="reel-hint">Pega tu embed aquí</span>
-        </div>
+
+      <div class="vertical-reel-item">
+        <iframe src="https://www.youtube.com/embed/TU_ID_AQUÍ" style="width:100%; height:100%; border:none;" allowfullscreen></iframe>
       </div>
-      <div class="reel-item">
-        <div class="reel-placeholder">
-          <span style="font-size:1.8rem">💪</span>
-          <span>Gym Reel</span>
-          <span class="reel-hint">Pega tu embed aquí</span>
-        </div>
-      </div>
+
     </div>
   </div>
+
+  <style>
+    .vertical-reels-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+    .vertical-reel-item {
+      aspect-ratio: 9/16;
+      background: #111;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    @media (max-width: 768px) {
+      .vertical-reels-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+    }
+  </style>
 </section>
 
 <div class="section-divider"></div>
