@@ -953,6 +953,7 @@
 
 <div class="section-divider"></div>
 
+<!-- SERVICIOS / PACKS INTERACTIVOS CON PESTAÑAS (ESTILO FOTOGRAFÍA) -->
 <section class="packs" id="packs">
   <div class="packs-inner">
     <div class="reveal">
@@ -960,7 +961,17 @@
       <h2 class="section-title">PACK<span style="color:var(--orange)">S</span></h2>
       <p class="packs-subtitle">Todo lo que necesitas para que tu negocio o proyecto se vea como lo que es — profesional.</p>
     </div>
-    <div class="packs-grid reveal">
+
+    <!-- Pestañas interactivas idénticas a la sección de fotografía -->
+    <div class="filter-tabs" style="margin-bottom: 3rem; display: flex; justify-content: center; gap: 10px;">
+      <button class="filter-tab active" id="btn-pack-dj" onclick="switchPacks('dj')">Nightlife & DJs</button>
+      <button class="filter-tab" id="btn-pack-fit" onclick="switchPacks('fitness')">Fitness & Gyms</button>
+    </div>
+    
+    <!-- ========================================== -->
+    <!-- BLOQUE 1: NIGHTLIFE & DJs (ACTIVO POR DEFECTO) -->
+    <!-- ========================================== -->
+    <div class="packs-grid reveal" id="grid-packs-dj">
 
       <div class="pack-card">
         <div>
@@ -1013,8 +1024,86 @@
       </div>
 
     </div>
-    <p class="pack-note reveal">¿Necesitas algo diferente? Contáctame para recibir un paquete personalizado.</p>
+
+    <!-- ========================================== -->
+    <!-- BLOQUE 2: FITNESS & GYMs (OCULTO AL INICIO) -->
+    <!-- ========================================== -->
+    <div class="packs-grid reveal" id="grid-packs-fitness" style="display: none;">
+
+      <div class="pack-card">
+        <div>
+          <div class="pack-badge">Marca Personal</div>
+          <div class="pack-name">ATLETA / COACH</div>
+          <p class="pack-desc">Sesión enfocada en potenciar tus redes, tu físico o tu marca de asesorías online.</p>
+          <ul class="pack-features">
+            <li class="pack-feature">Sesión de fotos y vídeo (hasta 1.5h)</li>
+            <li class="pack-feature">Ubicación a elegir (Gimnasio/Exterior)</li>
+            <li class="pack-feature">2 Reels/TikToks cinematográficos listos para publicar</li>
+            <li class="pack-feature">12 fotos premium editadas (Técnica + Enfoque físico)</li>
+            <li class="pack-feature">Asesoría de ideas y audios en tendencia antes de grabar</li>
+          </ul>
+        </div>
+        <a href="#contacto" class="pack-cta">Solicitar info</a>
+      </div>
+
+      <div class="pack-card featured">
+        <div>
+          <div class="pack-badge">⚡ Contenido Recurrente</div>
+          <div class="pack-name">MENSUAL GYM</div>
+          <p class="pack-desc">Suscripción mensual para centros que necesitan contenido constante de calidad para captar socios.</p>
+          <ul class="pack-features">
+            <li class="pack-feature">2 visitas de rodaje al mes al establecimiento</li>
+            <li class="pack-feature">4 Reels/TikToks al mes (Contenido para cada semana)</li>
+            <li class="pack-feature">20 fotos mensuales (Instalaciones, clases, comunidad)</li>
+            <li class="pack-feature">Contenido optimizado para campañas de anuncios locales</li>
+            <li class="pack-feature">Estrategia y planificación visual incluida</li>
+          </ul>
+        </div>
+        <a href="#contacto" class="pack-cta">Solicitar info</a>
+      </div>
+
+      <div class="pack-card">
+        <div>
+          <div class="pack-badge">Producción Comercial</div>
+          <div class="pack-name">BRANDING</div>
+          <p class="pack-desc">Producción de alta gama para marcas de ropa fitness, suplementación o grandes eventos.</p>
+          <ul class="pack-features">
+            <li class="pack-feature">Media jornada de producción completa (Estudio/Gym)</li>
+            <li class="pack-feature">Dirección de modelos o atletas destacados en acción</li>
+            <li class="pack-feature">1 Vídeo promocional principal con estética de cine (4K)</li>
+            <li class="pack-feature">3 Clips cortos verticales de producto en uso</li>
+            <li class="pack-feature">30 fotos comerciales listas para web y catálogo</li>
+          </ul>
+        </div>
+        <a href="#contacto" class="pack-cta">Solicitar info</a>
+      </div>
+
+    </div>
+
+    <p class="pack-note reveal" style="margin-top: 3rem;">¿Necesitas algo diferente? Contáctame para recibir un paquete personalizado.</p>
   </div>
+
+  <!-- SCRIPT AJUSTADO PARA CONMUTAR LOS BLOQUES DE PACKS -->
+  <script>
+    function switchPacks(type) {
+      const djGrid = document.getElementById('grid-packs-dj');
+      const fitGrid = document.getElementById('grid-packs-fitness');
+      const djBtn = document.getElementById('btn-pack-dj');
+      const fitBtn = document.getElementById('btn-pack-fit');
+
+      if (type === 'dj') {
+        djGrid.style.display = 'grid';
+        fitGrid.style.display = 'none';
+        djBtn.classList.add('active');
+        fitBtn.classList.remove('active');
+      } else {
+        djGrid.style.display = 'none';
+        fitGrid.style.display = 'grid';
+        djBtn.classList.remove('active');
+        fitBtn.classList.add('active');
+      }
+    }
+  </script>
 </section>
 
 <div class="section-divider"></div>
