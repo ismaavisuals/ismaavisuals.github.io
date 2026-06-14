@@ -629,6 +629,7 @@
     <li><a href="#video" onclick="toggleMenu()">Vídeo</a></li>
     <li><a href="#docuserie" onclick="toggleMenu()" style="color: var(--orange); font-weight: 600;">Proyecto Personal</a></li>
     <li><a href="#packs" onclick="toggleMenu()">Packs</a></li>
+    <li><a href="#faq" onclick="toggleMenu()">FAQ</a></li>
     <li><a href="#contacto" class="nav-cta" onclick="toggleMenu()">Contacto</a></li>
   </ul>
 </nav>
@@ -1107,7 +1108,168 @@
 </section>
 
 <div class="section-divider"></div>
+ <!-- ======================================================= -->
+<!-- SECCIÓN: PREGUNTAS FRECUENTES (FAQ) -->
+<!-- ======================================================= -->
+<section class="faq-section" id="faq" style="background: var(--black); padding: 6rem 0; border-top: 1px solid rgba(255,255,255,0.05);">
+  <div class="faq-inner" style="max-width: 800px; margin: 0 auto; padding: 0 20px;">
+    
+    <div class="reveal" style="text-align: center; margin-bottom: 3.5rem;">
+      <div class="section-eyebrow" style="color: var(--orange);">Respuestas</div>
+      <h2 class="section-title" style="color: var(--white); margin-bottom: 1rem;">PREGUNTAS <span style="color: var(--orange);">FRECUENTES</span></h2>
+      <p style="color: rgba(255,255,255,0.5); font-size: 0.95rem;">Resuelvo las dudas más comunes antes de empezar a trabajar juntos.</p>
+    </div>
 
+    <div class="faq-accordion reveal">
+      
+      <!-- PREGUNTA 1 -->
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>¿Cuánto tardas en entregar el material editado?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>En el sector de la noche y el fitness, el ritmo de las redes es inmediato. Por eso, las fotos optimizadas y los Reels editados (con diseño de sonido y etalonaje de color profesional) se entregan en un plazo de **48 a 72 horas** tras el evento o la sesión. Si necesitas material urgente para Stories al día siguiente, dímelo antes y lo coordinamos.</p>
+        </div>
+      </div>
+
+      <!-- PREGUNTA 2 -->
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>¿Te desplazas fuera de Valencia?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Sí, tengo disponibilidad total para viajar. Trabajo principalmente en **Valencia y alrededores**, pero me puedo desplazar a cualquier punto de España o del extranjero para cubrir festivales, eventos en discotecas o producciones comerciales para marcas de fitness. Los costes de desplazamiento y alojamiento se calculan de forma transparente en el presupuesto final.</p>
+        </div>
+      </div>
+
+      <!-- PREGUNTA 3 -->
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>¿En qué formatos me entregas los vídeos?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Entrego todo el contenido optimizado según su destino final. Para redes sociales como Instagram Reels, TikTok o YouTube Shorts, te entregaré los archivos en formato **vertical nativo (9:16) en alta resolución**. Si necesitas vídeos corporativos para páginas web, pantallas gigantes de salas o canales de YouTube tradicionales, también realizo entregas en formato **horizontal (16:9) en 4K**.</p>
+        </div>
+      </div>
+
+      <!-- PREGUNTA 4 -->
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>¿Qué pasa con la música de los vídeos y el copyright?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Para los Reels de DJs suelo utilizar los propios drops o transiciones de la sesión para que sea 100% real. Para vídeos comerciales de gimnasios o marcas, utilizo plataformas con **licencias oficiales de música**. Así te aseguras de que Instagram, TikTok o YouTube no te silencien el vídeo ni penalicen tu cuenta de empresa por problemas de derechos de autor.</p>
+        </div>
+      </div>
+
+      <!-- PREGUNTA 5 -->
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>¿Cómo se realiza la reserva y el método de pago?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Una vez que elegimos el pack que mejor se adapta a ti o cerramos un presupuesto personalizado, se realiza un pago del **50% en concepto de reserva** para asegurar la fecha en el calendario. El 50% restante se abona una vez que el material final está editado y listo para la entrega. Acepto transferencias bancarias y Bizum para mayor comodidad.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ESTILOS CSS EXCLUSIVOS DE LOS ACORDEONES -->
+  <style>
+    .faq-accordion {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .faq-item {
+      background: #111;
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 6px;
+      overflow: hidden;
+      transition: border-color 0.3s ease;
+    }
+    .faq-item:hover {
+      border-color: rgba(255,77,0,0.3);
+    }
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 20px;
+      color: var(--white);
+      font-size: 1.05rem;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      transition: color 0.3s ease;
+    }
+    .faq-question:hover {
+      color: var(--orange);
+    }
+    .faq-icon {
+      font-size: 1.4rem;
+      color: var(--orange);
+      transition: transform 0.3s ease;
+      font-weight: 300;
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out, padding 0.3s ease;
+      padding: 0 20px;
+    }
+    .faq-answer p {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      padding-bottom: 20px;
+    }
+    /* Clase para cuando esté abierto */
+    .faq-item.active {
+      border-color: var(--orange);
+    }
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg); /* Gira el "+" para que parezca una "x" */
+    }
+  </style>
+
+  <!-- LOGICA JAVASCRIPT PARA DESPLEGAR -->
+  <script>
+    function toggleFaq(button) {
+      const item = button.parentElement;
+      const answer = button.nextElementSibling;
+      
+      // Si el elemento ya está activo, lo cerramos
+      if (item.classList.contains('active')) {
+        item.classList.remove('active');
+        answer.style.maxHeight = null;
+      } else {
+        // Cerramos cualquier otro acordeón abierto para que quede más limpio
+        document.querySelectorAll('.faq-item').forEach(el => {
+          el.classList.remove('active');
+          el.querySelector('.faq-answer').style.maxHeight = null;
+        });
+        
+        // Abrimos el actual calculando su altura real de texto
+        item.classList.add('active');
+        answer.style.maxHeight = answer.scrollHeight + "px";
+      }
+    }
+  </script>
+</section>
+ 
+<div class="section-divider"></div>
+ 
 <section class="contact" id="contacto">
   <div class="contact-inner">
     <div class="reveal">
