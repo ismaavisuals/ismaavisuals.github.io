@@ -1507,58 +1507,66 @@
       : 'rgba(255,255,255,0.06)';
   });
 </script>
- <a href="https://wa.me/34644846097?text=Hola%20Isma!%20He%20visto%20tu%20porfolio%20y%20me%20gustar%C3%ADa%20pedirte%20informaci%C3%B3n%20para%20un%20proyecto." 
+<!-- BOTÓN FLOTANTE DE WHATSAPP INTERACTIVO CORREGIDO -->
+<a href="https://wa.me/34644846097?text=Hola%20Isma!%20He%20visto%20tu%20porfolio%20y%20me%20gustar%C3%ADa%20pedirte%20informaci%C3%B3n%20para%20un%20proyecto." 
    target="_blank" 
-   class="whatsapp-float" 
+   class="whatsapp-btn-fixed" 
    aria-label="Contactar por WhatsApp">
-  <svg viewBox="0 0 32 32" class="whatsapp-icon">
-    <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825.733 5.48 2.01 7.79l-2.01 7.34 7.514-1.971c2.203 1.157 4.72 1.815 7.406 1.815 8.837 0 16-7.163 16-16s-7.163-16-16-16zm0 29.333c-2.454 0-4.75-.634-6.757-1.748l-.484-.27-4.48 1.175 1.196-4.364-.294-.468c-1.246-1.984-1.964-4.333-1.964-6.858 0-7.352 5.981-13.333 13.333-13.333s13.333 5.981 13.333 13.333c0 7.352-5.98 13.333-13.333 13.333zm7.393-10.153c-.405-.202-2.395-1.182-2.766-1.317-.37-.135-.64-.202-.91.202-.27.405-1.046 1.317-1.282 1.587-.236.27-.472.304-.877.101-1.308-.654-2.29-1.144-3.193-2.693-.243-.418.243-.388.694-1.29.074-.152.037-.287-.018-.388-.056-.101-.506-1.218-.694-1.674-.183-.44-.37-.38-.506-.387h-.431c-.152 0-.398.057-.607.287-.209.23-1.012.989-1.012 2.41 0 1.42 1.034 2.793 1.179 2.996.145.203 2.036 3.11 4.932 4.363.689.298 1.227.476 1.646.609.692.22 1.322.19 1.82.115.554-.084 1.7-.695 1.942-1.366.243-.672.243-1.25.169-1.367-.074-.114-.27-.182-.675-.385z"/>
+  <!-- Icono oficial de alta definición corregido -->
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="whatsapp-svg-icon">
+    <path d="M92.1 254.6c0 24.9 7 49.2 20.2 70.1l-21.5 78.6 80.6-21.1c20 10.9 42.5 16.6 65.5 16.6h.1c75.4 0 136.7-61.2 136.7-136.7 0-36.6-14.2-70.9-40.1-96.8-25.9-25.9-60.2-40.1-96.7-40.1-75.4 0-136.7 61.2-136.7 136.7zm235.6 58.8c-3.4 6.8-17.1 13.2-23.7 13.9-5.7.6-13.1 1-38.3-9-32.9-13-53.2-46.1-54.8-48.3-1.6-2.2-13-17.3-13-33.1 0-15.8 8.1-23.5 11-26.6 2.9-3.1 6.4-3.9 8.5-3.9h5.6c1.6 0 3.8-.6 5.9 4.3 2.2 5.3 7.5 18.4 8.1 19.6 1.1 2.2 1.1 4.7-.5 7.8-1.6 3.1-2.5 5-5 7.8-2.5 2.8-5 5-7.1 7.5-2.2 2.2-4.6 4.7-1.9 9.3 5.3 9 17.5 28.7 33.7 43.1 21 18.7 38.6 24.5 44.1 27.2 5.6 2.8 8.8 2.2 12.1-1.6 3.1-3.8 13.7-15.9 17.4-21.5 3.8-5.6 7.5-4.7 12.4-2.8 5 1.9 31.5 14.9 36.5 17.4 5 2.5 8.4 3.8 9.6 5.9 1.2 2.1 1.2 12.4-2.2 19.3zM224 0c-123.7 0-224 100.3-224 224 0 39.6 10.3 78.3 29.9 112.3L0 496l164.4-43.1c31.7 17.1 67.4 26.1 104 26.1h.1c123.7 0 224-100.3 224-224C492.5 100.3 392.2 0 224 0z"/>
   </svg>
 </a>
 
+<!-- ESTILOS CSS REVISADOS Y BLINDADOS -->
 <style>
-  .whatsapp-float {
+  .whatsapp-btn-fixed {
     position: fixed;
     width: 60px;
     height: 60px;
     bottom: 30px;
     right: 30px;
     background-color: #25d366;
-    color: #fff;
-    border-radius: 50px;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-    z-index: 9999;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
-    animation: pulseWhatsapp 2s infinite;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 99999;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    /* Evita que herede paddings extraños */
+    padding: 0 !important;
+    box-sizing: border-box;
   }
-  .whatsapp-float:hover {
+
+  .whatsapp-btn-fixed:hover {
     transform: scale(1.1);
     background-color: #20ba5a;
-    box-shadow: 0 6px 20px rgba(37,211,102,0.5);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
   }
-  .whatsapp-icon {
-    width: 32px;
-    height: 32px;
-    fill: currentColor;
+
+  .whatsapp-svg-icon {
+    width: 34px;
+    height: 34px;
+    fill: #ffffff; /* Obliga a que el icono sea blanco puro */
+    display: block;
+    margin: 0 auto;
   }
-  @keyframes pulseWhatsapp {
-    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
-    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-  }
-  /* Adaptación para pantallas móviles para que no estorbe */
+
+  /* Ajuste perfecto para móviles */
   @media (max-width: 768px) {
-    .whatsapp-float {
+    .whatsapp-btn-fixed {
       width: 52px;
       height: 52px;
       bottom: 20px;
       right: 20px;
     }
-    .whatsapp-icon { width: 26px; height: 26px; }
+    .whatsapp-svg-icon {
+      width: 28px;
+      height: 28px;
+    }
   }
 </style>
 </body>
