@@ -613,6 +613,52 @@
     section { padding-left: 1.5rem !important; padding-right: 1.5rem !important; padding-top: 4rem !important; padding-bottom: 4rem !important; }
     footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; gap: 1.5rem; }
   }
+
+
+ /* ======================================================= */
+/* ANIMACIÓN GLOW RESPIRABLE PARA TARJETAS Y BOTONES */
+/* ======================================================= */
+
+/* 1. Aplicar el efecto a las tarjetas destacadas de tus packs */
+.pack-card.featured {
+  position: relative;
+  animation: glowPulseOrange 4s infinite ease-in-out;
+}
+
+/* 2. Aplicar el efecto al botón de enviar mensaje del formulario */
+.form-submit {
+  position: relative;
+  animation: glowPulseOrangeButton 4s infinite ease-in-out;
+}
+
+/* Animación para la tarjeta (resplandor más suave y extendido) */
+@keyframes glowPulseOrange {
+  0% {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 5px rgba(255, 77, 0, 0.2);
+  }
+  50% {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(255, 77, 0, 0.6);
+  }
+  100% {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 5px rgba(255, 77, 0, 0.2);
+  }
+}
+
+/* Animación para el botón (resplandor más concentrado) */
+@keyframes glowPulseOrangeButton {
+  0% {
+    box-shadow: 0 4px 15px rgba(255, 77, 0, 0.2);
+    transform: translateY(0);
+  }
+  50% {
+    box-shadow: 0 6px 25px rgba(255, 77, 0, 0.5);
+    transform: translateY(-1px); /* Micro-levitación sutil junto al pulso */
+  }
+  100% {
+    box-shadow: 0 4px 15px rgba(255, 77, 0, 0.2);
+    transform: translateY(0);
+  }
+}
 </style>
 </head>
 <body>
