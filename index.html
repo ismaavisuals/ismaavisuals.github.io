@@ -620,7 +620,7 @@
 /* ======================================================= */
 
 /* 1. Aplicar el efecto a las tarjetas destacadas de tus packs */
-.pack-card.featured {
+.pack-card {
   position: relative;
   animation: glowPulseOrange 4s infinite ease-in-out;
 }
@@ -659,6 +659,145 @@
     transform: translateY(0);
   }
 }
+
+/* ======================================================= */
+/* ANIMACIÓN CINEMÁTICA DE CARGA DE TEXTO ESCALONADA */
+/* ======================================================= */
+
+/* Contenedor del título */
+.animate-text-container {
+  overflow: hidden; /* Oculta el texto mientras sube desde abajo */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilo base para cada línea del título */
+.animated-line {
+  display: block;
+  transform: translateY(100%); /* Empieza totalmente escondida abajo */
+  opacity: 0;
+  animation: revealTextCinema 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Retrasos cronometrados para crear el efecto escalonado (cascada) */
+.animated-line:nth-child(1) {
+  animation-delay: 0.2s; /* La primera línea sale casi al instante */
+}
+
+.animated-line:nth-child(2) {
+  animation-delay: 0.4s; /* La segunda sale un instante después */
+}
+
+.animated-line:nth-child(3) {
+  animation-delay: 0.6s; /* El remate en naranja cierra la animación */
+}
+
+/* Definición de la curva de movimiento cinemático */
+@keyframes revealTextCinema {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.5; /* Empieza a desvanecerse suavemente al subir */
+  }
+  100% {
+    transform: translateY(0); /* Queda en su posición original */
+    opacity: 1;
+  }
+}
+
+/* ======================================================= */
+/* MICRO-ZOOM CINEMÁTICO EN FOTOS (HOVER EFFECT)           */
+/* ======================================================= */
+
+/* 1. Aseguramos que el contenedor de la foto no deje salir el zoom */
+.portfolio-item, .gallery-item {
+  overflow: hidden !important;
+  border-radius: 8px; /* Mantiene tus bordes redondeados estéticos */
+}
+
+/* 2. Estilo base de la imagen con transición ultra suave */
+.portfolio-item img, .gallery-item img {
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 3. El efecto de zoom al pasar el ratón por encima (Hover) */
+.portfolio-item:hover img, .gallery-item:hover img {
+  transform: scale(1.06); /* Aumenta un 6% de tamaño de forma fluida */
+}
+
+/* ======================================================= */
+/* CUADRÍCULA TECNOLÓGICA CON PULSO DE LUZ (CYBERPUNK)    */
+/* ======================================================= */
+
+/* 1. Redefinimos el grid base con tus líneas naranjas sutiles */
+.hero-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Se queda entre la foto y el texto */
+  pointer-events: none; /* No molesta al hacer clic en botones */
+  
+  /* Creamos el grid usando gradientes sutiles */
+  background-image: 
+    linear-gradient(rgba(255, 77, 0, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 77, 0, 0.08) 1px, transparent 1px);
+  background-size: 60px 60px; /* Tamaño de la cuadrícula */
+}
+
+/* 2. Creamos la "Línea de Escaneo / Pulso" usando un pseudo-elemento */
+.hero-grid::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px; /* Grosor del rayo de luz */
+  
+  /* El color del pulso: Un gradiente naranja brillante y desenfocado */
+  background: linear-gradient(
+    90deg, 
+    transparent, 
+    rgba(255, 77, 0, 0.1) 20%, 
+    rgba(255, 77, 0, 0.7) 50%, 
+    rgba(255, 77, 0, 0.1) 80%, 
+    transparent
+  );
+  
+  filter: blur(1px); /* Desenfoque sutil para que parezca luz real */
+  box-shadow: 0 0 15px rgba(255, 77, 0, 0.4); /* Resplandor extra */
+  
+  /* Activamos la animación de barrido */
+  animation: scanningTechPulse 10s infinite ease-out;
+  animation-delay: 3s; /* Empieza después de que cargue el texto */
+  opacity: 0; /* Empieza oculto */
+}
+
+/* 3. Definición del barrido de arriba a abajo */
+@keyframes scanningTechPulse {
+  0% {
+    top: -5%; /* Sale desde arriba de la pantalla */
+    opacity: 0;
+  }
+  10% {
+    opacity: 1; /* Se ilumina rápido al entrar */
+  }
+  90% {
+    opacity: 1; /* Se mantiene brillante durante el recorrido */
+  }
+  100% {
+    top: 105%; /* Desaparece por abajo */
+    opacity: 0; /* Se apaga al salir */
+  }
+}
+ 
 </style>
 </head>
 <body>
@@ -686,11 +825,11 @@
   <div class="hero-grid"></div>
   <div class="hero-content reveal">
     <div class="hero-eyebrow">Valencia · Fitness & Nightlife</div>
-    <h1 class="hero-title">
-      <span class="line-1">FOTOGRAFÍA</span>
-      <span class="line-2">&amp; VÍDEO</span>
-      <span class="line-3">CINEMATOGRÁFICO</span>
-    </h1>
+    <h1 class="hero-title animate-text-container">
+      <span class="animated-line">FOTOGRAFÍA</span>
+      <span class="animated-line">&amp; VÍDEO</span>
+      <span class="animated-line" style="color: var(--orange);">CINEMATOGRÁFICO</span>
+   </h1>
     <p class="hero-sub">Creo contenido visual para gimnasios, deportistas y DJs que quieren destacar en redes y conseguir más clientes.</p>
     <div class="hero-actions">
       <a href="#packs" class="btn-primary">Ver packs</a>
