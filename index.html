@@ -896,11 +896,14 @@
         <button class="filter-tab active" onclick="filterMyPhotos('all', this)">Todo</button>
         <button class="filter-tab" onclick="filterMyPhotos('nightlife', this)">Nightlife</button>
         <button class="filter-tab" onclick="filterMyPhotos('fitness', this)">Fitness</button>
+        <!-- NUEVO BOTÓN AÑADIDO AQUÍ -->
+        <button class="filter-tab" onclick="filterMyPhotos('others', this)">Others</button>
       </div>
     </div>
     
     <div class="photo-grid reveal" id="photo-grid">
       
+      <!-- FOTOS ORIGINALES (NIGHTLIFE Y FITNESS) -->
       <div class="photo-item" data-cat="nightlife" data-show-in-all="true" onclick="openLightbox(this)">
         <img src="images/dj1.jpeg" alt="DJ Nightlife Valencia" style="width:100%; height:100%; object-fit:cover; display:block;">
         <div class="photo-overlay"><span class="photo-tag">Nightlife</span></div>
@@ -954,6 +957,37 @@
       <div class="photo-item" data-cat="fitness" data-show-in-all="false" style="display:none;" onclick="openLightbox(this)">
         <img src="images/fitness5.jpeg" alt="Fitness Valencia" style="width:100%; height:100%; object-fit:cover; display:block;">
         <div class="photo-overlay"><span class="photo-tag">Fitness</span></div>
+      </div>
+
+      <!-- ========================================== -->
+      <!-- LAS 5 FOTOS NUEVAS DE "OTHERS" AÑADIDAS AQUÍ -->
+      <!-- ========================================== -->
+      
+      <!-- Estas 2 primeras se verán en la pestaña "Todo" principal -->
+      <div class="photo-item" data-cat="others" data-show-in-all="true" onclick="openLightbox(this)">
+        <img src="images/other1.jpeg" alt="Otros Proyectos" style="width:100%; height:100%; object-fit:cover; display:block;">
+        <div class="photo-overlay"><span class="photo-tag">Others</span></div>
+      </div>
+      
+      <div class="photo-item" data-cat="others" data-show-in-all="true" onclick="openLightbox(this)">
+        <img src="images/other2.jpeg" alt="Otros Proyectos" style="width:100%; height:100%; object-fit:cover; display:block;">
+        <div class="photo-overlay"><span class="photo-tag">Others</span></div>
+      </div>
+      
+      <!-- Estas 3 estarán ocultas en "Todo" pero aparecerán al pulsar "Others" -->
+      <div class="photo-item" data-cat="others" data-show-in-all="false" style="display:none;" onclick="openLightbox(this)">
+        <img src="images/other3.jpeg" alt="Otros Proyectos" style="width:100%; height:100%; object-fit:cover; display:block;">
+        <div class="photo-overlay"><span class="photo-tag">Others</span></div>
+      </div>
+      
+      <div class="photo-item" data-cat="others" data-show-in-all="false" style="display:none;" onclick="openLightbox(this)">
+        <img src="images/other4.jpeg" alt="Otros Proyectos" style="width:100%; height:100%; object-fit:cover; display:block;">
+        <div class="photo-overlay"><span class="photo-tag">Others</span></div>
+      </div>
+      
+      <div class="photo-item" data-cat="others" data-show-in-all="false" style="display:none;" onclick="openLightbox(this)">
+        <img src="images/other5.jpeg" alt="Otros Proyectos" style="width:100%; height:100%; object-fit:cover; display:block;">
+        <div class="photo-overlay"><span class="photo-tag">Others</span></div>
       </div>
 
     </div>
