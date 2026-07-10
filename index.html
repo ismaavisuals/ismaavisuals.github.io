@@ -875,127 +875,144 @@
 
 <div class="section-divider"></div>
 
-<section class="photography" id="fotografia">
+<!-- ======================================================= -->
+<!-- SECCIÓN: FOTOGRAFÍA (SISTEMA DE ÁLBUMES)                -->
+<!-- ======================================================= -->
+<section class="photography" id="fotografia" style="min-height: 80vh;">
   <div class="photography-inner">
+    
     <div class="section-header reveal">
       <div>
         <div class="section-eyebrow">Portfolio</div>
         <h2 class="section-title">FOTO<span style="color:var(--orange)">GRAFÍA</span></h2>
       </div>
-      <div class="filter-tabs">
-        <button class="filter-tab active" onclick="filterMyPhotos('all', this)">Todo</button>
-        <button class="filter-tab" onclick="filterMyPhotos('nightlife', this)">Nightlife</button>
-        <button class="filter-tab" onclick="filterMyPhotos('fitness', this)">Fitness</button>
-        <button class="filter-tab" onclick="filterMyPhotos('others', this)">Others</button>
-      </div>
     </div>
     
-    <div class="photo-grid reveal" id="photo-grid">
+    <!-- ========================================================= -->
+    <!-- VISTA 1: PORTADAS DE LOS PROYECTOS (ÁLBUMES)              -->
+    <!-- ========================================================= -->
+    <div class="photo-grid reveal" id="albums-view">
       
-      <div class="photo-item" data-cat="nightlife" data-show-in-all="true" onclick="openLightbox(this)">
-        <img src="images/dj1.jpeg" alt="DJ Nightlife Valencia" style="width:100%; height:100%; object-fit:cover; display:block;">
-        <div class="photo-overlay"><span class="photo-tag">Nightlife</span></div>
-      </div>
-      
-      <div class="photo-item" data-cat="others" data-show-in-all="true" onclick="openLightbox(this)">
-        <img src="images/montca1.jpeg" alt="Otros Proyectos" style="width:100%; height:100%; object-fit:cover; display:block;">
-        <div class="photo-overlay"><span class="photo-tag">Others</span></div>
-      </div>
-      
-      <div class="photo-item" data-cat="fitness" data-show-in-all="true" onclick="openLightbox(this)">
-        <img src="images/fitness3.jpeg" alt="Fitness Valencia" style="width:100%; height:100%; object-fit:cover; display:block;">
-        <div class="photo-overlay"><span class="photo-tag">Fitness</span></div>
-      </div>
-      
-      <div class="photo-item" data-cat="nightlife" data-show-in-all="true" onclick="openLightbox(this)">
-        <img src="images/dj2.jpeg" alt="DJ Nightlife Valencia" style="width:100%; height:100%; object-fit:cover; display:block;">
-        <div class="photo-overlay"><span class="photo-tag">Nightlife</span></div>
+      <!-- PORTADA: NIGHTLIFE -->
+      <div class="photo-item" onclick="openAlbum('album-nightlife', 'NIGHTLIFE & EVENTOS')" style="cursor: pointer;">
+        <img src="images/dj1.jpeg" alt="Nightlife Portfolio" style="width:100%; height:100%; object-fit:cover; display:block;">
+        <!-- Overlay siempre visible para dar aspecto de título de álbum -->
+        <div class="photo-overlay" style="opacity: 1; background: rgba(0,0,0,0.5);"><span class="photo-tag" style="font-size: 1.5rem; letter-spacing: 2px; transform: none; font-family: var(--bebas);">NIGHTLIFE</span></div>
       </div>
 
-      <div class="photo-item" data-cat="nightlife" data-show-in-all="true" onclick="openLightbox(this)">
-        <img src="images/dj3.jpeg" alt="DJ Nightlife Valencia" style="width:100%; height:100%; object-fit:cover; display:block;">
-        <div class="photo-overlay"><span class="photo-tag">Nightlife</span></div>
-      </div>
-      
-      <div class="photo-item" data-cat="fitness" data-show-in-all="true" onclick="openLightbox(this)">
-        <img src="images/fitness4.jpeg" alt="Fitness Valencia" style="width:100%; height:100%; object-fit:cover; display:block;">
-        <div class="photo-overlay"><span class="photo-tag">Fitness</span></div>
-      </div>
-      
-      <div class="photo-item" data-cat="nightlife" data-show-in-all="true" onclick="openLightbox(this)">
-        <img src="images/dj4.jpeg" alt="DJ Nightlife Valencia" style="width:100%; height:100%; object-fit:cover; display:block;">
-        <div class="photo-overlay"><span class="photo-tag">Nightlife</span></div>
-      </div>
-      
-      <div class="photo-item" data-cat="others" data-show-in-all="true" onclick="openLightbox(this)">
-        <img src="images/montca2.jpeg" alt="Otros Proyectos" style="width:100%; height:100%; object-fit:cover; display:block;">
-        <div class="photo-overlay"><span class="photo-tag">Others</span></div>
-      </div>
-      
-      <div class="photo-item" data-cat="nightlife" data-show-in-all="true" onclick="openLightbox(this)">
-        <img src="images/dj6.jpeg" alt="DJ Nightlife Valencia" style="width:100%; height:100%; object-fit:cover; display:block;">
-        <div class="photo-overlay"><span class="photo-tag">Nightlife</span></div>
+      <!-- PORTADA: PRODUCTO -->
+      <div class="photo-item" onclick="openAlbum('album-productos', 'FOTOGRAFÍA DE PRODUCTO')" style="cursor: pointer;">
+        <img src="images/producto1.jpeg" alt="Producto Portfolio" style="width:100%; height:100%; object-fit:cover; display:block;">
+        <div class="photo-overlay" style="opacity: 1; background: rgba(0,0,0,0.5);"><span class="photo-tag" style="font-size: 1.5rem; letter-spacing: 2px; transform: none; font-family: var(--bebas);">PRODUCTO</span></div>
       </div>
 
-      <div class="photo-item" data-cat="nightlife" data-show-in-all="false" style="display:none;" onclick="openLightbox(this)">
-        <img src="images/dj5.jpeg" alt="DJ Nightlife Valencia" style="width:100%; height:100%; object-fit:cover; display:block;">
-        <div class="photo-overlay"><span class="photo-tag">Nightlife</span></div>
+      <!-- PORTADA: FITNESS -->
+      <div class="photo-item" onclick="openAlbum('album-fitness', 'FITNESS & DEPORTE')" style="cursor: pointer;">
+        <img src="images/fitness3.jpeg" alt="Fitness Portfolio" style="width:100%; height:100%; object-fit:cover; display:block;">
+        <div class="photo-overlay" style="opacity: 1; background: rgba(0,0,0,0.5);"><span class="photo-tag" style="font-size: 1.5rem; letter-spacing: 2px; transform: none; font-family: var(--bebas);">FITNESS</span></div>
       </div>
 
-      <div class="photo-item" data-cat="nightlife" data-show-in-all="false" style="display:none;" onclick="openLightbox(this)">
-        <img src="images/galan1.jpeg" alt="DJ Nightlife Valencia" style="width:100%; height:100%; object-fit:cover; display:block;">
-        <div class="photo-overlay"><span class="photo-tag">Nightlife</span></div>
+      <!-- PORTADA: OTROS -->
+      <div class="photo-item" onclick="openAlbum('album-others', 'OTROS PROYECTOS')" style="cursor: pointer;">
+        <img src="images/montca1.jpeg" alt="Otros Portfolio" style="width:100%; height:100%; object-fit:cover; display:block;">
+        <div class="photo-overlay" style="opacity: 1; background: rgba(0,0,0,0.5);"><span class="photo-tag" style="font-size: 1.5rem; letter-spacing: 2px; transform: none; font-family: var(--bebas);">OTROS</span></div>
       </div>
 
-      <div class="photo-item" data-cat="nightlife" data-show-in-all="false" style="display:none;" onclick="openLightbox(this)">
-        <img src="images/galan2.jpeg" alt="DJ Nightlife Valencia" style="width:100%; height:100%; object-fit:cover; display:block;">
-        <div class="photo-overlay"><span class="photo-tag">Nightlife</span></div>
-      </div>
+    </div>
 
-      <div class="photo-item" data-cat="nightlife" data-show-in-all="false" style="display:none;" onclick="openLightbox(this)">
-        <img src="images/galan3.jpeg" alt="DJ Nightlife Valencia" style="width:100%; height:100%; object-fit:cover; display:block;">
-        <div class="photo-overlay"><span class="photo-tag">Nightlife</span></div>
-      </div>
-
-      <div class="photo-item" data-cat="fitness" data-show-in-all="false" style="display:none;" onclick="openLightbox(this)">
-        <img src="images/fitness1.jpeg" alt="Fitness Valencia" style="width:100%; height:100%; object-fit:cover; display:block;">
-        <div class="photo-overlay"><span class="photo-tag">Fitness</span></div>
-      </div>
-
-      <div class="photo-item" data-cat="fitness" data-show-in-all="false" style="display:none;" onclick="openLightbox(this)">
-        <img src="images/fitness2.jpeg" alt="Fitness Valencia" style="width:100%; height:100%; object-fit:cover; display:block;">
-        <div class="photo-overlay"><span class="photo-tag">Fitness</span></div>
-      </div>
-
-      <div class="photo-item" data-cat="fitness" data-show-in-all="false" style="display:none;" onclick="openLightbox(this)">
-        <img src="images/fitness5.jpeg" alt="Fitness Valencia" style="width:100%; height:100%; object-fit:cover; display:block;">
-        <div class="photo-overlay"><span class="photo-tag">Fitness</span></div>
-      </div>
+    <!-- ========================================================= -->
+    <!-- VISTA 2: GALERÍA INTERIOR DEL ÁLBUM (OCULTA AL INICIO)    -->
+    <!-- ========================================================= -->
+    <div id="album-detail-view" style="display: none; animation: fadeIn 0.5s ease;">
       
-      <div class="photo-item" data-cat="others" data-show-in-all="false" style="display:none;" onclick="openLightbox(this)">
-        <img src="images/montca3.jpeg" alt="Otros Proyectos" style="width:100%; height:100%; object-fit:cover; display:block;">
-        <div class="photo-overlay"><span class="photo-tag">Others</span></div>
+      <!-- Cabecera del álbum interior -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
+        <h3 id="current-album-title" style="color: var(--white); font-family: var(--bebas); font-size: 2.5rem; margin: 0; letter-spacing: 1px;">TÍTULO</h3>
+        <button onclick="closeAlbum()" style="background: transparent; border: 1px solid var(--orange); color: var(--orange); padding: 10px 20px; border-radius: 30px; cursor: pointer; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s ease;">
+          &#8592; Volver a Proyectos
+        </button>
       </div>
-      
-      <div class="photo-item" data-cat="others" data-show-in-all="false" style="display:none;" onclick="openLightbox(this)">
-        <img src="images/montca4.jpeg" alt="Otros Proyectos" style="width:100%; height:100%; object-fit:cover; display:block;">
-        <div class="photo-overlay"><span class="photo-tag">Others</span></div>
+
+      <!-- GALERÍA 1: NIGHTLIFE -->
+      <div class="photo-grid album-gallery" id="album-nightlife" style="display: none;">
+        <div class="photo-item" onclick="openLightbox(this)"><img src="images/dj1.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div class="photo-item" onclick="openLightbox(this)"><img src="images/dj2.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div class="photo-item" onclick="openLightbox(this)"><img src="images/dj3.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div class="photo-item" onclick="openLightbox(this)"><img src="images/dj4.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div class="photo-item" onclick="openLightbox(this)"><img src="images/dj5.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div class="photo-item" onclick="openLightbox(this)"><img src="images/dj6.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div class="photo-item" onclick="openLightbox(this)"><img src="images/galan1.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div class="photo-item" onclick="openLightbox(this)"><img src="images/galan2.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div class="photo-item" onclick="openLightbox(this)"><img src="images/galan3.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
       </div>
-      
-      <div class="photo-item" data-cat="others" data-show-in-all="false" style="display:none;" onclick="openLightbox(this)">
-        <img src="images/montca5.jpeg" alt="Otros Proyectos" style="width:100%; height:100%; object-fit:cover; display:block;">
-        <div class="photo-overlay"><span class="photo-tag">Others</span></div>
+
+      <!-- GALERÍA 2: PRODUCTOS -->
+      <div class="photo-grid album-gallery" id="album-productos" style="display: none;">
+        <div class="photo-item" onclick="openLightbox(this)"><img src="images/producto1.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div class="photo-item" onclick="openLightbox(this)"><img src="images/producto2.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div class="photo-item" onclick="openLightbox(this)"><img src="images/producto3.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div class="photo-item" onclick="openLightbox(this)"><img src="images/producto4.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div class="photo-item" onclick="openLightbox(this)"><img src="images/producto5.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+      </div>
+
+      <!-- GALERÍA 3: FITNESS -->
+      <div class="photo-grid album-gallery" id="album-fitness" style="display: none;">
+        <div class="photo-item" onclick="openLightbox(this)"><img src="images/fitness1.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div class="photo-item" onclick="openLightbox(this)"><img src="images/fitness2.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div class="photo-item" onclick="openLightbox(this)"><img src="images/fitness3.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div class="photo-item" onclick="openLightbox(this)"><img src="images/fitness4.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div class="photo-item" onclick="openLightbox(this)"><img src="images/fitness5.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+      </div>
+
+      <!-- GALERÍA 4: OTROS -->
+      <div class="photo-grid album-gallery" id="album-others" style="display: none;">
+        <div class="photo-item" onclick="openLightbox(this)"><img src="images/montca1.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div class="photo-item" onclick="openLightbox(this)"><img src="images/montca2.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div class="photo-item" onclick="openLightbox(this)"><img src="images/montca3.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div class="photo-item" onclick="openLightbox(this)"><img src="images/montca4.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div class="photo-item" onclick="openLightbox(this)"><img src="images/montca5.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
       </div>
 
     </div>
   </div>
 
+  <!-- LIGHTBOX PARA AMPLIAR FOTOS -->
   <div id="customLightbox" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.95); z-index:9999; justify-content:center; align-items:center; opacity:0; transition:opacity 0.3s ease; cursor:zoom-out;" onclick="closeLightbox()">
     <span style="position:absolute; top:20px; right:30px; color:#fff; font-size:40px; font-weight:300; cursor:pointer; font-family:sans-serif;">&times;</span>
     <img id="lightboxImg" src="" alt="Vista ampliada" style="max-width:90%; max-height:85vh; border-radius:4px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); object-fit:contain;">
   </div>
 
+  <!-- SCRIPT PARA GESTIONAR LOS ÁLBUMES -->
   <script>
+    // Animación suave de entrada
+    const style = document.createElement('style');
+    style.innerHTML = `@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }`;
+    document.head.appendChild(style);
+
+    function openAlbum(albumId, albumTitle) {
+      // 1. Ocultar la vista de portadas
+      document.getElementById('albums-view').style.display = 'none';
+      
+      // 2. Cambiar el título del interior
+      document.getElementById('current-album-title').innerText = albumTitle;
+      
+      // 3. Ocultar todas las galerías por si había una abierta antes
+      document.querySelectorAll('.album-gallery').forEach(el => el.style.display = 'none');
+      
+      // 4. Mostrar solo la galería que hemos clicado
+      document.getElementById(albumId).style.display = 'grid'; // Usa 'grid' porque tienes la clase photo-grid
+      
+      // 5. Mostrar la vista detallada
+      document.getElementById('album-detail-view').style.display = 'block';
+    }
+
+    function closeAlbum() {
+      // Volver a la vista principal
+      document.getElementById('album-detail-view').style.display = 'none';
+      document.getElementById('albums-view').style.display = 'grid';
+    }
+
+    // Funciones del Lightbox (zoom de fotos)
     function openLightbox(element) {
       const imgSrc = element.querySelector('img').src;
       const lightbox = document.getElementById('customLightbox');
@@ -1010,28 +1027,6 @@
       lightbox.style.opacity = '0';
       setTimeout(() => { lightbox.style.display = 'none'; }, 300);
     }
-
-    function filterMyPhotos(cat, btn) {
-      document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
-      btn.classList.add('active');
-      
-      document.querySelectorAll('.photo-item').forEach(item => {
-        if (cat === 'all') {
-          if (item.getAttribute('data-show-in-all') === 'true') {
-            item.style.display = 'block';
-          } else {
-            item.style.display = 'none';
-          }
-        } else {
-          if (item.getAttribute('data-cat') === cat) {
-            item.style.display = 'block';
-          } else {
-            item.style.display = 'none';
-          }
-        }
-      });
-    }
-    window.filterPhotos = filterMyPhotos;
   </script>
 </section>
  
