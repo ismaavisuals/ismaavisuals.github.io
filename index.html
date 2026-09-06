@@ -896,7 +896,6 @@
       <!-- PORTADA: NIGHTLIFE -->
       <div class="photo-item" onclick="openAlbumModal('modal-nightlife', 'NIGHTLIFE')" style="cursor: pointer; position: relative; overflow: hidden; border-radius: 4px;">
         <img src="images/dj1.jpeg" alt="Nightlife" style="width:100%; height:100%; object-fit:cover; display:block; transition: transform 0.5s ease;">
-        <!-- Overlay oscuro permanente y texto centrado -->
         <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.25); display: flex; align-items: center; justify-content: center; pointer-events: none;">
           <span style="color: #fff; font-size: 2rem; letter-spacing: 4px; font-family: var(--bebas); font-weight: 400; text-shadow: 0 4px 15px rgba(0,0,0,0.5);">NIGHTLIFE</span>
         </div>
@@ -904,7 +903,6 @@
 
       <!-- PORTADA: PRODUCTO -->
       <div class="photo-item" onclick="openAlbumModal('modal-productos', 'PRODUCTO')" style="cursor: pointer; position: relative; overflow: hidden; border-radius: 4px;">
-        <!-- He puesto silla1 como portada de esta categoría -->
         <img src="images/silla1.jpeg" alt="Producto" style="width:100%; height:100%; object-fit:cover; display:block; transition: transform 0.5s ease;">
         <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.25); display: flex; align-items: center; justify-content: center; pointer-events: none;">
           <span style="color: #fff; font-size: 2rem; letter-spacing: 4px; font-family: var(--bebas); font-weight: 400; text-shadow: 0 4px 15px rgba(0,0,0,0.5);">PRODUCTO</span>
@@ -916,6 +914,15 @@
         <img src="images/fitness3.jpeg" alt="Fitness" style="width:100%; height:100%; object-fit:cover; display:block; transition: transform 0.5s ease;">
         <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.25); display: flex; align-items: center; justify-content: center; pointer-events: none;">
           <span style="color: #fff; font-size: 2rem; letter-spacing: 4px; font-family: var(--bebas); font-weight: 400; text-shadow: 0 4px 15px rgba(0,0,0,0.5);">FITNESS</span>
+        </div>
+      </div>
+      
+      <!-- NUEVA PORTADA: MOROS Y CRISTIANOS -->
+      <div class="photo-item" onclick="openAlbumModal('modal-moros', 'MOROS Y CRISTIANOS')" style="cursor: pointer; position: relative; overflow: hidden; border-radius: 4px;">
+        <!-- Usa moros1.jpeg como portada de la sección -->
+        <img src="images/moros1.jpeg" alt="Moros y Cristianos" style="width:100%; height:100%; object-fit:cover; display:block; transition: transform 0.5s ease;">
+        <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.25); display: flex; align-items: center; justify-content: center; pointer-events: none; text-align: center;">
+          <span style="color: #fff; font-size: 2rem; letter-spacing: 4px; font-family: var(--bebas); font-weight: 400; text-shadow: 0 4px 15px rgba(0,0,0,0.5);">MOROS Y CRISTIANOS</span>
         </div>
       </div>
 
@@ -934,12 +941,10 @@
 <!-- ========================================================= -->
 <!-- VENTANA EMERGENTE (MODAL) PARA LAS GALERÍAS COMPLETAS     -->
 <!-- ========================================================= -->
-<!-- Se abre por encima de la web sin alargarla -->
 <div id="fullScreenAlbumModal" style="display: none; position: fixed; inset: 0; background: var(--black); z-index: 8000; overflow-y: auto; padding: 2rem 5%; animation: fadeIn 0.3s ease;">
   
   <div style="max-width: 1200px; margin: 0 auto; padding-top: 2rem;">
     
-    <!-- Cabecera del Modal con botón de cerrar X -->
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem;">
       <h3 id="modal-title" style="color: var(--white); font-family: var(--bebas); font-size: 3rem; margin: 0; letter-spacing: 2px;">TÍTULO</h3>
       <button onclick="closeAlbumModal()" style="background: none; border: none; color: var(--orange); font-size: 3rem; cursor: pointer; line-height: 1; padding: 0;">&times;</button>
@@ -978,6 +983,26 @@
       <div class="photo-item" onclick="openLightbox(this)"><img src="images/fitness5.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
     </div>
 
+    <!-- NUEVA GALERÍA: MOROS Y CRISTIANOS (16 FOTOS) -->
+    <div class="photo-grid modal-gallery" id="modal-moros" style="display: none;">
+      <div class="photo-item" onclick="openLightbox(this)"><img src="images/moros1.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+      <div class="photo-item" onclick="openLightbox(this)"><img src="images/moros2.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+      <div class="photo-item" onclick="openLightbox(this)"><img src="images/moros3.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+      <div class="photo-item" onclick="openLightbox(this)"><img src="images/moros4.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+      <div class="photo-item" onclick="openLightbox(this)"><img src="images/moros5.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+      <div class="photo-item" onclick="openLightbox(this)"><img src="images/moros6.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+      <div class="photo-item" onclick="openLightbox(this)"><img src="images/moros7.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+      <div class="photo-item" onclick="openLightbox(this)"><img src="images/moros8.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+      <div class="photo-item" onclick="openLightbox(this)"><img src="images/moros9.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+      <div class="photo-item" onclick="openLightbox(this)"><img src="images/moros10.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+      <div class="photo-item" onclick="openLightbox(this)"><img src="images/moros11.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+      <div class="photo-item" onclick="openLightbox(this)"><img src="images/moros12.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+      <div class="photo-item" onclick="openLightbox(this)"><img src="images/moros13.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+      <div class="photo-item" onclick="openLightbox(this)"><img src="images/moros14.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+      <div class="photo-item" onclick="openLightbox(this)"><img src="images/moros15.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+      <div class="photo-item" onclick="openLightbox(this)"><img src="images/moros16.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+    </div>
+
     <!-- GALERÍA 4: OTROS -->
     <div class="photo-grid modal-gallery" id="modal-others" style="display: none;">
       <div class="photo-item" onclick="openLightbox(this)"><img src="images/montca1.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
@@ -998,37 +1023,20 @@
   <img id="lightboxImg" src="" alt="Vista ampliada" style="max-width:90%; max-height:85vh; border-radius:4px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); object-fit:contain;">
 </div>
 
-<!-- ========================================================= -->
-<!-- SCRIPTS LÓGICOS                                           -->
-<!-- ========================================================= -->
 <script>
-  // Script Ventana de Álbumes
   function openAlbumModal(albumId, title) {
-    // 1. Ponemos el título correspondiente
     document.getElementById('modal-title').innerText = title;
-    
-    // 2. Ocultamos todas las galerías dentro de la ventana
     document.querySelectorAll('.modal-gallery').forEach(el => el.style.display = 'none');
-    
-    // 3. Mostramos solo la galería que toca
     document.getElementById(albumId).style.display = 'grid';
-    
-    // 4. Abrimos la ventana a pantalla completa
     document.getElementById('fullScreenAlbumModal').style.display = 'block';
-    
-    // 5. Bloqueamos el scroll de la página de fondo para que no se mueva
     document.body.style.overflow = 'hidden';
   }
 
   function closeAlbumModal() {
-    // Cerramos la ventana
     document.getElementById('fullScreenAlbumModal').style.display = 'none';
-    
-    // Desbloqueamos el scroll de la web principal
     document.body.style.overflow = 'auto';
   }
 
-  // Script Lightbox individual
   function openLightbox(element) {
     const imgSrc = element.querySelector('img').src;
     const lightbox = document.getElementById('customLightbox');
