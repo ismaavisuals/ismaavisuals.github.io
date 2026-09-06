@@ -917,9 +917,8 @@
         </div>
       </div>
       
-      <!-- NUEVA PORTADA: MOROS Y CRISTIANOS -->
+      <!-- PORTADA: MOROS Y CRISTIANOS -->
       <div class="photo-item" onclick="openAlbumModal('modal-moros', 'MOROS Y CRISTIANOS')" style="cursor: pointer; position: relative; overflow: hidden; border-radius: 4px;">
-        <!-- Usa moros1.jpeg como portada de la sección -->
         <img src="images/moros1.jpeg" alt="Moros y Cristianos" style="width:100%; height:100%; object-fit:cover; display:block; transition: transform 0.5s ease;">
         <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.25); display: flex; align-items: center; justify-content: center; pointer-events: none; text-align: center;">
           <span style="color: #fff; font-size: 2rem; letter-spacing: 4px; font-family: var(--bebas); font-weight: 400; text-shadow: 0 4px 15px rgba(0,0,0,0.5);">MOROS Y CRISTIANOS</span>
@@ -952,6 +951,14 @@
 
     <!-- GALERÍA 1: NIGHTLIFE -->
     <div class="photo-grid modal-gallery" id="modal-nightlife" style="display: none;">
+      <!-- ESTAS SON LAS 5 FOTOS NUEVAS (Aparecerán las primeras) -->
+      <div class="photo-item" onclick="openLightbox(this)"><img src="images/nightlife_nueva1.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+      <div class="photo-item" onclick="openLightbox(this)"><img src="images/nightlife_nueva2.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+      <div class="photo-item" onclick="openLightbox(this)"><img src="images/nightlife_nueva3.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+      <div class="photo-item" onclick="openLightbox(this)"><img src="images/nightlife_nueva4.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+      <div class="photo-item" onclick="openLightbox(this)"><img src="images/nightlife_nueva5.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+      
+      <!-- FOTOS ANTERIORES -->
       <div class="photo-item" onclick="openLightbox(this)"><img src="images/dj1.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
       <div class="photo-item" onclick="openLightbox(this)"><img src="images/dj2.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
       <div class="photo-item" onclick="openLightbox(this)"><img src="images/dj3.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
@@ -983,7 +990,7 @@
       <div class="photo-item" onclick="openLightbox(this)"><img src="images/fitness5.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
     </div>
 
-    <!-- NUEVA GALERÍA: MOROS Y CRISTIANOS (16 FOTOS) -->
+    <!-- GALERÍA 4: MOROS Y CRISTIANOS (16 FOTOS) -->
     <div class="photo-grid modal-gallery" id="modal-moros" style="display: none;">
       <div class="photo-item" onclick="openLightbox(this)"><img src="images/moros1.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
       <div class="photo-item" onclick="openLightbox(this)"><img src="images/moros2.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
@@ -1003,7 +1010,7 @@
       <div class="photo-item" onclick="openLightbox(this)"><img src="images/moros16.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
     </div>
 
-    <!-- GALERÍA 4: OTROS -->
+    <!-- GALERÍA 5: OTROS -->
     <div class="photo-grid modal-gallery" id="modal-others" style="display: none;">
       <div class="photo-item" onclick="openLightbox(this)"><img src="images/montca1.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
       <div class="photo-item" onclick="openLightbox(this)"><img src="images/montca2.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
