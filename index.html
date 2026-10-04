@@ -7,14 +7,17 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎥</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
+  /* ======================================================= */
+  /* RESET & VARIABLES GLOBALES                              */
+  /* ======================================================= */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
     --orange: #FF4D00;
-    --black: #0e0e0e;
-    --dark: #1a1a1a;
-    --cream: #F7F4EF;
-    --cream-2: #EDE9E0;
+    --black: #050505; /* Negro más puro, estilo OLED */
+    --dark: #121212;
+    --cream: #f9f9f9; /* Blanco seda mucho más limpio y premium */
+    --cream-2: #f0f0f0;
     --white: #ffffff;
     --gray: #888;
     --bebas: 'Bebas Neue', Impact, sans-serif;
@@ -28,9 +31,13 @@
     background: var(--black);
     color: var(--white);
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased; /* Suavizado de fuentes premium */
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  /* NAV GENERAL */
+  /* ======================================================= */
+  /* NAVEGACIÓN                                              */
+  /* ======================================================= */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -38,17 +45,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.2rem 2.5rem;
-    background: rgba(14,14,14,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 0.5px solid rgba(255,255,255,0.06);
-    transition: border-color 0.3s;
+    padding: 1.5rem 3rem;
+    background: rgba(5, 5, 5, 0.85);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
   }
 
   .nav-logo {
     font-family: var(--bebas);
-    font-size: 1.4rem;
-    letter-spacing: .04em;
+    font-size: 1.5rem;
+    letter-spacing: .06em;
     color: var(--white);
     text-decoration: none;
     z-index: 1001;
@@ -59,59 +66,116 @@
   .nav-links {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 2.5rem;
     list-style: none;
   }
 
   .nav-links a {
-    font-size: .8rem;
+    font-size: .75rem;
     font-weight: 500;
-    color: rgba(255,255,255,0.5);
+    color: rgba(255,255,255,0.6);
     text-decoration: none;
-    letter-spacing: .06em;
+    letter-spacing: .1em;
     text-transform: uppercase;
-    transition: color .2s;
+    transition: color .3s ease;
   }
 
-  .nav-links a:hover { color: var(--orange); }
+  .nav-links a:hover { color: var(--white); }
+  
+  .nav-links a[href="#docuserie"] { color: var(--orange) !important; }
 
   .nav-cta {
-    background: var(--orange);
-    color: var(--white) !important;
-    padding: .45rem 1.2rem;
-    border-radius: 2px;
-    font-weight: 600 !important;
-  }
-
-  .nav-cta:hover { background: #e04300; color: var(--white) !important; }
-
-  /* MENÚ HAMBURGUESA (MÓVIL) */
-  .menu-toggle {
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 24px;
-    height: 18px;
     background: transparent;
-    border: none;
-    cursor: pointer;
-    z-index: 1001;
+    color: var(--white) !important;
+    padding: .5rem 1.5rem;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 0; /* Bordes rectos minimalistas */
+    transition: all 0.3s ease !important;
   }
 
-  .menu-toggle .bar {
-    width: 100%;
-    height: 2px;
-    background-color: var(--white);
-    transition: all 0.3s ease;
+  .nav-cta:hover { 
+    background: var(--white); 
+    color: var(--black) !important; 
+    border-color: var(--white);
   }
 
-  /* HERO */
+  /* ======================================================= */
+  /* COMPONENTES BASE (Botones, Eyebrows, Títulos)           */
+  /* ======================================================= */
+  section { position: relative; }
+
+  .section-eyebrow {
+    font-size: .7rem;
+    font-weight: 600;
+    color: var(--orange);
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    margin-bottom: .8rem;
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+  }
+
+  .section-eyebrow::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 1px;
+    background: var(--orange);
+  }
+
+  .section-title {
+    font-family: var(--bebas);
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    line-height: .9;
+    letter-spacing: .02em;
+  }
+
+  .btn-primary {
+    background: var(--white);
+    color: var(--black);
+    font-family: var(--inter);
+    font-size: .8rem;
+    font-weight: 600;
+    padding: 1rem 2.5rem;
+    border: 1px solid var(--white);
+    border-radius: 0;
+    text-decoration: none;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    transition: all .3s ease;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { 
+    background: var(--orange); 
+    border-color: var(--orange);
+    color: var(--white); 
+  }
+
+  .btn-secondary {
+    color: var(--white);
+    font-size: .8rem;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding-bottom: 4px;
+    transition: all .3s ease;
+  }
+
+  .btn-secondary:hover { border-color: var(--orange); color: var(--orange); }
+
+  /* ======================================================= */
+  /* HERO SECTION                                            */
+  /* ======================================================= */
   .hero {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding: 8rem 2.5rem 4rem;
+    padding: 10rem 3rem 5rem;
     position: relative;
     overflow: hidden;
     background: var(--black);
@@ -120,684 +184,244 @@
   .hero-bg {
     position: absolute;
     inset: 0;
-    background:
-      radial-gradient(ellipse 60% 50% at 70% 40%, rgba(255,77,0,0.12) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(255,77,0,0.06) 0%, transparent 60%);
-  }
-
-  .hero-grid {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-    background-size: 60px 60px;
+    /* Gradiente ultra suave para fundir la imagen con el negro puro */
+    background: linear-gradient(180deg, rgba(5,5,5,0.2) 0%, rgba(5,5,5,1) 95%);
   }
 
   .hero-content { position: relative; z-index: 2; max-width: 900px; }
 
-  .hero-eyebrow {
-    font-size: .75rem;
-    font-weight: 500;
-    color: var(--orange);
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: .6rem;
-  }
-
-  .hero-eyebrow::before {
-    content: '';
-    display: block;
-    width: 24px;
-    height: 1.5px;
-    background: var(--orange);
-  }
-
   .hero-title {
     font-family: var(--bebas);
-    font-size: clamp(3.5rem, 10vw, 9rem);
-    line-height: .9;
-    letter-spacing: .01em;
-    margin-bottom: 1.5rem;
+    font-size: clamp(4rem, 11vw, 10rem);
+    line-height: .85;
+    letter-spacing: .02em;
+    margin-bottom: 2rem;
   }
-
-  .hero-title .line-1 { color: var(--white); display: block; }
-  .hero-title .line-2 { color: var(--orange); display: block; }
-  .hero-title .line-3 { color: var(--white); display: block; }
 
   .hero-sub {
-    font-size: 1rem;
-    color: rgba(255,255,255,0.5);
-    line-height: 1.6;
-    max-width: 480px;
-    margin-bottom: 2.5rem;
-  }
-
-  .hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
-
-  .btn-primary {
-    background: var(--orange);
-    color: var(--white);
-    font-family: var(--inter);
-    font-size: .85rem;
-    font-weight: 600;
-    padding: .9rem 2rem;
-    border: none;
-    border-radius: 2px;
-    cursor: pointer;
-    text-decoration: none;
-    letter-spacing: .04em;
-    text-transform: uppercase;
-    transition: background .2s, transform .15s;
-    display: inline-block;
-  }
-
-  .btn-primary:hover { background: #e04300; transform: translateY(-1px); }
-
-  .btn-secondary {
+    font-size: 1.05rem;
     color: rgba(255,255,255,0.6);
-    font-size: .85rem;
-    font-weight: 500;
-    text-decoration: none;
-    letter-spacing: .04em;
-    text-transform: uppercase;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
-    padding-bottom: 2px;
-    transition: color .2s, border-color .2s;
+    line-height: 1.7;
+    max-width: 500px;
+    margin-bottom: 3rem;
+    font-weight: 300;
   }
 
-  .btn-secondary:hover { color: var(--white); border-color: var(--white); }
+  .hero-actions { display: flex; gap: 2rem; align-items: center; flex-wrap: wrap; }
 
   .hero-stats {
     position: absolute;
-    right: 2.5rem;
-    bottom: 4rem;
+    right: 3rem;
+    bottom: 5rem;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2rem;
     z-index: 2;
   }
 
   .stat { text-align: right; }
-  .stat-num { font-family: var(--bebas); font-size: 2.2rem; color: var(--orange); line-height: 1; }
-  .stat-label { font-size: .7rem; color: rgba(255,255,255,0.35); letter-spacing: .08em; text-transform: uppercase; }
+  .stat-num { font-family: var(--bebas); font-size: 2.5rem; color: var(--white); line-height: 1; margin-bottom: 5px; }
+  .stat-label { font-size: .65rem; color: rgba(255,255,255,0.4); letter-spacing: .1em; text-transform: uppercase; }
 
-  /* SECTION BASE */
-  section { position: relative; }
-
-  .section-eyebrow {
-    font-size: .7rem;
-    font-weight: 600;
-    color: var(--orange);
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    margin-bottom: .6rem;
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-  }
-
-  .section-eyebrow::before {
-    content: '';
-    display: block;
-    width: 16px;
-    height: 1.5px;
-    background: var(--orange);
-  }
-
-  .section-title {
-    font-family: var(--bebas);
-    font-size: clamp(2.5rem, 6vw, 5rem);
-    line-height: .95;
-    letter-spacing: .01em;
-  }
-
-  /* SOBRE MÍ */
-  .about {
-    background: var(--cream);
-    padding: 6rem 2.5rem;
-  }
-
-  .about-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: center;
-  }
-
-  .about .section-eyebrow { color: var(--orange); }
-  .about .section-eyebrow::before { background: var(--orange); }
+  /* ======================================================= */
+  /* SOBRE MÍ                                                */
+  /* ======================================================= */
+  .about { background: var(--cream); padding: 8rem 3rem; }
+  .about-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
   .about .section-title { color: var(--black); }
-  .about .section-title span { color: var(--orange); }
-  .about-text { font-size: .95rem; color: #555; line-height: 1.8; margin-top: 1.2rem; }
-  .about-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.5rem; }
-
+  .about-text { font-size: 1.05rem; color: #444; line-height: 1.8; margin-top: 2rem; font-weight: 300; }
+  
+  .about-tags { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2.5rem; }
   .tag {
-    font-size: .7rem;
-    font-weight: 600;
-    letter-spacing: .08em;
+    font-size: .65rem;
+    font-weight: 500;
+    letter-spacing: .1em;
     text-transform: uppercase;
-    padding: .4rem .9rem;
-    border-radius: 2px;
+    padding: .5rem 1rem;
+    border: 1px solid rgba(0,0,0,0.1);
+    color: var(--black);
+    border-radius: 0;
   }
-
-  .tag-orange { background: var(--orange); color: var(--white); }
-  .tag-dark { background: var(--black); color: var(--white); }
-  .tag-outline { border: 1px solid #ccc; color: #555; }
+  .tag-orange { border-color: var(--orange); color: var(--orange); }
 
   .about-img {
-    aspect-ratio: 3/4;
+    aspect-ratio: 4/5;
     background: var(--cream-2);
-    border-radius: 4px;
+    border-radius: 0;
     overflow: hidden;
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 
-  .about-img-badge {
-    position: absolute;
-    bottom: 1.2rem;
-    left: 1.2rem;
-    background: var(--orange);
-    color: var(--white);
-    font-family: var(--bebas);
-    font-size: 1.1rem;
-    padding: .4rem .9rem;
-    border-radius: 2px;
-    letter-spacing: .04em;
-  }
+  /* ======================================================= */
+  /* FOTOGRAFÍA (ÁLBUMES)                                    */
+  /* ======================================================= */
+  .photography { background: var(--black); padding: 8rem 3rem; }
+  .photography-inner { max-width: 1200px; margin: 0 auto; }
+  
+  .section-header { margin-bottom: 4rem; }
 
-  /* FOTOGRAFÍA */
-  .photography {
-    background: var(--black);
-    padding: 6rem 2.5rem;
-  }
-
-  .photography-inner { max-width: 1100px; margin: 0 auto; }
-  .photography .section-title { color: var(--white); }
-  .photography .section-title span { color: var(--orange); }
-
-  .section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 2.5rem;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-  }
-
-  .filter-tabs { display: flex; flex-wrap: wrap; gap: .5rem; }
-
-  .filter-tab {
-    font-size: .75rem;
-    font-weight: 600;
-    letter-spacing: .06em;
-    text-transform: uppercase;
-    padding: .45rem 1rem;
-    border-radius: 2px;
-    cursor: pointer;
-    border: 1px solid transparent;
-    transition: all .2s;
-    background: none;
-    color: rgba(255,255,255,0.4);
-    border-color: rgba(255,255,255,0.1);
-  }
-
-  .filter-tab.active, .filter-tab:hover {
-    background: var(--orange);
-    color: var(--white);
-    border-color: var(--orange);
-  }
-
-  .photo-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 6px;
-  }
+  .photo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  @media (min-width: 900px) { .photo-grid { grid-template-columns: repeat(4, 1fr); } } /* 4 columnas en PC */
 
   .photo-item {
-    aspect-ratio: 1/1;
+    aspect-ratio: 4/5; /* Formato más editorial */
     background: var(--dark);
     overflow: hidden;
     position: relative;
     cursor: pointer;
   }
 
-  .photo-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(255,77,0,0);
-    display: flex;
-    align-items: flex-end;
-    padding: 1rem;
-    transition: background .3s;
+  .album-cover-img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
   }
 
-  .photo-item:hover .photo-overlay { background: rgba(255,77,0,0.15); }
+  .photo-item:hover .album-cover-img { transform: scale(1.05); }
 
-  .photo-tag {
-    font-size: .65rem;
-    font-weight: 600;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    color: var(--white);
-    background: rgba(0,0,0,0.6);
-    padding: .2rem .6rem;
-    border-radius: 2px;
-    opacity: 0;
-    transform: translateY(4px);
-    transition: all .2s;
+  .album-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.1) 100%);
+    display: flex; align-items: flex-end; justify-content: center;
+    padding-bottom: 2rem; pointer-events: none;
   }
 
-  .photo-item:hover .photo-tag { opacity: 1; transform: translateY(0); }
-
-  /* VIDEO */
-  .video-section {
-    background: var(--cream);
-    padding: 6rem 2.5rem;
+  .album-title {
+    color: #fff; font-size: 1.5rem; letter-spacing: .1em; font-family: var(--bebas); font-weight: 400;
   }
 
-  .video-inner { max-width: 1100px; margin: 0 auto; }
-  .video-section .section-title { color: var(--black); }
-  .video-section .section-title span { color: var(--orange); }
-  .video-section .section-eyebrow { color: var(--orange); }
-  .video-section .section-eyebrow::before { background: var(--orange); }
+  /* ======================================================= */
+  /* VÍDEO & DOCUSERIE                                       */
+  /* ======================================================= */
+  .video-section { padding: 8rem 3rem; }
+  .video-inner { max-width: 1200px; margin: 0 auto; }
+  
+  iframe { border-radius: 0 !important; box-shadow: none !important; } /* Eliminamos bordes redondos para look Pro */
 
-  .showreel {
-    margin: 2.5rem 0;
-    aspect-ratio: 16/9;
-    background: var(--black);
-    border-radius: 4px;
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .docu-item { border: none !important; }
+  .docu-label {
+    background: var(--white) !important;
+    color: var(--black) !important;
+    border-radius: 0 !important;
+    padding: 5px 12px !important;
+    font-family: var(--bebas);
+    font-size: 1rem !important;
+    letter-spacing: .1em !important;
   }
 
-  .showreel-placeholder { text-align: center; color: rgba(255,255,255,0.3); padding: 1rem; }
+  /* ======================================================= */
+  /* FILOSOFÍA                                               */
+  /* ======================================================= */
+  .philosophy-section { padding: 8rem 3rem; border-top: 1px solid rgba(255,255,255,0.05); }
+  .philosophy-box {
+    background: var(--dark) !important; 
+    border: 1px solid rgba(255,255,255,0.05) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 5rem 4rem !important;
+  }
+  .ph-left h3 { font-size: 3.5rem !important; }
 
-  .showreel-play {
-    width: 64px;
-    height: 64px;
-    background: var(--orange);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1rem;
-    cursor: pointer;
-    transition: transform .2s;
+  /* ======================================================= */
+  /* PACKS DE SERVICIOS                                      */
+  /* ======================================================= */
+  .packs { background: var(--black); padding: 8rem 3rem; border-top: 1px solid rgba(255,255,255,0.05); }
+  .packs-inner { max-width: 1200px; margin: 0 auto; }
+  .packs-subtitle { font-size: 1.05rem; color: rgba(255,255,255,0.5); font-weight: 300; margin-bottom: 4rem; max-width: 500px; }
+  
+  .filter-tabs { display: flex; justify-content: flex-start; gap: 2rem; margin-bottom: 4rem !important; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem; }
+  .filter-tab {
+    font-size: .8rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase;
+    background: none; border: none; color: rgba(255,255,255,0.4); cursor: pointer; transition: all .3s ease; padding: 0;
+  }
+  .filter-tab.active, .filter-tab:hover { color: var(--white); }
+
+  .packs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.05); }
+  
+  .pack-card { 
+    background: var(--black); 
+    padding: 4rem 3rem; 
+    border: none !important; 
+    border-radius: 0 !important; 
+    transition: background 0.3s ease; 
+  }
+  .pack-card:hover { background: var(--dark); transform: none !important; }
+  
+  .pack-badge { font-size: .7rem; letter-spacing: .15em; color: rgba(255,255,255,0.4); margin-bottom: 1.5rem; }
+  .pack-name { font-size: 2.5rem; margin-bottom: 1rem; }
+  .pack-desc { font-size: .9rem; color: rgba(255,255,255,0.5); margin-bottom: 2.5rem; font-weight: 300; }
+  
+  .pack-feature { font-size: .85rem; color: rgba(255,255,255,0.7); gap: 1rem; margin-bottom: .8rem; }
+  .pack-feature::before { content: '—'; color: var(--orange); }
+
+  .pack-cta { 
+    border: 1px solid rgba(255,255,255,0.2) !important; 
+    border-radius: 0 !important; 
+    padding: 1rem !important;
+    font-size: .75rem !important;
+    letter-spacing: .1em !important;
   }
 
-  .showreel-play:hover { transform: scale(1.08); }
-  .showreel-play svg { width: 24px; height: 24px; fill: var(--white); margin-left: 3px; }
-  .showreel-label { font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; }
+  /* ======================================================= */
+  /* FAQ & CONTACTO                                          */
+  /* ======================================================= */
+  .faq-section { padding: 8rem 3rem; }
+  .faq-item { background: transparent !important; border: none !important; border-bottom: 1px solid rgba(255,255,255,0.1) !important; border-radius: 0 !important; }
+  .faq-question { padding: 2rem 0 !important; font-size: 1.1rem !important; font-weight: 400 !important; }
+  .faq-answer p { color: rgba(255,255,255,0.5) !important; font-weight: 300; }
 
-  .reels-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 6px;
-    margin-top: 6px;
+  .contact { background: var(--cream); padding: 8rem 3rem; }
+  .contact-inner { max-width: 1200px; margin: 0 auto; grid-template-columns: 1fr 1fr; gap: 8rem; }
+  
+  .form-input, .form-textarea, .form-select { 
+    background: transparent; 
+    border: none; 
+    border-bottom: 1px solid rgba(0,0,0,0.2); 
+    border-radius: 0; 
+    padding: 1rem 0; 
+    font-size: 1rem;
   }
-
-  .reel-item {
-    aspect-ratio: 16/9;
-    background: #111;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    border-radius: 2px;
-  }
-
-  .reel-placeholder {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: .4rem;
-    color: rgba(255,255,255,0.2);
-    font-size: .7rem;
-    text-transform: uppercase;
-    letter-spacing: .06em;
-    padding: 1rem;
-    text-align: center;
-  }
-
-  /* PACKS */
-  .packs {
-    background: var(--dark);
-    padding: 6rem 2.5rem;
-    border-top: 0.5px solid rgba(255,255,255,0.06);
-  }
-
-  .packs-inner { max-width: 1100px; margin: 0 auto; }
-  .packs .section-title { color: var(--white); }
-  .packs .section-title span { color: var(--orange); }
-  .packs-subtitle { font-size: .95rem; color: rgba(255,255,255,0.4); margin-top: .8rem; margin-bottom: 3rem; max-width: 480px; line-height: 1.6; }
-  .packs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .pack-card { background: #111; padding: 2.5rem 2rem; position: relative; transition: transform .2s; border: 1px solid rgba(255,255,255,0.03); border-radius: 4px; display: flex; flex-direction: column; justify-content: space-between; }
-  .pack-card:hover { transform: translateY(-3px); border-color: rgba(255,77,0,0.3); }
-  .pack-card.featured { background: var(--orange); border-color: var(--orange); }
-  .pack-badge { font-size: .65rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--orange); margin-bottom: 1rem; }
-  .pack-card.featured .pack-badge { color: rgba(255,255,255,0.7); }
-  .pack-name { font-family: var(--bebas); font-size: 2rem; letter-spacing: .02em; color: var(--white); margin-bottom: .3rem; }
-  .pack-desc { font-size: .82rem; color: rgba(255,255,255,0.4); line-height: 1.6; margin-bottom: 1.8rem; }
-  .pack-card.featured .pack-desc { color: rgba(255,255,255,0.75); }
-  .pack-features { list-style: none; margin-bottom: 2rem; display: flex; flex-direction: column; gap: .7rem; }
-  .pack-feature { font-size: .82rem; color: rgba(255,255,255,0.6); display: flex; align-items: flex-start; gap: .6rem; line-height: 1.4; }
-  .pack-card.featured .pack-feature { color: rgba(255,255,255,0.9); }
-  .pack-feature::before { content: '✓'; color: var(--orange); font-weight: 700; flex-shrink: 0; }
-  .pack-card.featured .pack-feature::before { color: var(--white); }
-  .pack-cta { display: block; text-align: center; font-size: .8rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: .8rem; border-radius: 2px; text-decoration: none; transition: all .2s; border: 1px solid rgba(255,255,255,0.15); color: var(--white); background: transparent; margin-top: auto; }
-  .pack-cta:hover { background: var(--orange); border-color: var(--orange); }
-  .pack-card.featured .pack-cta { background: var(--white); color: var(--orange); border-color: var(--white); }
-  .pack-card.featured .pack-cta:hover { background: var(--black); color: var(--white); border-color: var(--black); }
-  .pack-note { font-size: .75rem; color: rgba(255,255,255,0.25); text-align: center; margin-top: 2rem; }
-
-  /* CONTACTO */
-  .contact {
-    background: var(--cream);
-    padding: 6rem 2.5rem;
-  }
-
-  .contact-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: start;
-  }
-
-  .contact .section-eyebrow { color: var(--orange); }
-  .contact .section-eyebrow::before { background: var(--orange); }
-  .contact .section-title { color: var(--black); }
-  .contact .section-title span { color: var(--orange); }
-  .contact-text { font-size: .9rem; color: #666; line-height: 1.8; margin-top: 1rem; margin-bottom: 2rem; }
-  .contact-links { display: flex; flex-direction: column; gap: .8rem; }
-  .contact-link { display: flex; align-items: center; gap: .8rem; font-size: .85rem; color: #444; text-decoration: none; font-weight: 500; transition: color .2s; }
-  .contact-link:hover { color: var(--orange); }
-  .contact-link-icon { width: 36px; height: 36px; background: var(--black); border-radius: 2px; display: flex; align-items: center; justify-content: center; color: var(--white); font-size: .9rem; flex-shrink: 0; }
-  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .form-group { display: flex; flex-direction: column; gap: .4rem; }
-  .form-label { font-size: .7rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #888; }
-  .form-input, .form-textarea, .form-select { font-family: var(--inter); font-size: .9rem; color: var(--black); background: var(--white); border: 1px solid #ddd; border-radius: 2px; padding: .75rem 1rem; transition: border-color .2s; outline: none; -webkit-appearance: none; }
   .form-input:focus, .form-textarea:focus, .form-select:focus { border-color: var(--orange); }
-  .form-textarea { resize: vertical; min-height: 120px; }
-  .form-submit { background: var(--orange); color: var(--white); font-family: var(--inter); font-size: .85rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 1rem; border: none; border-radius: 2px; cursor: pointer; transition: background .2s, transform .15s; margin-top: .5rem; }
-  .form-submit:hover { background: #e04300; transform: translateY(-1px); }
-
-  /* FOOTER */
-  footer {
-    background: var(--black);
-    padding: 2.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 0.5px solid rgba(255,255,255,0.06);
-    flex-wrap: wrap;
-    gap: 1rem;
+  .form-label { font-size: .65rem; color: rgba(0,0,0,0.4); }
+  .form-submit { 
+    background: var(--black); 
+    border-radius: 0; 
+    padding: 1.2rem;
+    font-size: .8rem;
+    margin-top: 2rem;
+    animation: none !important; /* Adiós al pulso, hola elegancia */
   }
 
-  .footer-logo { font-family: var(--bebas); font-size: 1.2rem; color: var(--white); letter-spacing: .04em; }
-  .footer-logo span { color: var(--orange); }
-  .footer-copy { font-size: .75rem; color: rgba(255,255,255,0.25); }
-  .footer-social { display: flex; gap: 1rem; }
-  .footer-social a { font-size: .75rem; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: rgba(255,255,255,0.35); text-decoration: none; transition: color .2s; }
-  .footer-social a:hover { color: var(--orange); }
+  /* ======================================================= */
+  /* FOOTER                                                  */
+  /* ======================================================= */
+  footer { padding: 4rem 3rem; border-top: none; }
+  .section-divider { height: 1px; background: rgba(255,255,255,0.05); }
 
-  .section-divider { height: 1px; background: linear-gradient(to right, transparent, rgba(255,77,0,0.4), transparent); }
-
-  .reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+  /* Animaciones base limpias */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  /* MEDIA QUERIES (ADAPTACIÓN MÓVIL) */
-  @media (max-width: 992px) {
-    .packs-grid { grid-template-columns: repeat(2, 1fr); }
-  }
+  .animate-text-container { overflow: hidden; display: flex; flex-direction: column; }
+  .animated-line { display: block; transform: translateY(100%); opacity: 0; animation: revealTextCinema 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  .animated-line:nth-child(1) { animation-delay: 0.1s; }
+  .animated-line:nth-child(2) { animation-delay: 0.2s; }
+  .animated-line:nth-child(3) { animation-delay: 0.3s; }
+  @keyframes revealTextCinema { to { transform: translateY(0); opacity: 1; } }
 
+  /* Adaptación Móvil */
   @media (max-width: 768px) {
-    nav { padding: 1rem 1.5rem; }
-    
-    /* Mostrar botón hamburguesa */
-    .menu-toggle { display: flex; }
-
-    /* Transformar nav-links en menú móvil desplegable */
-    .nav-links {
-      position: fixed;
-      top: 0; right: -100%;
-      height: 100vh;
-      width: 75%;
-      max-width: 300px;
-      background: rgba(14,14,14,0.98);
-      backdrop-filter: blur(20px);
-      flex-direction: column;
-      justify-content: center;
-      gap: 2.5rem;
-      padding: 2rem;
-      transition: right 0.4s cubic-bezier(0.1, 0.9, 0.2, 1);
-      border-left: 1px solid rgba(255,255,255,0.05);
-      z-index: 1000;
-    }
-
-    .nav-links.active { right: 0; }
-    .nav-links a { font-size: 1.1rem; letter-spacing: .1em; }
-    .nav-cta { padding: .8rem 2rem; width: 100%; text-align: center; }
-
-    /* Animación del icono hamburguesa al activarse */
-    .menu-toggle.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-    .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
-    .menu-toggle.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-
-    /* Ajustes estructurales de secciones */
-    .hero { padding: 6rem 1.5rem 3rem; }
+    nav { padding: 1.2rem 1.5rem; }
+    .hero { padding: 8rem 1.5rem 4rem; }
+    .hero-title { font-size: 4rem; }
     .hero-stats { display: none; }
-    .about-inner, .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
-    .about-img { max-width: 400px; margin: 0 auto; width: 100%; }
-    
-    /* Grid de fotos en móvil (2 columnas estables) */
-    .photo-grid { grid-template-columns: repeat(2, 1fr); gap: 4px; }
-    
-    .reels-grid, .packs-grid, .form-row { grid-template-columns: 1fr; }
-    section { padding-left: 1.5rem !important; padding-right: 1.5rem !important; padding-top: 4rem !important; padding-bottom: 4rem !important; }
-    footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; gap: 1.5rem; }
+    section { padding: 5rem 1.5rem !important; }
+    .about-inner, .contact-inner { gap: 4rem; grid-template-columns: 1fr; }
+    .photo-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 5px; }
+    .packs-grid { grid-template-columns: 1fr; gap: 1rem; background: transparent; border: none; }
+    .pack-card { border: 1px solid rgba(255,255,255,0.05) !important; padding: 3rem 2rem; }
+    .filter-tabs { flex-wrap: wrap; justify-content: center; }
+    .philosophy-box { padding: 3rem 1.5rem !important; }
   }
-
-
- /* ======================================================= */
-/* ANIMACIÓN GLOW RESPIRABLE PARA TARJETAS Y BOTONES */
-/* ======================================================= */
-
-/* 1. Aplicar el efecto a las tarjetas destacadas de tus packs */
-.pack-card {
-  position: relative;
-  animation: glowPulseOrange 4s infinite ease-in-out;
-}
-
-/* 2. Aplicar el efecto al botón de enviar mensaje del formulario */
-.form-submit {
-  position: relative;
-  animation: glowPulseOrangeButton 4s infinite ease-in-out;
-}
-
-/* Animación para la tarjeta (resplandor más suave y extendido) */
-@keyframes glowPulseOrange {
-  0% {
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 5px rgba(255, 77, 0, 0.2);
-  }
-  50% {
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(255, 77, 0, 0.6);
-  }
-  100% {
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 5px rgba(255, 77, 0, 0.2);
-  }
-}
-
-/* Animación para el botón (resplandor más concentrado) */
-@keyframes glowPulseOrangeButton {
-  0% {
-    box-shadow: 0 4px 15px rgba(255, 77, 0, 0.2);
-    transform: translateY(0);
-  }
-  50% {
-    box-shadow: 0 6px 25px rgba(255, 77, 0, 0.5);
-    transform: translateY(-1px); /* Micro-levitación sutil junto al pulso */
-  }
-  100% {
-    box-shadow: 0 4px 15px rgba(255, 77, 0, 0.2);
-    transform: translateY(0);
-  }
-}
-
-/* ======================================================= */
-/* ANIMACIÓN CINEMÁTICA DE CARGA DE TEXTO ESCALONADA */
-/* ======================================================= */
-
-/* Contenedor del título */
-.animate-text-container {
-  overflow: hidden; /* Oculta el texto mientras sube desde abajo */
-  display: flex;
-  flex-direction: column;
-}
-
-/* Estilo base para cada línea del título */
-.animated-line {
-  display: block;
-  transform: translateY(100%); /* Empieza totalmente escondida abajo */
-  opacity: 0;
-  animation: revealTextCinema 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-/* Retrasos cronometrados para crear el efecto escalonado (cascada) */
-.animated-line:nth-child(1) {
-  animation-delay: 0.2s; /* La primera línea sale casi al instante */
-}
-
-.animated-line:nth-child(2) {
-  animation-delay: 0.4s; /* La segunda sale un instante después */
-}
-
-.animated-line:nth-child(3) {
-  animation-delay: 0.6s; /* El remate en naranja cierra la animación */
-}
-
-/* Definición de la curva de movimiento cinemático */
-@keyframes revealTextCinema {
-  0% {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-  40% {
-    opacity: 0.5; /* Empieza a desvanecerse suavemente al subir */
-  }
-  100% {
-    transform: translateY(0); /* Queda en su posición original */
-    opacity: 1;
-  }
-}
-
-/* ======================================================= */
-/* MICRO-ZOOM CINEMÁTICO EN FOTOS (HOVER EFFECT)           */
-/* ======================================================= */
-
-/* 1. Aseguramos que el contenedor de la foto no deje salir el zoom */
-.portfolio-item, .gallery-item {
-  overflow: hidden !important;
-  border-radius: 8px; /* Mantiene tus bordes redondeados estéticos */
-}
-
-/* 2. Estilo base de la imagen con transición ultra suave */
-.portfolio-item img, .gallery-item img {
-  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1) !important;
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* 3. El efecto de zoom al pasar el ratón por encima (Hover) */
-.portfolio-item:hover img, .gallery-item:hover img {
-  transform: scale(1.06); /* Aumenta un 6% de tamaño de forma fluida */
-}
-
-/* ======================================================= */
-/* CUADRÍCULA TECNOLÓGICA CON PULSO DE LUZ (CYBERPUNK)    */
-/* ======================================================= */
-
-/* 1. Redefinimos el grid base con tus líneas naranjas sutiles */
-.hero-grid {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1; /* Se queda entre la foto y el texto */
-  pointer-events: none; /* No molesta al hacer clic en botones */
-  
-  /* Creamos el grid usando gradientes sutiles */
-  background-image: 
-    linear-gradient(rgba(255, 77, 0, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 77, 0, 0.08) 1px, transparent 1px);
-  background-size: 60px 60px; /* Tamaño de la cuadrícula */
-}
-
-/* 2. Creamos la "Línea de Escaneo / Pulso" usando un pseudo-elemento */
-.hero-grid::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 3px; /* Grosor del rayo de luz */
-  
-  /* El color del pulso: Un gradiente naranja brillante y desenfocado */
-  background: linear-gradient(
-    90deg, 
-    transparent, 
-    rgba(255, 77, 0, 0.1) 20%, 
-    rgba(255, 77, 0, 0.7) 50%, 
-    rgba(255, 77, 0, 0.1) 80%, 
-    transparent
-  );
-  
-  filter: blur(1px); /* Desenfoque sutil para que parezca luz real */
-  box-shadow: 0 0 15px rgba(255, 77, 0, 0.4); /* Resplandor extra */
-  
-  /* Activamos la animación de barrido */
-  animation: scanningTechPulse 10s infinite ease-out;
-  animation-delay: 3s; /* Empieza después de que cargue el texto */
-  opacity: 0; /* Empieza oculto */
-}
-
-/* 3. Definición del barrido de arriba a abajo */
-@keyframes scanningTechPulse {
-  0% {
-    top: -5%; /* Sale desde arriba de la pantalla */
-    opacity: 0;
-  }
-  10% {
-    opacity: 1; /* Se ilumina rápido al entrar */
-  }
-  90% {
-    opacity: 1; /* Se mantiene brillante durante el recorrido */
-  }
-  100% {
-    top: 105%; /* Desaparece por abajo */
-    opacity: 0; /* Se apaga al salir */
-  }
-}
- 
 </style>
 </head>
 <body>
@@ -813,72 +437,59 @@
     <li><a href="#sobremi" onclick="toggleMenu()">Sobre mí</a></li>
     <li><a href="#fotografia" onclick="toggleMenu()">Fotografía</a></li>
     <li><a href="#video" onclick="toggleMenu()">Vídeo</a></li>
-    <li><a href="#docuserie" onclick="toggleMenu()" style="color: var(--orange); font-weight: 600;">Proyecto Personal</a></li>
-    <li><a href="#packs" onclick="toggleMenu()">Packs</a></li>
+    <li><a href="#docuserie" onclick="toggleMenu()">Proyecto Personal</a></li>
+    <li><a href="#packs" onclick="toggleMenu()">Servicios</a></li>
     <li><a href="#faq" onclick="toggleMenu()">FAQ</a></li>
     <li><a href="#contacto" class="nav-cta" onclick="toggleMenu()">Contacto</a></li>
   </ul>
 </nav>
 
 <section class="hero" style="background: url('images/fondo.png') no-repeat center center/cover;">
-  <div class="hero-bg" style="background: linear-gradient(180deg, rgba(14,14,14,0.4) 0%, rgba(14,14,14,0.95) 100%);"></div>
-  <div class="hero-grid"></div>
+  <div class="hero-bg"></div>
   <div class="hero-content reveal">
-    <div class="hero-eyebrow">Valencia · Fitness & Nightlife</div>
+    <div class="hero-eyebrow">Valencia · Editorial & Filmmaking</div>
     <h1 class="hero-title animate-text-container">
       <span class="animated-line">FOTOGRAFÍA</span>
       <span class="animated-line">&amp; VÍDEO</span>
       <span class="animated-line" style="color: var(--orange);">CINEMATOGRÁFICO</span>
    </h1>
-    <p class="hero-sub">Creo contenido visual para gimnasios, deportistas y DJs que quieren destacar en redes y conseguir más clientes.</p>
+    <p class="hero-sub">Creo contenido visual premium para marcas, espacios y perfiles que necesitan transmitir autoridad visual inmediata.</p>
     <div class="hero-actions">
-      <a href="#packs" class="btn-primary">Ver packs</a>
-      <a href="#fotografia" class="btn-secondary">Ver trabajos</a>
+      <a href="#packs" class="btn-primary">Ver servicios</a>
+      <a href="#fotografia" class="btn-secondary">Explorar portfolio</a>
     </div>
   </div>
   <div class="hero-stats">
     <div class="stat">
-      <div class="stat-num">2</div>
-      <div class="stat-label">Nichos</div>
-    </div>
-    <div class="stat">
       <div class="stat-num">Valencia</div>
-      <div class="stat-label">Disponible para viajar</div>
+      <div class="stat-label">Worldwide availability</div>
     </div>
   </div>
 </section>
- 
-<div class="section-divider"></div>
 
 <section class="about" id="sobremi">
   <div class="about-inner">
     <div class="reveal">
       <div class="section-eyebrow">Sobre mí</div>
       <h2 class="section-title">ISMA<br><span>VISUALS</span></h2>
-      <p class="about-text">Fotógrafo, filmmaker y especialista en marketing visual. Combino dos mundos que aparentemente no tienen nada en común — el nightlife y el fitness — porque los dos necesitan lo mismo: contenido que transmita emoción antes de que el espectador pueda salir del scroll.</p>
-      <p class="about-text">Basado en Valencia. Disponible para viajar a donde el trabajo lo requiera.</p>
+      <p class="about-text">Fotógrafo, filmmaker y especialista en dirección de arte. Mi enfoque se aleja del contenido genérico para centrarse en la creación de piezas visuales que combinen estética cinematográfica con rendimiento en plataformas actuales.</p>
+      <p class="about-text">Radicado en Valencia, con disponibilidad global para proyectos exigentes.</p>
       <div class="about-tags">
-        <span class="tag tag-orange">Fotografía</span>
-        <span class="tag tag-dark">Vídeo</span>
-        <span class="tag tag-outline">Fitness</span>
-        <span class="tag tag-outline">Nightlife</span>
-        <span class="tag tag-outline">Marketing Visual</span>
-        <span class="tag tag-outline">Valencia</span>
+        <span class="tag tag-orange">Fotografía Editorial</span>
+        <span class="tag">Dirección de Fotografía</span>
+        <span class="tag">Producción Visual</span>
       </div>
     </div>
     <div class="about-img reveal">
-      <img src="images/me.jpeg" alt="Isma Visuals" style="width:100%; height:100%; object-fit:cover; display:block;">
-      <div class="about-img-badge">ismaavisuals</div>
+      <img src="images/me.jpeg" alt="Isma Visuals" style="width:100%; height:100%; object-fit:cover; display:block; filter: grayscale(20%);">
     </div>
   </div>
 </section>
 
-<div class="section-divider"></div>
-
 <!-- ======================================================= -->
-<!-- SECCIÓN: FOTOGRAFÍA (SISTEMA DE ÁLBUMES MODAL)          -->
+<!-- SECCIÓN: FOTOGRAFÍA (ÁLBUMES)                           -->
 <!-- ======================================================= -->
-<section class="photography" id="fotografia" style="padding-bottom: 5rem;">
+<section class="photography" id="fotografia">
   <div class="photography-inner">
     
     <div class="section-header reveal">
@@ -888,77 +499,52 @@
       </div>
     </div>
     
-    <!-- ========================================================= -->
-    <!-- PORTADAS MINIMALISTAS                                     -->
-    <!-- ========================================================= -->
     <div class="photo-grid reveal" id="albums-view">
       
-      <!-- PORTADA: NIGHTLIFE -->
-      <div class="photo-item" onclick="openAlbumModal('modal-nightlife', 'NIGHTLIFE')" style="cursor: pointer; position: relative; overflow: hidden; border-radius: 4px;">
-        <img src="images/dj1.jpeg" alt="Nightlife" style="width:100%; height:100%; object-fit:cover; display:block; transition: transform 0.5s ease;">
-        <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.25); display: flex; align-items: center; justify-content: center; pointer-events: none;">
-          <span style="color: #fff; font-size: 2rem; letter-spacing: 4px; font-family: var(--bebas); font-weight: 400; text-shadow: 0 4px 15px rgba(0,0,0,0.5);">NIGHTLIFE</span>
-        </div>
+      <!-- NIGHTLIFE -->
+      <div class="photo-item" onclick="openAlbumModal('modal-nightlife', 'NIGHTLIFE')">
+        <img src="images/dj1.jpeg" alt="Nightlife" class="album-cover-img">
+        <div class="album-overlay"><span class="album-title">NIGHTLIFE</span></div>
       </div>
 
-      <!-- PORTADA: PRODUCTO -->
-      <div class="photo-item" onclick="openAlbumModal('modal-productos', 'PRODUCTO')" style="cursor: pointer; position: relative; overflow: hidden; border-radius: 4px;">
-        <img src="images/silla1.jpeg" alt="Producto" style="width:100%; height:100%; object-fit:cover; display:block; transition: transform 0.5s ease;">
-        <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.25); display: flex; align-items: center; justify-content: center; pointer-events: none;">
-          <span style="color: #fff; font-size: 2rem; letter-spacing: 4px; font-family: var(--bebas); font-weight: 400; text-shadow: 0 4px 15px rgba(0,0,0,0.5);">PRODUCTO</span>
-        </div>
+      <!-- PRODUCTO -->
+      <div class="photo-item" onclick="openAlbumModal('modal-productos', 'PRODUCTO')">
+        <img src="images/silla1.jpeg" alt="Producto" class="album-cover-img">
+        <div class="album-overlay"><span class="album-title">PRODUCTO</span></div>
       </div>
 
-      <!-- PORTADA: FITNESS -->
-      <div class="photo-item" onclick="openAlbumModal('modal-fitness', 'FITNESS')" style="cursor: pointer; position: relative; overflow: hidden; border-radius: 4px;">
-        <img src="images/fitness3.jpeg" alt="Fitness" style="width:100%; height:100%; object-fit:cover; display:block; transition: transform 0.5s ease;">
-        <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.25); display: flex; align-items: center; justify-content: center; pointer-events: none;">
-          <span style="color: #fff; font-size: 2rem; letter-spacing: 4px; font-family: var(--bebas); font-weight: 400; text-shadow: 0 4px 15px rgba(0,0,0,0.5);">FITNESS</span>
-        </div>
+      <!-- FITNESS -->
+      <div class="photo-item" onclick="openAlbumModal('modal-fitness', 'FITNESS')">
+        <img src="images/fitness3.jpeg" alt="Fitness" class="album-cover-img">
+        <div class="album-overlay"><span class="album-title">FITNESS</span></div>
       </div>
       
-      <!-- PORTADA: MOROS Y CRISTIANOS -->
-      <div class="photo-item" onclick="openAlbumModal('modal-moros', 'MOROS Y CRISTIANOS')" style="cursor: pointer; position: relative; overflow: hidden; border-radius: 4px;">
-        <img src="images/moros9.jpeg" alt="Moros y Cristianos" style="width:100%; height:100%; object-fit:cover; display:block; transition: transform 0.5s ease;">
-        <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.25); display: flex; align-items: center; justify-content: center; pointer-events: none; text-align: center;">
-          <span style="color: #fff; font-size: 2rem; letter-spacing: 4px; font-family: var(--bebas); font-weight: 400; text-shadow: 0 4px 15px rgba(0,0,0,0.5);">MOROS Y CRISTIANOS</span>
-        </div>
-      </div>
-
-      <!-- PORTADA: OTROS -->
-      <div class="photo-item" onclick="openAlbumModal('modal-others', 'OTROS')" style="cursor: pointer; position: relative; overflow: hidden; border-radius: 4px;">
-        <img src="images/montca2.jpeg" alt="Otros" style="width:100%; height:100%; object-fit:cover; display:block; transition: transform 0.5s ease;">
-        <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.25); display: flex; align-items: center; justify-content: center; pointer-events: none;">
-          <span style="color: #fff; font-size: 2rem; letter-spacing: 4px; font-family: var(--bebas); font-weight: 400; text-shadow: 0 4px 15px rgba(0,0,0,0.5);">OTROS</span>
-        </div>
+      <!-- MOROS Y CRISTIANOS -->
+      <div class="photo-item" onclick="openAlbumModal('modal-moros', 'MOROS & CRISTIANOS')">
+        <img src="images/moros9.jpeg" alt="Moros y Cristianos" class="album-cover-img">
+        <div class="album-overlay"><span class="album-title">MOROS Y CRISTIANOS</span></div>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- ========================================================= -->
-<!-- VENTANA EMERGENTE (MODAL) PARA LAS GALERÍAS COMPLETAS     -->
-<!-- ========================================================= -->
-<div id="fullScreenAlbumModal" style="display: none; position: fixed; inset: 0; background: var(--black); z-index: 8000; overflow-y: auto; padding: 2rem 5%; animation: fadeIn 0.3s ease;">
-  
-  <div style="max-width: 1200px; margin: 0 auto; padding-top: 2rem;">
+<!-- VENTANA MODAL GALERÍAS -->
+<div id="fullScreenAlbumModal" style="display: none; position: fixed; inset: 0; background: var(--black); z-index: 8000; overflow-y: auto; padding: 2rem 5%; animation: fadeIn 0.4s ease;">
+  <div style="max-width: 1200px; margin: 0 auto; padding-top: 4rem;">
     
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem;">
-      <h3 id="modal-title" style="color: var(--white); font-family: var(--bebas); font-size: 3rem; margin: 0; letter-spacing: 2px;">TÍTULO</h3>
-      <button onclick="closeAlbumModal()" style="background: none; border: none; color: var(--orange); font-size: 3rem; cursor: pointer; line-height: 1; padding: 0;">&times;</button>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 2rem;">
+      <h3 id="modal-title" style="color: var(--white); font-family: var(--bebas); font-size: 4rem; margin: 0; letter-spacing: .05em;">TÍTULO</h3>
+      <button onclick="closeAlbumModal()" style="background: none; border: none; color: var(--white); font-size: 3rem; cursor: pointer; font-weight: 300;">&times;</button>
     </div>
 
-    <!-- GALERÍA 1: NIGHTLIFE -->
-    <div class="photo-grid modal-gallery" id="modal-nightlife" style="display: none;">
-      <!-- ESTAS SON LAS 5 FOTOS NUEVAS (Aparecerán las primeras) -->
+    <!-- GALERÍAS INTERNAS (Mismo HTML exacto de fotos) -->
+    <div class="photo-grid modal-gallery" id="modal-nightlife" style="display: none; grid-template-columns: repeat(3, 1fr) !important; gap: 10px;">
       <div class="photo-item" onclick="openLightbox(this)"><img src="images/1.JPG" style="width:100%; height:100%; object-fit:cover;"></div>
       <div class="photo-item" onclick="openLightbox(this)"><img src="images/2.JPG" style="width:100%; height:100%; object-fit:cover;"></div>
       <div class="photo-item" onclick="openLightbox(this)"><img src="images/3.JPG" style="width:100%; height:100%; object-fit:cover;"></div>
       <div class="photo-item" onclick="openLightbox(this)"><img src="images/4.JPG" style="width:100%; height:100%; object-fit:cover;"></div>
       <div class="photo-item" onclick="openLightbox(this)"><img src="images/5.JPG" style="width:100%; height:100%; object-fit:cover;"></div>
-      
-      <!-- FOTOS ANTERIORES -->
       <div class="photo-item" onclick="openLightbox(this)"><img src="images/dj1.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
       <div class="photo-item" onclick="openLightbox(this)"><img src="images/dj2.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
       <div class="photo-item" onclick="openLightbox(this)"><img src="images/dj3.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
@@ -970,8 +556,7 @@
       <div class="photo-item" onclick="openLightbox(this)"><img src="images/galan3.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
     </div>
 
-    <!-- GALERÍA 2: PRODUCTOS -->
-    <div class="photo-grid modal-gallery" id="modal-productos" style="display: none;">
+    <div class="photo-grid modal-gallery" id="modal-productos" style="display: none; grid-template-columns: repeat(3, 1fr) !important; gap: 10px;">
       <div class="photo-item" onclick="openLightbox(this)"><img src="images/silla1.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
       <div class="photo-item" onclick="openLightbox(this)"><img src="images/silla2.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
       <div class="photo-item" onclick="openLightbox(this)"><img src="images/silla3.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
@@ -981,8 +566,7 @@
       <div class="photo-item" onclick="openLightbox(this)"><img src="images/silla7.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
     </div>
 
-    <!-- GALERÍA 3: FITNESS -->
-    <div class="photo-grid modal-gallery" id="modal-fitness" style="display: none;">
+    <div class="photo-grid modal-gallery" id="modal-fitness" style="display: none; grid-template-columns: repeat(3, 1fr) !important; gap: 10px;">
       <div class="photo-item" onclick="openLightbox(this)"><img src="images/fitness1.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
       <div class="photo-item" onclick="openLightbox(this)"><img src="images/fitness2.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
       <div class="photo-item" onclick="openLightbox(this)"><img src="images/fitness3.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
@@ -990,8 +574,7 @@
       <div class="photo-item" onclick="openLightbox(this)"><img src="images/fitness5.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
     </div>
 
-    <!-- GALERÍA 4: MOROS Y CRISTIANOS (16 FOTOS) -->
-    <div class="photo-grid modal-gallery" id="modal-moros" style="display: none;">
+    <div class="photo-grid modal-gallery" id="modal-moros" style="display: none; grid-template-columns: repeat(3, 1fr) !important; gap: 10px;">
       <div class="photo-item" onclick="openLightbox(this)"><img src="images/moros1.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
       <div class="photo-item" onclick="openLightbox(this)"><img src="images/moros2.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
       <div class="photo-item" onclick="openLightbox(this)"><img src="images/moros3.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
@@ -1009,821 +592,423 @@
       <div class="photo-item" onclick="openLightbox(this)"><img src="images/moros15.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
       <div class="photo-item" onclick="openLightbox(this)"><img src="images/moros16.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
     </div>
-
-    <!-- GALERÍA 5: OTROS -->
-    <div class="photo-grid modal-gallery" id="modal-others" style="display: none;">
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/montca1.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/montca2.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/montca3.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/montca4.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/montca5.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-    </div>
-
   </div>
 </div>
 
-<!-- ========================================================= -->
-<!-- LIGHTBOX (ZOOM FOTOS INDIVIDUALES)                        -->
-<!-- ========================================================= -->
-<div id="customLightbox" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.95); z-index:9999; justify-content:center; align-items:center; opacity:0; transition:opacity 0.3s ease; cursor:zoom-out;" onclick="closeLightbox()">
-  <span style="position:absolute; top:20px; right:30px; color:#fff; font-size:50px; font-weight:300; cursor:pointer; font-family:sans-serif;">&times;</span>
-  <img id="lightboxImg" src="" alt="Vista ampliada" style="max-width:90%; max-height:85vh; border-radius:4px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); object-fit:contain;">
+<!-- LIGHTBOX INDIVIDUAL -->
+<div id="customLightbox" style="display:none; position:fixed; inset:0; background:rgba(5,5,5,0.98); z-index:9999; justify-content:center; align-items:center; opacity:0; transition:opacity 0.3s ease; cursor:zoom-out;" onclick="closeLightbox()">
+  <span style="position:absolute; top:30px; right:40px; color:#fff; font-size:40px; font-weight:300; cursor:pointer;">&times;</span>
+  <img id="lightboxImg" src="" alt="Vista ampliada" style="max-width:90%; max-height:90vh; border-radius:0; object-fit:contain;">
 </div>
 
-<script>
-  function openAlbumModal(albumId, title) {
-    document.getElementById('modal-title').innerText = title;
-    document.querySelectorAll('.modal-gallery').forEach(el => el.style.display = 'none');
-    document.getElementById(albumId).style.display = 'grid';
-    document.getElementById('fullScreenAlbumModal').style.display = 'block';
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeAlbumModal() {
-    document.getElementById('fullScreenAlbumModal').style.display = 'none';
-    document.body.style.overflow = 'auto';
-  }
-
-  function openLightbox(element) {
-    const imgSrc = element.querySelector('img').src;
-    const lightbox = document.getElementById('customLightbox');
-    const lightboxImg = document.getElementById('lightboxImg');
-    lightboxImg.src = imgSrc;
-    lightbox.style.display = 'flex';
-    setTimeout(() => { lightbox.style.opacity = '1'; }, 10);
-  }
-
-  function closeLightbox() {
-    const lightbox = document.getElementById('customLightbox');
-    lightbox.style.opacity = '0';
-    setTimeout(() => { lightbox.style.display = 'none'; }, 300);
-  }
-</script>
- 
 <div class="section-divider"></div>
 
-
-<section class="video-section" id="video" style="background: var(--cream); padding-top: 4rem; padding-bottom: 6rem !important;">
-  <div class="video-inner" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-    
-    <!-- HEADER PRINCIPAL -->
-    <div class="reveal" style="text-align: center; margin-bottom: 4rem;">
-      <div class="section-eyebrow">Portfolio</div>
-      <h2 class="section-title" style="color:var(--black);">VÍ<span style="color:var(--orange)">DEO</span> COMERCIAL</h2>
-      <p style="font-size: .95rem; color: #666; margin-top: .5rem;">Contenido visual y publicitario de alto impacto en todos los formatos.</p>
-    </div>
-    
-    <!-- ========================================================== -->
-    <!-- SUB-SECCIÓN 1: VÍDEOS HORIZONTALES (LOS 2 QUE HABÍA + 1)   -->
-    <!-- ========================================================== -->
-    <div class="reveal" style="margin-bottom: 5rem;">
-      <h3 style="text-align: center; color: var(--black); font-family: var(--bebas); font-size: 2.2rem; letter-spacing: 2px; margin-bottom: 3rem;">
-        SESIONES <span style="color:var(--orange)">&</span> CINEMÁTICO
-      </h3>
-      
-      <div class="horizontal-video-container" style="width: 100%; max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 4rem;">
-        
-        <!-- Horizontal 1 -->
-        <div style="aspect-ratio: 16/9; width: 100%;">
-          <iframe src="https://www.youtube.com/embed/85W0xm7VLpM" style="width:100%; height:100%; border:none; border-radius: 12px; box-shadow: 0 15px 40px rgba(0,0,0,0.15);" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-
-        <!-- Horizontal 2 -->
-        <div style="aspect-ratio: 16/9; width: 100%;">
-          <iframe src="https://www.youtube.com/embed/_Wwpe8285qo" style="width:100%; height:100%; border:none; border-radius: 12px; box-shadow: 0 15px 40px rgba(0,0,0,0.15);" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-
-        <!-- Horizontal 3 (EL NUEVO) -->
-        <div style="aspect-ratio: 16/9; width: 100%;">
-          <!-- 👇 CAMBIA ID_NUEVO_HORIZONTAL POR TU NUEVO VÍDEO 👇 -->
-          <iframe src="https://www.youtube.com/embed/BDSpXHmrEuo" style="width:100%; height:100%; border:none; border-radius: 12px; box-shadow: 0 15px 40px rgba(0,0,0,0.15);" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- SEPARADOR VISUAL SUTIL -->
-    <div class="reveal" style="width: 60px; height: 4px; background: var(--orange); margin: 0 auto 5rem auto; border-radius: 2px;"></div>
-
-    <!-- ========================================================== -->
-    <!-- SUB-SECCIÓN 2: VÍDEOS VERTICALES (LOS 4 QUE HABÍA + 1)     -->
-    <!-- ========================================================== -->
-    <div class="reveal">
-      <h3 style="text-align: center; color: var(--black); font-family: var(--bebas); font-size: 2.2rem; letter-spacing: 2px; margin-bottom: 3rem;">
-        REELS <span style="color:var(--orange)">&</span> SHORTS
-      </h3>
-
-      <div class="videos-vertical-container" style="display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap;">
-        
-        <!-- Vertical 1 -->
-        <div class="vertical-reel-item" style="flex: 1 1 280px; max-width: 320px; aspect-ratio: 9/16;">
-          <iframe src="https://www.youtube.com/embed/ot6k_m3HqTw" style="width:100%; height:100%; border:none; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-
-        <!-- Vertical 2 -->
-        <div class="vertical-reel-item" style="flex: 1 1 280px; max-width: 320px; aspect-ratio: 9/16;">
-          <iframe src="https://www.youtube.com/embed/fZ19NfEYd-o" style="width:100%; height:100%; border:none; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        
-        <!-- Vertical 3 -->
-        <div class="vertical-reel-item" style="flex: 1 1 280px; max-width: 320px; aspect-ratio: 9/16;">
-          <iframe src="https://www.youtube.com/embed/nQ_p2gdqMMM" style="width:100%; height:100%; border:none; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        
-        <!-- Vertical 4 -->
-        <div class="vertical-reel-item" style="flex: 1 1 280px; max-width: 320px; aspect-ratio: 9/16;">
-          <iframe src="https://www.youtube.com/embed/TL3KEvYK-Zc" style="width:100%; height:100%; border:none; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-
-        <!-- Vertical 5 (EL NUEVO) -->
-        <div class="vertical-reel-item" style="flex: 1 1 280px; max-width: 320px; aspect-ratio: 9/16;">
-          <!-- 👇 CAMBIA ID_NUEVO_VERTICAL POR TU NUEVO REEL 👇 -->
-          <iframe src="https://www.youtube.com/embed/ftpyt2ZxIuE" style="width:100%; height:100%; border:none; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-
-<section class="video-section" id="docuserie" style="background: var(--black); border-top: 1px solid rgba(255,255,255,0.05); padding-top: 5rem !important;">
+<!-- ======================================================= -->
+<!-- SECCIÓN: VÍDEO COMERCIAL                                -->
+<!-- ======================================================= -->
+<section class="video-section" id="video" style="background: var(--cream);">
   <div class="video-inner">
-    <div class="reveal">
-      <div class="section-eyebrow" style="color:var(--orange);">Personal Project</div>
-      <h2 class="section-title" style="color:var(--white);">10 DÍAS CREANDO<br><span style="color:var(--orange)">MI EMPRESA</span></h2>
-      <p style="font-size: .95rem; color: rgba(255,255,255,0.4); margin-top: .5rem; margin-bottom: 3rem;">Sigue el proceso diario, los retos y el detrás de cámaras construyendo ismaavisuals desde cero.</p>
+    
+    <div class="reveal" style="text-align: center; margin-bottom: 6rem;">
+      <div class="section-eyebrow" style="justify-content: center; gap:10px;">
+        <span style="display:inline-block; width:20px; height:1px; background:var(--orange);"></span>
+        Portfolio Vídeo
+        <span style="display:inline-block; width:20px; height:1px; background:var(--orange);"></span>
+      </div>
+      <h2 class="section-title" style="color:var(--black);">VÍ<span style="color:var(--orange)">DEO</span> COMERCIAL</h2>
     </div>
     
-    <div class="vertical-reels-grid reveal">
-      
-    	 <div class="vertical-reel-item docu-item">
-        <iframe src="https://www.youtube.com/embed/VWnizF-P0D4" style="width:100%; height:100%; border:none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <div class="docu-label">DÍA 01</div>
+    <!-- SESIONES -->
+    <div class="reveal" style="margin-bottom: 8rem;">
+      <h3 style="text-align: center; color: var(--black); font-family: var(--bebas); font-size: 2rem; letter-spacing: .1em; margin-bottom: 3rem;">
+        SESIONES <span style="color:var(--orange)">&amp;</span> CINEMÁTICO
+      </h3>
+      <div style="width: 100%; max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 3rem;">
+        <div style="aspect-ratio: 16/9; width: 100%; background: var(--black);">
+          <iframe src="https://www.youtube.com/embed/85W0xm7VLpM" style="width:100%; height:100%; border:none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div style="aspect-ratio: 16/9; width: 100%; background: var(--black);">
+          <iframe src="https://www.youtube.com/embed/_Wwpe8285qo" style="width:100%; height:100%; border:none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div style="aspect-ratio: 16/9; width: 100%; background: var(--black);">
+          <iframe src="https://www.youtube.com/embed/BDSpXHmrEuo" style="width:100%; height:100%; border:none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
       </div>
+    </div>
 
-   <div class="vertical-reel-item docu-item">
-        <iframe src="https://www.youtube.com/embed/wfHiClqT9fw" style="width:100%; height:100%; border:none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <div class="docu-label">DÍA 02</div>
-      </div>
+    <!-- SEPARADOR -->
+    <div class="reveal" style="width: 1px; height: 80px; background: rgba(0,0,0,0.1); margin: 0 auto 8rem auto;"></div>
 
-      <div class="vertical-reel-item docu-item">
-        <iframe src="https://www.youtube.com/embed/Bs0UpXjsXsk" style="width:100%; height:100%; border:none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <div class="docu-label">DÍA 03</div>
+    <!-- REELS -->
+    <div class="reveal">
+      <h3 style="text-align: center; color: var(--black); font-family: var(--bebas); font-size: 2rem; letter-spacing: .1em; margin-bottom: 3rem;">
+        REELS <span style="color:var(--orange)">&amp;</span> SHORTS
+      </h3>
+      <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+        <div style="flex: 1 1 250px; max-width: 300px; aspect-ratio: 9/16; background: var(--black);">
+          <iframe src="https://www.youtube.com/embed/ot6k_m3HqTw" style="width:100%; height:100%; border:none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div style="flex: 1 1 250px; max-width: 300px; aspect-ratio: 9/16; background: var(--black);">
+          <iframe src="https://www.youtube.com/embed/fZ19NfEYd-o" style="width:100%; height:100%; border:none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div style="flex: 1 1 250px; max-width: 300px; aspect-ratio: 9/16; background: var(--black);">
+          <iframe src="https://www.youtube.com/embed/nQ_p2gdqMMM" style="width:100%; height:100%; border:none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div style="flex: 1 1 250px; max-width: 300px; aspect-ratio: 9/16; background: var(--black);">
+          <iframe src="https://www.youtube.com/embed/TL3KEvYK-Zc" style="width:100%; height:100%; border:none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div style="flex: 1 1 250px; max-width: 300px; aspect-ratio: 9/16; background: var(--black);">
+          <iframe src="https://www.youtube.com/embed/ftpyt2ZxIuE" style="width:100%; height:100%; border:none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
       </div>
+    </div>
 
-       <div class="vertical-reel-item docu-item">
-        <iframe src="https://www.youtube.com/embed/LXZdyLdCApY" style="width:100%; height:100%; border:none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <div class="docu-label">DÍA 04</div>
-      </div>
+  </div>
+</section>
 
-     <div class="vertical-reel-item docu-item">
-        <iframe src="https://www.youtube.com/embed/d2W4NYdPjPc" style="width:100%; height:100%; border:none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <div class="docu-label">DÍA 05</div>
-      </div>
-     
-      <div class="vertical-reel-item docu-item">
-        <iframe src="https://www.youtube.com/embed/_av1pDWaZKg" style="width:100%; height:100%; border:none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <div class="docu-label">DÍA 06</div>
-      </div>
-
-      <div class="vertical-reel-item docu-item">
-        <iframe src="https://www.youtube.com/embed/gSorkk1KwI4" style="width:100%; height:100%; border:none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <div class="docu-label">DÍA 07</div>
-      </div>
-
-       <div class="vertical-reel-item docu-item">
-        <iframe src="https://www.youtube.com/embed/1uBZwlHy65A" style="width:100%; height:100%; border:none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <div class="docu-label">DÍA 08</div>
-      </div>
+<!-- ======================================================= -->
+<!-- DOCUSERIE                                               -->
+<!-- ======================================================= -->
+<section class="video-section" id="docuserie" style="background: var(--black);">
+  <div class="video-inner">
+    <div class="reveal" style="margin-bottom: 4rem;">
+      <div class="section-eyebrow">Personal Project</div>
+      <h2 class="section-title">10 DÍAS CREANDO<br><span style="color:var(--orange)">MI EMPRESA</span></h2>
+    </div>
     
-
-       <div class="vertical-reel-item docu-item">
-        <iframe src="https://www.youtube.com/embed/HdN3hfmdN0k" style="width:100%; height:100%; border:none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <div class="docu-label">DÍA 09</div>
+    <div class="reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+      
+      <div class="docu-item" style="aspect-ratio: 9/16; position: relative;">
+        <iframe src="https://www.youtube.com/embed/VWnizF-P0D4" style="width:100%; height:100%; border:none;" allowfullscreen></iframe>
+        <div class="docu-label" style="position:absolute; top:15px; left:15px;">DÍA 01</div>
       </div>
-
-      <div class="vertical-reel-item docu-item coming-soon">
-        <div class="coming-soon-content"><span>🔒</span><p>DÍA 10</p><small>Próximamente</small></div>
+      <div class="docu-item" style="aspect-ratio: 9/16; position: relative;">
+        <iframe src="https://www.youtube.com/embed/wfHiClqT9fw" style="width:100%; height:100%; border:none;" allowfullscreen></iframe>
+        <div class="docu-label" style="position:absolute; top:15px; left:15px;">DÍA 02</div>
+      </div>
+      <div class="docu-item" style="aspect-ratio: 9/16; position: relative;">
+        <iframe src="https://www.youtube.com/embed/Bs0UpXjsXsk" style="width:100%; height:100%; border:none;" allowfullscreen></iframe>
+        <div class="docu-label" style="position:absolute; top:15px; left:15px;">DÍA 03</div>
+      </div>
+      <div class="docu-item" style="aspect-ratio: 9/16; position: relative;">
+        <iframe src="https://www.youtube.com/embed/LXZdyLdCApY" style="width:100%; height:100%; border:none;" allowfullscreen></iframe>
+        <div class="docu-label" style="position:absolute; top:15px; left:15px;">DÍA 04</div>
+      </div>
+      <div class="docu-item" style="aspect-ratio: 9/16; position: relative;">
+        <iframe src="https://www.youtube.com/embed/d2W4NYdPjPc" style="width:100%; height:100%; border:none;" allowfullscreen></iframe>
+        <div class="docu-label" style="position:absolute; top:15px; left:15px;">DÍA 05</div>
+      </div>
+      <div class="docu-item" style="aspect-ratio: 9/16; position: relative;">
+        <iframe src="https://www.youtube.com/embed/_av1pDWaZKg" style="width:100%; height:100%; border:none;" allowfullscreen></iframe>
+        <div class="docu-label" style="position:absolute; top:15px; left:15px;">DÍA 06</div>
+      </div>
+      <div class="docu-item" style="aspect-ratio: 9/16; position: relative;">
+        <iframe src="https://www.youtube.com/embed/gSorkk1KwI4" style="width:100%; height:100%; border:none;" allowfullscreen></iframe>
+        <div class="docu-label" style="position:absolute; top:15px; left:15px;">DÍA 07</div>
+      </div>
+      <div class="docu-item" style="aspect-ratio: 9/16; position: relative;">
+        <iframe src="https://www.youtube.com/embed/1uBZwlHy65A" style="width:100%; height:100%; border:none;" allowfullscreen></iframe>
+        <div class="docu-label" style="position:absolute; top:15px; left:15px;">DÍA 08</div>
+      </div>
+      <div class="docu-item" style="aspect-ratio: 9/16; position: relative;">
+        <iframe src="https://www.youtube.com/embed/HdN3hfmdN0k" style="width:100%; height:100%; border:none;" allowfullscreen></iframe>
+        <div class="docu-label" style="position:absolute; top:15px; left:15px;">DÍA 09</div>
+      </div>
+      <div class="docu-item" style="aspect-ratio: 9/16; background: #111; display:flex; flex-direction:column; justify-content:center; align-items:center; color:rgba(255,255,255,0.3);">
+        <span style="font-size: 2rem; margin-bottom: 10px;">🔒</span>
+        <p style="font-family: var(--bebas); font-size: 1.5rem; letter-spacing: .05em;">DÍA 10</p>
+        <small style="font-size: .7rem; text-transform: uppercase; letter-spacing: .1em;">Próximamente</small>
       </div>
 
     </div>
   </div>
-
-  <style>
-    /* Centrar un único vídeo */
-    .single-video-centered {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-    }
-    .single-video-centered .vertical-reel-item {
-      width: 100%;
-      max-width: 320px; /* Tamaño perfecto de teléfono en pantalla grande */
-    }
-
-    /* Cuadrícula de la docuserie */
-    .vertical-reels-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr); /* 5 columnas en PC (2 filas de 5 = 10 días) */
-      gap: 20px;
-    }
-    .vertical-reel-item {
-      aspect-ratio: 9/16;
-      background: #111;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 4px 25px rgba(0,0,0,0.3);
-      position: relative;
-    }
-    
-    /* Etiquetas para los días */
-    .docu-item { border: 1px solid rgba(255,77,0,0.1); }
-    .docu-label {
-      position: absolute;
-      top: 10px; left: 10px;
-      background: var(--orange);
-      color: #fff;
-      font-size: 0.65rem;
-      font-weight: 700;
-      padding: 3px 8px;
-      border-radius: 3px;
-      letter-spacing: 0.05em;
-      pointer-events: none;
-    }
-
-    /* Tarjetas de diseño Próximamente (Ocultas/Candado) */
-    .coming-soon {
-      background: #141414;
-      border: 1px dashed rgba(255,255,255,0.06);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .coming-soon-content {
-      text-align: center;
-      color: rgba(255,255,255,0.2);
-    }
-    .coming-soon-content span { font-size: 1.5rem; display: block; margin-bottom: 5px; opacity: 0.4; }
-    .coming-soon-content p { font-family: var(--bebas); font-size: 1.3rem; letter-spacing: 0.05em; color: rgba(255,255,255,0.3); }
-    .coming-soon-content small { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.5; }
-
-    /* Adaptación móvil estricta */
-    @media (max-width: 1024px) {
-      .vertical-reels-grid { grid-template-columns: repeat(3, 1fr); gap: 15px; }
-    }
-    @media (max-width: 768px) {
-      .vertical-reels-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-      .single-video-centered .vertical-reel-item { max-width: 280px; }
-    }
-  </style>
 </section>
+
 <!-- ======================================================= -->
-<!-- SECCIÓN: MI FILOSOFÍA / COMPROMISO PRO -->
+<!-- FILOSOFÍA / COMPROMISO                                  -->
 <!-- ======================================================= -->
-<section class="philosophy-section" style="background: var(--black); padding: 5rem 0; border-top: 1px solid rgba(255,255,255,0.05);">
-  <div class="philosophy-inner" style="max-width: 1100px; margin: 0 auto; padding: 0 20px;">
-    
-    <div class="philosophy-box" style="background: #0e0e0e; border: 1px solid rgba(255,77,0,0.15); border-radius: 12px; padding: 3.5rem 2.5rem; position: relative; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.5);">
-      
-      <!-- Detalle estético de luces de fondo -->
-      <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: var(--orange); filter: blur(120px); opacity: 0.15; pointer-events: none;"></div>
-      
-      <div class="philosophy-grid">
+<section class="philosophy-section">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <div class="philosophy-box reveal">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;">
         
-        <!-- Bloque Izquierdo: El Gancho -->
         <div class="ph-left">
-          <div class="section-eyebrow" style="color: var(--orange); margin-bottom: 0.5rem;">Mi Compromiso</div>
-          <h3 style="font-family: var(--bebas); font-size: 2.8rem; color: var(--white); line-height: 1.1; letter-spacing: 0.03em; margin: 0 0 1.5rem 0;">
+          <div class="section-eyebrow">Mi Compromiso</div>
+          <h3 style="font-family: var(--bebas); color: var(--white); line-height: .9; letter-spacing: .02em; margin-bottom: 2rem;">
             EL CONTENIDO TIENE QUE TRABAJAR <span style="color: var(--orange);">MIENTRAS EL EVENTO AÚN QUEMA</span>
           </h3>
-          <p style="color: rgba(255,255,255,0.6); font-size: 1rem; line-height: 1.6; margin: 0;">
-            Sé perfectamente cómo funciona el algoritmo y los negocios actuales: un gran vídeo pierde el 50% de su impacto si se publica una semana tarde. Mi filosofía se basa en fusionar una estética cinematográfica salvaje con una velocidad de entrega obsesiva.
+          <p style="color: rgba(255,255,255,0.6); font-size: 1.05rem; font-weight: 300; line-height: 1.8;">
+            Un gran vídeo pierde el 50% de su impacto si se publica una semana tarde. Mi filosofía se basa en fusionar una estética editorial impecable con una velocidad de entrega absoluta.
           </p>
         </div>
         
-        <!-- Bloque Derecho: Los 3 Pilares -->
-        <div class="ph-right">
-          
-          <div class="pilar-item" style="margin-bottom: 1.8rem; display: flex; gap: 15px;">
-            <div style="font-size: 1.8rem; color: var(--orange); line-height: 1;">⚡</div>
-            <div>
-              <h4 style="color: var(--white); font-size: 1.1rem; font-weight: 600; margin: 0 0 0.3rem 0;">Entrega en Tiempo Récord</h4>
-              <p style="color: rgba(255,255,255,0.45); font-size: 0.9rem; margin: 0; line-height: 1.4;">Tus fotos premium y Reels listos en un plazo de 48 a 72 horas. Sin excusas ni esperas eternas.</p>
-            </div>
+        <div class="ph-right" style="display: flex; flex-direction: column; gap: 2.5rem;">
+          <div>
+            <h4 style="color: var(--white); font-size: 1.1rem; font-weight: 400; margin-bottom: 0.5rem;">01. Entrega en Tiempo Récord</h4>
+            <p style="color: rgba(255,255,255,0.4); font-size: 0.9rem; font-weight: 300; line-height: 1.6;">Tus fotos y Reels listos en un plazo de 48 a 72 horas. Sin excusas ni esperas eternas.</p>
           </div>
-
-          <div class="pilar-item" style="margin-bottom: 1.8rem; display: flex; gap: 15px;">
-            <div style="font-size: 1.8rem; color: var(--orange); line-height: 1;">🔥</div>
-            <div>
-              <h4 style="color: var(--white); font-size: 1.1rem; font-weight: 600; margin: 0 0 0.3rem 0;">Retención y Alto Impacto</h4>
-              <p style="color: rgba(255,255,255,0.45); font-size: 0.9rem; margin: 0; line-height: 1.4;">Edición frenética, ganchos visuales potentes y diseño de sonido diseñado específicamente para enganchar al usuario al instante.</p>
-            </div>
+          <div>
+            <h4 style="color: var(--white); font-size: 1.1rem; font-weight: 400; margin-bottom: 0.5rem;">02. Alto Impacto Visual</h4>
+            <p style="color: rgba(255,255,255,0.4); font-size: 0.9rem; font-weight: 300; line-height: 1.6;">Edición dinámica y diseño de color cinematográfico diseñado para enganchar al usuario al instante.</p>
           </div>
-
-          <div class="pilar-item" style="display: flex; gap: 15px;">
-            <div style="font-size: 1.8rem; color: var(--orange); line-height: 1;">🌍</div>
-            <div>
-              <h4 style="color: var(--white); font-size: 1.1rem; font-weight: 600; margin: 0 0 0.3rem 0;">Movilidad Sin Barreras</h4>
-              <p style="color: rgba(255,255,255,0.45); font-size: 0.9rem; margin: 0; line-height: 1.4;">Basado en Valencia, pero con equipo ligero y listo para viajar a cualquier festival, club o centro deportivo que requiera calidad pro.</p>
-            </div>
+          <div>
+            <h4 style="color: var(--white); font-size: 1.1rem; font-weight: 400; margin-bottom: 0.5rem;">03. Movilidad Global</h4>
+            <p style="color: rgba(255,255,255,0.4); font-size: 0.9rem; font-weight: 300; line-height: 1.6;">Basado en Valencia, listo para viajar a cualquier festival o producción comercial donde se requiera calidad pro.</p>
           </div>
-
         </div>
 
       </div>
     </div>
   </div>
-
-  <!-- ESTILOS RESPONSIVE PARA EL BANNER -->
-  <style>
-    .philosophy-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 50px;
-      align-items: center;
-    }
-    @media (max-width: 900px) {
-      .philosophy-grid {
-        grid-template-columns: 1fr;
-        gap: 35px;
-      }
-      .philosophy-box {
-        padding: 2.5rem 1.5rem !important;
-      }
-    }
-  </style>
 </section>
 
-<div class="section-divider"></div>
- 
-
-<!-- SERVICIOS / PACKS INTERACTIVOS CON PESTAÑAS (ESTILO FOTOGRAFÍA) -->
+<!-- ======================================================= -->
+<!-- PACKS                                                   -->
+<!-- ======================================================= -->
 <section class="packs" id="packs">
   <div class="packs-inner">
     <div class="reveal">
       <div class="section-eyebrow">Servicios</div>
       <h2 class="section-title">PACK<span style="color:var(--orange)">S</span></h2>
-      <p class="packs-subtitle">Todo lo que necesitas para que tu negocio o proyecto se vea como lo que es — profesional.</p>
+      <p class="packs-subtitle">Soluciones visuales diseñadas para posicionar tu marca en el sector premium.</p>
     </div>
 
-    <!-- Pestañas interactivas idénticas a la sección de fotografía -->
-    <div class="filter-tabs" style="margin-bottom: 3rem; display: flex; justify-content: center; gap: 10px;">
+    <div class="filter-tabs reveal">
       <button class="filter-tab active" id="btn-pack-dj" onclick="switchPacks('dj')">Nightlife & DJs</button>
-      <button class="filter-tab" id="btn-pack-fit" onclick="switchPacks('fitness')">Fitness & Gyms</button>
+      <button class="filter-tab" id="btn-pack-fit" onclick="switchPacks('fitness')">Fitness & Comercial</button>
     </div>
     
-    <!-- ========================================== -->
-    <!-- BLOQUE 1: NIGHTLIFE & DJs (ACTIVO POR DEFECTO) -->
-    <!-- ========================================== -->
     <div class="packs-grid reveal" id="grid-packs-dj">
+      <div class="pack-card">
+        <div>
+          <div class="pack-badge">Básico</div>
+          <div class="pack-name">STARTER</div>
+          <p class="pack-desc">Cobertura esencial de 1 hora para capturar el pico de la sesión.</p>
+          <div class="pack-feature">Hasta 1 hora de cobertura</div>
+          <div class="pack-feature">10 fotografías editadas</div>
+          <div class="pack-feature">Clips en bruto para RRSS</div>
+          <div class="pack-feature">Entrega en 48h</div>
+        </div>
+        <a href="#contacto" class="btn-primary" style="margin-top: 3rem; width: 100%; text-align: center;">Solicitar info</a>
+      </div>
 
       <div class="pack-card">
         <div>
-          <div class="pack-badge">Pack Básico</div>
-          <div class="pack-name">BÁSICO</div>
-          <p class="pack-desc">Cobertura de hasta 1 hora en 1 sala o discoteca. Ideal para empezar.</p>
-          <ul class="pack-features">
-            <li class="pack-feature">Hasta 1 hora de cobertura</li>
-            <li class="pack-feature">1 sala / discoteca</li>
-            <li class="pack-feature">10 fotos de alta resolución editadas</li>
-            <li class="pack-feature">Clips de vídeo en bruto para Instagram Stories</li>
-            <li class="pack-feature">Galería online en 48 horas</li>
-          </ul>
-        </div>
-        <a href="#contacto" class="pack-cta">Solicitar info</a>
-      </div>
-
-      <div class="pack-card featured">
-        <div>
-          <div class="pack-badge">⭐ Más solicitado</div>
+          <div class="pack-badge" style="color: var(--orange);">⭐ Recomendado</div>
           <div class="pack-name">ESTÁNDAR</div>
-          <p class="pack-desc">El equilibrio perfecto entre calidad y cobertura para eventos de DJ.</p>
-          <ul class="pack-features">
-            <li class="pack-feature">Hasta 3 horas de cobertura</li>
-            <li class="pack-feature">1 sala / discoteca</li>
-            <li class="pack-feature">1 Reel épico cinematográfico (con diseño de sonido y color)</li>
-            <li class="pack-feature">15 fotos de alta resolución editadas</li>
-            <li class="pack-feature">Clips seleccionados en bruto para Instagram Stories</li>
-            <li class="pack-feature">Galería online en 1-3 días</li>
-          </ul>
+          <p class="pack-desc">El equilibrio perfecto entre calidad y volumen de contenido.</p>
+          <div class="pack-feature">Hasta 3 horas de cobertura</div>
+          <div class="pack-feature">1 Reel cinematográfico editado</div>
+          <div class="pack-feature">15 fotografías editadas</div>
+          <div class="pack-feature">Entrega prioritaria 1-3 días</div>
         </div>
-        <a href="#contacto" class="pack-cta">Solicitar info</a>
+        <a href="#contacto" class="btn-primary" style="margin-top: 3rem; width: 100%; text-align: center; background: var(--white); color: var(--black);">Solicitar info</a>
       </div>
 
       <div class="pack-card">
         <div>
-          <div class="pack-badge">Pack Premium</div>
-          <div class="pack-name">PREMIUM</div>
-          <p class="pack-desc">Cobertura total del evento. Cabina, backstage y zona VIP incluidos.</p>
-          <ul class="pack-features">
-            <li class="pack-feature">Hasta 4 horas de cobertura completa</li>
-            <li class="pack-feature">Acceso total: cabina + backstage + zona VIP</li>
-            <li class="pack-feature">2 Reels personalizados (1 Drop épico, 1 Tendencias)</li>
-            <li class="pack-feature">25 fotos premium editadas (contenido para todo el mes)</li>
-            <li class="pack-feature">Entrega prioritaria</li>
-            <li class="pack-feature">Galería online prioritaria en 72 horas</li>
-          </ul>
+          <div class="pack-badge">Premium</div>
+          <div class="pack-name">PRO TIER</div>
+          <p class="pack-desc">Cobertura total. Cabina, backstage, zona VIP y contenido masivo.</p>
+          <div class="pack-feature">Hasta 4 horas de cobertura</div>
+          <div class="pack-feature">2 Reels personalizados</div>
+          <div class="pack-feature">25 fotografías comerciales</div>
+          <div class="pack-feature">Entrega ultra-rápida</div>
         </div>
-        <a href="#contacto" class="pack-cta">Solicitar info</a>
+        <a href="#contacto" class="btn-primary" style="margin-top: 3rem; width: 100%; text-align: center;">Solicitar info</a>
       </div>
-
     </div>
 
-    <!-- ========================================== -->
-    <!-- BLOQUE 2: FITNESS & GYMs (OCULTO AL INICIO) -->
-    <!-- ========================================== -->
     <div class="packs-grid reveal" id="grid-packs-fitness" style="display: none;">
-
       <div class="pack-card">
         <div>
-          <div class="pack-badge">Marca Personal</div>
-          <div class="pack-name">ATLETA / COACH</div>
-          <p class="pack-desc">Sesión enfocada en potenciar tus redes, tu físico o tu marca de asesorías online.</p>
-          <ul class="pack-features">
-            <li class="pack-feature">Sesión de fotos y vídeo (hasta 1.5h)</li>
-            <li class="pack-feature">Ubicación a elegir (Gimnasio/Exterior)</li>
-            <li class="pack-feature">1 Reels/TikToks cinematográficos listos para publicar</li>
-            <li class="pack-feature">12 fotos premium editadas (Técnica + Enfoque físico)</li>
-            <li class="pack-feature">Asesoría de ideas y audios en tendencia antes de grabar</li>
-          </ul>
+          <div class="pack-badge">Atleta / Coach</div>
+          <div class="pack-name">PERSONAL</div>
+          <p class="pack-desc">Sesión enfocada en potenciar tu marca personal y físico.</p>
+          <div class="pack-feature">Sesión de 1.5 horas</div>
+          <div class="pack-feature">1 Reel dinámico editado</div>
+          <div class="pack-feature">12 fotografías retocadas</div>
+          <div class="pack-feature">Dirección artística</div>
         </div>
-        <a href="#contacto" class="pack-cta">Solicitar info</a>
+        <a href="#contacto" class="btn-primary" style="margin-top: 3rem; width: 100%; text-align: center;">Solicitar info</a>
       </div>
-
-      <div class="pack-card featured">
-        <div>
-          <div class="pack-badge">⚡ Contenido Recurrente</div>
-          <div class="pack-name">MENSUAL GYM</div>
-          <p class="pack-desc">Suscripción mensual para centros que necesitan contenido constante de calidad para captar socios.</p>
-          <ul class="pack-features">
-            <li class="pack-feature">2 visitas de rodaje al mes al establecimiento</li>
-            <li class="pack-feature">4 Reels/TikToks al mes (Contenido para cada semana)</li>
-            <li class="pack-feature">20 fotos mensuales (Instalaciones, clases, comunidad)</li>
-            <li class="pack-feature">Contenido optimizado para campañas de anuncios locales</li>
-            <li class="pack-feature">Estrategia y planificación visual incluida</li>
-          </ul>
-        </div>
-        <a href="#contacto" class="pack-cta">Solicitar info</a>
-      </div>
-
       <div class="pack-card">
         <div>
-          <div class="pack-badge">Producción Comercial</div>
+          <div class="pack-badge" style="color: var(--orange);">⚡ Recurrente</div>
+          <div class="pack-name">MONTHLY</div>
+          <p class="pack-desc">Suscripción para gimnasios que necesitan contenido semanal.</p>
+          <div class="pack-feature">2 Rodajes mensuales</div>
+          <div class="pack-feature">4 Reels al mes</div>
+          <div class="pack-feature">20 Fotografías al mes</div>
+          <div class="pack-feature">Planificación visual</div>
+        </div>
+        <a href="#contacto" class="btn-primary" style="margin-top: 3rem; width: 100%; text-align: center; background: var(--white); color: var(--black);">Solicitar info</a>
+      </div>
+      <div class="pack-card">
+        <div>
+          <div class="pack-badge">Marcas / Eventos</div>
           <div class="pack-name">BRANDING</div>
-          <p class="pack-desc">Producción de alta gama para marcas de ropa fitness, suplementación o grandes eventos.</p>
-          <ul class="pack-features">
-            <li class="pack-feature">Media jornada de producción completa (Estudio/Gym)</li>
-            <li class="pack-feature">Dirección de modelos o atletas destacados en acción</li>
-            <li class="pack-feature">1 Vídeo promocional principal con estética de cine</li>
-            <li class="pack-feature">3 Clips cortos verticales de producto en uso</li>
-            <li class="pack-feature">25 fotos comerciales listas para web y catálogo</li>
-          </ul>
+          <p class="pack-desc">Producción de alta gama para campañas publicitarias.</p>
+          <div class="pack-feature">Media jornada de producción</div>
+          <div class="pack-feature">1 Vídeo promocional principal</div>
+          <div class="pack-feature">3 Clips cortos verticales</div>
+          <div class="pack-feature">25 Fotografías comerciales</div>
         </div>
-        <a href="#contacto" class="pack-cta">Solicitar info</a>
+        <a href="#contacto" class="btn-primary" style="margin-top: 3rem; width: 100%; text-align: center;">Solicitar info</a>
       </div>
-
     </div>
-
-    <p class="pack-note reveal" style="margin-top: 3rem;">¿Necesitas algo diferente? Contáctame para recibir un paquete personalizado.</p>
   </div>
 
-  <!-- SCRIPT AJUSTADO PARA CONMUTAR LOS BLOQUES DE PACKS -->
   <script>
     function switchPacks(type) {
-      const djGrid = document.getElementById('grid-packs-dj');
-      const fitGrid = document.getElementById('grid-packs-fitness');
-      const djBtn = document.getElementById('btn-pack-dj');
-      const fitBtn = document.getElementById('btn-pack-fit');
-
-      if (type === 'dj') {
-        djGrid.style.display = 'grid';
-        fitGrid.style.display = 'none';
-        djBtn.classList.add('active');
-        fitBtn.classList.remove('active');
-      } else {
-        djGrid.style.display = 'none';
-        fitGrid.style.display = 'grid';
-        djBtn.classList.remove('active');
-        fitBtn.classList.add('active');
-      }
+      document.getElementById('grid-packs-dj').style.display = type === 'dj' ? 'grid' : 'none';
+      document.getElementById('grid-packs-fitness').style.display = type === 'fitness' ? 'grid' : 'none';
+      document.getElementById('btn-pack-dj').className = type === 'dj' ? 'filter-tab active' : 'filter-tab';
+      document.getElementById('btn-pack-fit').className = type === 'fitness' ? 'filter-tab active' : 'filter-tab';
     }
   </script>
 </section>
 
-<div class="section-divider"></div>
- <!-- ======================================================= -->
-<!-- SECCIÓN: PREGUNTAS FRECUENTES (FAQ) -->
 <!-- ======================================================= -->
-<section class="faq-section" id="faq" style="background: var(--black); padding: 6rem 0; border-top: 1px solid rgba(255,255,255,0.05);">
-  <div class="faq-inner" style="max-width: 800px; margin: 0 auto; padding: 0 20px;">
-    
-    <div class="reveal" style="text-align: center; margin-bottom: 3.5rem;">
-      <div class="section-eyebrow" style="color: var(--orange);">Respuestas</div>
-      <h2 class="section-title" style="color: var(--white); margin-bottom: 1rem;">PREGUNTAS <span style="color: var(--orange);">FRECUENTES</span></h2>
-      <p style="color: rgba(255,255,255,0.5); font-size: 0.95rem;">Resuelvo las dudas más comunes antes de empezar a trabajar juntos.</p>
+<!-- FAQ                                                     -->
+<!-- ======================================================= -->
+<section class="faq-section" id="faq">
+  <div style="max-width: 800px; margin: 0 auto;">
+    <div class="reveal" style="margin-bottom: 4rem;">
+      <div class="section-eyebrow">Respuestas</div>
+      <h2 class="section-title">FAQ</h2>
     </div>
 
-    <div class="faq-accordion reveal">
-      
-      <!-- PREGUNTA 1 -->
+    <div class="reveal">
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span>¿Cuánto tardas en entregar el material editado?</span>
-          <span class="faq-icon">+</span>
+          <span style="color:var(--gray); font-weight:300;">+</span>
         </button>
-        <div class="faq-answer">
-          <p>En el sector de la noche y el fitness, el ritmo de las redes es inmediato. Por eso, las fotos optimizadas y los Reels editados (con diseño de sonido y etalonaje de color profesional) se entregan en un plazo de **48 a 72 horas** tras el evento o la sesión. Si necesitas material urgente para Stories al día siguiente, dímelo antes y lo coordinamos.</p>
-        </div>
+        <div class="faq-answer"><p>En un plazo de 48 a 72 horas tras el evento o la sesión. Si necesitas material urgente para Stories al día siguiente, se puede coordinar sin problema.</p></div>
       </div>
-
-      <!-- PREGUNTA 2 -->
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span>¿Te desplazas fuera de Valencia?</span>
-          <span class="faq-icon">+</span>
+          <span style="color:var(--gray); font-weight:300;">+</span>
         </button>
-        <div class="faq-answer">
-          <p>Sí, tengo disponibilidad total para viajar. Trabajo principalmente en **Valencia y alrededores**, pero me puedo desplazar a cualquier punto de España o del extranjero para cubrir festivales, eventos en discotecas o producciones comerciales para marcas de fitness. Los costes de desplazamiento y alojamiento se calculan de forma transparente en el presupuesto final.</p>
-        </div>
+        <div class="faq-answer"><p>Sí. Trabajo principalmente en Valencia, pero me desplazo a cualquier punto nacional o internacional. Los costes de viaje se añaden de forma transparente al presupuesto.</p></div>
       </div>
-
-      <!-- PREGUNTA 3 -->
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
-          <span>¿En qué formatos me entregas los vídeos?</span>
-          <span class="faq-icon">+</span>
+          <span>¿En qué formatos entregas los vídeos?</span>
+          <span style="color:var(--gray); font-weight:300;">+</span>
         </button>
-        <div class="faq-answer">
-          <p>Entrego todo el contenido optimizado según su destino final. Para redes sociales como Instagram Reels, TikTok o YouTube Shorts, te entregaré los archivos en formato **vertical nativo (9:16) en alta resolución**. Si necesitas vídeos corporativos para páginas web, pantallas gigantes de salas o canales de YouTube tradicionales, también realizo entregas en formato **horizontal (16:9) en 4K**.</p>
-        </div>
+        <div class="faq-answer"><p>Principalmente en formato vertical nativo (9:16) en alta resolución para RRSS. También realizo producciones horizontales (16:9) en 4K bajo demanda.</p></div>
       </div>
-
-      <!-- PREGUNTA 4 -->
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          <span>¿Qué pasa con la música de los vídeos y el copyright?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <p>Para los Reels de DJs suelo utilizar los propios drops o transiciones de la sesión para que sea 100% real. Para vídeos comerciales de gimnasios o marcas, utilizo plataformas con **licencias oficiales de música**. Así te aseguras de que Instagram, TikTok o YouTube no te silencien el vídeo ni penalicen tu cuenta de empresa por problemas de derechos de autor.</p>
-        </div>
-      </div>
-
-      <!-- PREGUNTA 5 -->
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          <span>¿Cómo se realiza la reserva y el método de pago?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <p>Una vez que elegimos el pack que mejor se adapta a ti o cerramos un presupuesto personalizado, se realiza un pago del **50% en concepto de reserva** para asegurar la fecha en el calendario. El 50% restante se abona una vez finalizada la sesion a realizar. Acepto transferencias bancarias y Bizum para mayor comodidad.</p>
-        </div>
-      </div>
-
     </div>
   </div>
-
-  <!-- ESTILOS CSS EXCLUSIVOS DE LOS ACORDEONES -->
-  <style>
-    .faq-accordion {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-    .faq-item {
-      background: #111;
-      border: 1px solid rgba(255,255,255,0.05);
-      border-radius: 6px;
-      overflow: hidden;
-      transition: border-color 0.3s ease;
-    }
-    .faq-item:hover {
-      border-color: rgba(255,77,0,0.3);
-    }
-    .faq-question {
-      width: 100%;
-      background: none;
-      border: none;
-      padding: 20px;
-      color: var(--white);
-      font-size: 1.05rem;
-      font-weight: 600;
-      text-align: left;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-      transition: color 0.3s ease;
-    }
-    .faq-question:hover {
-      color: var(--orange);
-    }
-    .faq-icon {
-      font-size: 1.4rem;
-      color: var(--orange);
-      transition: transform 0.3s ease;
-      font-weight: 300;
-    }
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease-out, padding 0.3s ease;
-      padding: 0 20px;
-    }
-    .faq-answer p {
-      color: rgba(255,255,255,0.6);
-      font-size: 0.95rem;
-      line-height: 1.6;
-      padding-bottom: 20px;
-    }
-    /* Clase para cuando esté abierto */
-    .faq-item.active {
-      border-color: var(--orange);
-    }
-    .faq-item.active .faq-icon {
-      transform: rotate(45deg); /* Gira el "+" para que parezca una "x" */
-    }
-  </style>
-
-  <!-- LOGICA JAVASCRIPT PARA DESPLEGAR -->
   <script>
     function toggleFaq(button) {
       const item = button.parentElement;
       const answer = button.nextElementSibling;
-      
-      // Si el elemento ya está activo, lo cerramos
       if (item.classList.contains('active')) {
         item.classList.remove('active');
         answer.style.maxHeight = null;
       } else {
-        // Cerramos cualquier otro acordeón abierto para que quede más limpio
         document.querySelectorAll('.faq-item').forEach(el => {
           el.classList.remove('active');
           el.querySelector('.faq-answer').style.maxHeight = null;
         });
-        
-        // Abrimos el actual calculando su altura real de texto
         item.classList.add('active');
         answer.style.maxHeight = answer.scrollHeight + "px";
       }
     }
   </script>
 </section>
- 
-<div class="section-divider"></div>
- 
-<!-- CONTACTO CONECTADO A TU FORMSPREE CON CAMPO DE REDES SOCIALES -->
+
+<!-- ======================================================= -->
+<!-- CONTACTO                                                -->
+<!-- ======================================================= -->
 <section class="contact" id="contacto">
   <div class="contact-inner">
     <div class="reveal">
       <div class="section-eyebrow">Hablemos</div>
-      <h2 class="section-title">CON<span>TACTO</span></h2>
-      <p class="contact-text">¿Tienes un gimnasio, eres DJ o gestionas eventos en Valencia? Cuéntame tu proyecto y te preparo una propuesta personalizada.</p>
-      <div class="contact-links">
-        <a href="https://instagram.com/ismaavisuals" target="_blank" class="contact-link">
-          <div class="contact-link-icon">📸</div>
-          @ismaavisuals
-        </a>
-        <a href="mailto:ismavisuals.work@gmail.com" class="contact-link">
-          <div class="contact-link-icon">💬</div>
-          ismavisuals.work@gmail.com
-        </a>
-       <a href="https://wa.me/34644846097?text=Hola%20Isma!%20He%20visto%20tu%20porfolio%20y%20me%20gustar%C3%ADa%20pedirte%20informaci%C3%B3n%20para%20un%20proyecto." 
-           target="_blank" 
-           class="contact-link" 
-           style="color: #25d366; font-weight: 600;">
-          <div class="contact-link-icon" style="background: rgba(37,211,102,0.1);">💬</div>
-          Chatear por WhatsApp
-        </a>
+      <h2 class="section-title" style="color: var(--black);">CON<span style="color:var(--orange)">TACTO</span></h2>
+      <p style="color: #666; font-size: 1.05rem; font-weight: 300; margin: 2rem 0;">Cuentame tu proyecto y elevemos la imagen de tu marca al siguiente nivel.</p>
+      
+      <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 3rem;">
+        <a href="https://instagram.com/ismaavisuals" target="_blank" style="color: var(--black); text-decoration: none; font-weight: 500; font-size: .9rem;">Instagram → @ismaavisuals</a>
+        <a href="mailto:ismavisuals.work@gmail.com" style="color: var(--black); text-decoration: none; font-weight: 500; font-size: .9rem;">Email → ismavisuals.work@gmail.com</a>
+        <a href="https://wa.me/34644846097" target="_blank" style="color: #25d366; text-decoration: none; font-weight: 600; font-size: .9rem; margin-top: 1rem;">Chatear por WhatsApp →</a>
       </div>
     </div>
     
-    <!-- Formulario conectado a tu ID con el nuevo campo de redes sociales -->
-    <form class="contact-form reveal" id="my-form" action="https://formspree.io/f/xdavlarn" method="POST">
-      <div class="form-row">
-        <div class="form-group">
+    <form class="reveal" id="my-form" action="https://formspree.io/f/xdavlarn" method="POST" style="display: flex; flex-direction: column; gap: 1.5rem;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+        <div>
           <label class="form-label">Nombre</label>
-          <input type="text" name="name" class="form-input" placeholder="Tu nombre" required>
+          <input type="text" name="name" class="form-input" style="width:100%;" required>
         </div>
-        <div class="form-group">
+        <div>
           <label class="form-label">Email</label>
-          <input type="email" name="email" class="form-input" placeholder="tu@email.com" required>
+          <input type="email" name="email" class="form-input" style="width:100%;" required>
         </div>
       </div>
-      
-      <div class="form-group">
+      <div>
         <label class="form-label">Tipo de proyecto</label>
-        <select name="project_type" class="form-select" required>
+        <select name="project_type" class="form-select" style="width:100%;" required>
           <option value="">Selecciona una opción</option>
-          <option value="Gym">Gym / Box de CrossFit</option>
-          <option value="DJ">DJ / Evento de música</option>
-          <option value="Atleta">Deportista / Atleta</option>
-          <option value="Otro">Otro</option>
+          <option value="Gym">Gym / Fitness</option>
+          <option value="DJ">DJ / Evento</option>
+          <option value="Comercial">Marca / Producto</option>
         </select>
       </div>
-
-      <!-- NUEVO CAMPO: INSTAGRAM / REDES SOCIALES -->
-      <div class="form-group">
-        <label class="form-label">Instagram / Web</label>
-        <input type="text" name="social_media" class="form-input" placeholder="@tuusuario o enlace (Opcional)">
+      <div>
+        <label class="form-label">Instagram (Opcional)</label>
+        <input type="text" name="social_media" class="form-input" style="width:100%;">
       </div>
-
-      <div class="form-group">
-        <label class="form-label">Cuéntame tu proyecto</label>
-        <textarea name="message" class="form-textarea" placeholder="¿Qué necesitas? Fechas, tipo de contenido, ubicación..." required></textarea>
+      <div>
+        <label class="form-label">Mensaje</label>
+        <textarea name="message" class="form-textarea" style="width:100%; resize: none; height: 100px;" required></textarea>
       </div>
-      <button type="submit" class="form-submit" id="my-form-button">Enviar mensaje →</button>
+      <button type="submit" class="form-submit" id="my-form-button" style="color:var(--white); cursor:pointer;">ENVIAR MENSAJE</button>
     </form>
   </div>
-
-  <!-- SCRIPT AJAX: Envía los datos en segundo plano sin recargar la web -->
+  
   <script>
     const form = document.getElementById("my-form");
-    
-    async function handleSubmit(event) {
+    form.addEventListener("submit", function(event) {
       event.preventDefault();
       const button = document.getElementById("my-form-button");
       const data = new FormData(event.target);
-      
-      button.disabled = true;
-      button.textContent = "Enviando...";
-
+      button.textContent = "ENVIANDO...";
       fetch(event.target.action, {
-        method: form.method,
-        body: data,
-        headers: {
-            'Accept': 'application/json'
-        }
+        method: form.method, body: data, headers: { 'Accept': 'application/json' }
       }).then(response => {
         if (response.ok) {
-          button.textContent = "✓ ¡Mensaje enviado con éxito!";
-          button.style.background = "#28a745";
+          button.textContent = "MENSAJE ENVIADO";
           form.reset();
-          setTimeout(() => {
-            button.style.background = "";
-            button.textContent = "Enviar mensaje →";
-            button.disabled = false;
-          }, 4000);
+          setTimeout(() => button.textContent = "ENVIAR MENSAJE", 3000);
         } else {
-          response.json().then(data => {
-            if (Object.hasOwn(data, 'errors')) {
-              button.textContent = "❌ Error al enviar";
-            } else {
-              button.textContent = "❌ Algo salió mal";
-            }
-            button.style.background = "#dc3545";
-            setTimeout(() => {
-              button.style.background = "";
-              button.textContent = "Enviar mensaje →";
-              button.disabled = false;
-            }, 4000);
-          })
+          button.textContent = "ERROR AL ENVIAR";
         }
-      }).catch(error => {
-        button.textContent = "❌ Error de conexión";
-        button.style.background = "#dc3545";
-        setTimeout(() => {
-          button.style.background = "";
-          button.textContent = "Enviar mensaje →";
-          button.disabled = false;
-        }, 4000);
       });
-    }
-    
-    form.addEventListener("submit", handleSubmit);
+    });
   </script>
 </section>
- 
+
 <footer>
-  <div class="footer-logo">ismaa<span>visuals</span></div>
-  <div class="footer-copy">© 2026 ismaavisuals · Valencia, España</div>
-    <p style="color: rgba(255,255,255,0.4); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin: 0;">
-      Diseñado y desarrollado por <span style="color: var(--orange); font-weight: 600;">Isma</span>
-    </p>
-  <div class="footer-social">
-    <a href="https://instagram.com/ismaavisuals" target="_blank">Instagram</a>
-    <a href="https://www.tiktok.com/@ismaavisuals" target="_blank">TikTok</a>
+  <div style="font-family: var(--bebas); font-size: 1.5rem; letter-spacing: .1em;">ismaa<span style="color:var(--orange);">visuals</span></div>
+  <div style="font-size: .75rem; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: .1em;">© 2026 ISMAAVISUALS · VALENCIA, ESPAÑA</div>
+  <div style="display: flex; gap: 2rem;">
+    <a href="https://instagram.com/ismaavisuals" target="_blank" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: .75rem; text-transform: uppercase; letter-spacing: .1em;">Instagram</a>
+    <a href="https://www.tiktok.com/@ismaavisuals" target="_blank" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: .75rem; text-transform: uppercase; letter-spacing: .1em;">TikTok</a>
   </div>
 </footer>
  
 <script>
-  // Control de menú móvil desplegable
   function toggleMenu() {
-    // Solo actúa en pantallas móviles
     if (window.innerWidth <= 768) {
-      const navLinks = document.querySelector('.nav-links');
-      const menuToggle = document.querySelector('.menu-toggle');
-      navLinks.classList.toggle('active');
-      menuToggle.classList.toggle('active');
+      document.querySelector('.nav-links').classList.toggle('active');
     }
   }
 
-  // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -1835,36 +1020,34 @@
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
 
-  // Nav active style on scroll
   window.addEventListener('scroll', () => {
-    const nav = document.querySelector('nav');
-    nav.style.borderBottomColor = window.scrollY > 50
-      ? 'rgba(255,77,0,0.2)'
-      : 'rgba(255,255,255,0.06)';
-  });
-</script>
- 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
-
-<script>
-  // 1. Efecto 3D para las tarjetas de los Packs de servicios
-  VanillaTilt.init(document.querySelectorAll(".pack-card"), {
-    max: 12,                // Grados máximos de inclinación 3D
-    speed: 400,             // Velocidad a la que vuelve a su sitio original
-    glare: true,            // Activa el reflejo de luz (efecto cristal)
-    "max-glare": 0.25,      // Opacidad máxima del brillo de luz (25%)
-    scale: 1.02             // Hace que la tarjeta se acerque muy sutilmente hacia ti
+    document.querySelector('nav').style.borderBottomColor = window.scrollY > 50 ? 'rgba(255,255,255,0.1)' : 'transparent';
   });
 
-  // 2. Efecto 3D para las fotos de la Galería
-  VanillaTilt.init(document.querySelectorAll(".portfolio-item, .gallery-item"), {
-    max: 8,                 // Inclinación un poco más suave para no marear en las fotos
-    speed: 400,
-    glare: true,
-    "max-glare": 0.35,      // Brillo un poco más fuerte para que parezca una pantalla
-    scale: 1.02
-  });
+  // Lógica de álbumes
+  function openAlbumModal(albumId, title) {
+    document.getElementById('modal-title').innerText = title;
+    document.querySelectorAll('.modal-gallery').forEach(el => el.style.display = 'none');
+    document.getElementById(albumId).style.display = 'grid';
+    document.getElementById('fullScreenAlbumModal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  }
+  function closeAlbumModal() {
+    document.getElementById('fullScreenAlbumModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+  function openLightbox(element) {
+    const imgSrc = element.querySelector('img').src;
+    const lightbox = document.getElementById('customLightbox');
+    document.getElementById('lightboxImg').src = imgSrc;
+    lightbox.style.display = 'flex';
+    setTimeout(() => lightbox.style.opacity = '1', 10);
+  }
+  function closeLightbox() {
+    const lightbox = document.getElementById('customLightbox');
+    lightbox.style.opacity = '0';
+    setTimeout(() => lightbox.style.display = 'none', 300);
+  }
 </script>
- 
 </body>
 </html>
