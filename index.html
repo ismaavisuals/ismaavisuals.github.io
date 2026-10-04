@@ -3,1868 +3,554 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ismaavisuals — Fotografía & Vídeo Valencia</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎥</text></svg>">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta name="description" content="ismaavisuals — Fotografía y vídeo para marcas, gimnasios, deportistas, DJs y eventos. Valencia.">
+<title>ismaavisuals — Photographer & Filmmaker</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>◉</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --orange: #FF4D00;
-    --black: #0e0e0e;
-    --dark: #1a1a1a;
-    --cream: #F7F4EF;
-    --cream-2: #EDE9E0;
-    --white: #ffffff;
-    --gray: #888;
-    --bebas: 'Bebas Neue', Impact, sans-serif;
-    --inter: 'Inter', sans-serif;
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: var(--inter);
-    background: var(--black);
-    color: var(--white);
-    overflow-x: hidden;
-  }
-
-  /* NAV GENERAL */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.2rem 2.5rem;
-    background: rgba(14,14,14,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 0.5px solid rgba(255,255,255,0.06);
-    transition: border-color 0.3s;
-  }
-
-  .nav-logo {
-    font-family: var(--bebas);
-    font-size: 1.4rem;
-    letter-spacing: .04em;
-    color: var(--white);
-    text-decoration: none;
-    z-index: 1001;
-  }
-
-  .nav-logo span { color: var(--orange); }
-
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    list-style: none;
-  }
-
-  .nav-links a {
-    font-size: .8rem;
-    font-weight: 500;
-    color: rgba(255,255,255,0.5);
-    text-decoration: none;
-    letter-spacing: .06em;
-    text-transform: uppercase;
-    transition: color .2s;
-  }
-
-  .nav-links a:hover { color: var(--orange); }
-
-  .nav-cta {
-    background: var(--orange);
-    color: var(--white) !important;
-    padding: .45rem 1.2rem;
-    border-radius: 2px;
-    font-weight: 600 !important;
-  }
-
-  .nav-cta:hover { background: #e04300; color: var(--white) !important; }
-
-  /* MENÚ HAMBURGUESA (MÓVIL) */
-  .menu-toggle {
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 24px;
-    height: 18px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    z-index: 1001;
-  }
-
-  .menu-toggle .bar {
-    width: 100%;
-    height: 2px;
-    background-color: var(--white);
-    transition: all 0.3s ease;
-  }
-
-  /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 8rem 2.5rem 4rem;
-    position: relative;
-    overflow: hidden;
-    background: var(--black);
-  }
-
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 60% 50% at 70% 40%, rgba(255,77,0,0.12) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(255,77,0,0.06) 0%, transparent 60%);
-  }
-
-  .hero-grid {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-    background-size: 60px 60px;
-  }
-
-  .hero-content { position: relative; z-index: 2; max-width: 900px; }
-
-  .hero-eyebrow {
-    font-size: .75rem;
-    font-weight: 500;
-    color: var(--orange);
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: .6rem;
-  }
-
-  .hero-eyebrow::before {
-    content: '';
-    display: block;
-    width: 24px;
-    height: 1.5px;
-    background: var(--orange);
-  }
-
-  .hero-title {
-    font-family: var(--bebas);
-    font-size: clamp(3.5rem, 10vw, 9rem);
-    line-height: .9;
-    letter-spacing: .01em;
-    margin-bottom: 1.5rem;
-  }
-
-  .hero-title .line-1 { color: var(--white); display: block; }
-  .hero-title .line-2 { color: var(--orange); display: block; }
-  .hero-title .line-3 { color: var(--white); display: block; }
-
-  .hero-sub {
-    font-size: 1rem;
-    color: rgba(255,255,255,0.5);
-    line-height: 1.6;
-    max-width: 480px;
-    margin-bottom: 2.5rem;
-  }
-
-  .hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
-
-  .btn-primary {
-    background: var(--orange);
-    color: var(--white);
-    font-family: var(--inter);
-    font-size: .85rem;
-    font-weight: 600;
-    padding: .9rem 2rem;
-    border: none;
-    border-radius: 2px;
-    cursor: pointer;
-    text-decoration: none;
-    letter-spacing: .04em;
-    text-transform: uppercase;
-    transition: background .2s, transform .15s;
-    display: inline-block;
-  }
-
-  .btn-primary:hover { background: #e04300; transform: translateY(-1px); }
-
-  .btn-secondary {
-    color: rgba(255,255,255,0.6);
-    font-size: .85rem;
-    font-weight: 500;
-    text-decoration: none;
-    letter-spacing: .04em;
-    text-transform: uppercase;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
-    padding-bottom: 2px;
-    transition: color .2s, border-color .2s;
-  }
-
-  .btn-secondary:hover { color: var(--white); border-color: var(--white); }
-
-  .hero-stats {
-    position: absolute;
-    right: 2.5rem;
-    bottom: 4rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    z-index: 2;
-  }
-
-  .stat { text-align: right; }
-  .stat-num { font-family: var(--bebas); font-size: 2.2rem; color: var(--orange); line-height: 1; }
-  .stat-label { font-size: .7rem; color: rgba(255,255,255,0.35); letter-spacing: .08em; text-transform: uppercase; }
-
-  /* SECTION BASE */
-  section { position: relative; }
-
-  .section-eyebrow {
-    font-size: .7rem;
-    font-weight: 600;
-    color: var(--orange);
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    margin-bottom: .6rem;
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-  }
-
-  .section-eyebrow::before {
-    content: '';
-    display: block;
-    width: 16px;
-    height: 1.5px;
-    background: var(--orange);
-  }
-
-  .section-title {
-    font-family: var(--bebas);
-    font-size: clamp(2.5rem, 6vw, 5rem);
-    line-height: .95;
-    letter-spacing: .01em;
-  }
-
-  /* SOBRE MÍ */
-  .about {
-    background: var(--cream);
-    padding: 6rem 2.5rem;
-  }
-
-  .about-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: center;
-  }
-
-  .about .section-eyebrow { color: var(--orange); }
-  .about .section-eyebrow::before { background: var(--orange); }
-  .about .section-title { color: var(--black); }
-  .about .section-title span { color: var(--orange); }
-  .about-text { font-size: .95rem; color: #555; line-height: 1.8; margin-top: 1.2rem; }
-  .about-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.5rem; }
-
-  .tag {
-    font-size: .7rem;
-    font-weight: 600;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    padding: .4rem .9rem;
-    border-radius: 2px;
-  }
-
-  .tag-orange { background: var(--orange); color: var(--white); }
-  .tag-dark { background: var(--black); color: var(--white); }
-  .tag-outline { border: 1px solid #ccc; color: #555; }
-
-  .about-img {
-    aspect-ratio: 3/4;
-    background: var(--cream-2);
-    border-radius: 4px;
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .about-img-badge {
-    position: absolute;
-    bottom: 1.2rem;
-    left: 1.2rem;
-    background: var(--orange);
-    color: var(--white);
-    font-family: var(--bebas);
-    font-size: 1.1rem;
-    padding: .4rem .9rem;
-    border-radius: 2px;
-    letter-spacing: .04em;
-  }
-
-  /* FOTOGRAFÍA */
-  .photography {
-    background: var(--black);
-    padding: 6rem 2.5rem;
-  }
-
-  .photography-inner { max-width: 1100px; margin: 0 auto; }
-  .photography .section-title { color: var(--white); }
-  .photography .section-title span { color: var(--orange); }
-
-  .section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 2.5rem;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-  }
-
-  .filter-tabs { display: flex; flex-wrap: wrap; gap: .5rem; }
-
-  .filter-tab {
-    font-size: .75rem;
-    font-weight: 600;
-    letter-spacing: .06em;
-    text-transform: uppercase;
-    padding: .45rem 1rem;
-    border-radius: 2px;
-    cursor: pointer;
-    border: 1px solid transparent;
-    transition: all .2s;
-    background: none;
-    color: rgba(255,255,255,0.4);
-    border-color: rgba(255,255,255,0.1);
-  }
-
-  .filter-tab.active, .filter-tab:hover {
-    background: var(--orange);
-    color: var(--white);
-    border-color: var(--orange);
-  }
-
-  .photo-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 6px;
-  }
-
-  .photo-item {
-    aspect-ratio: 1/1;
-    background: var(--dark);
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-  }
-
-  .photo-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(255,77,0,0);
-    display: flex;
-    align-items: flex-end;
-    padding: 1rem;
-    transition: background .3s;
-  }
-
-  .photo-item:hover .photo-overlay { background: rgba(255,77,0,0.15); }
-
-  .photo-tag {
-    font-size: .65rem;
-    font-weight: 600;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    color: var(--white);
-    background: rgba(0,0,0,0.6);
-    padding: .2rem .6rem;
-    border-radius: 2px;
-    opacity: 0;
-    transform: translateY(4px);
-    transition: all .2s;
-  }
-
-  .photo-item:hover .photo-tag { opacity: 1; transform: translateY(0); }
-
-  /* VIDEO */
-  .video-section {
-    background: var(--cream);
-    padding: 6rem 2.5rem;
-  }
-
-  .video-inner { max-width: 1100px; margin: 0 auto; }
-  .video-section .section-title { color: var(--black); }
-  .video-section .section-title span { color: var(--orange); }
-  .video-section .section-eyebrow { color: var(--orange); }
-  .video-section .section-eyebrow::before { background: var(--orange); }
-
-  .showreel {
-    margin: 2.5rem 0;
-    aspect-ratio: 16/9;
-    background: var(--black);
-    border-radius: 4px;
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .showreel-placeholder { text-align: center; color: rgba(255,255,255,0.3); padding: 1rem; }
-
-  .showreel-play {
-    width: 64px;
-    height: 64px;
-    background: var(--orange);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1rem;
-    cursor: pointer;
-    transition: transform .2s;
-  }
-
-  .showreel-play:hover { transform: scale(1.08); }
-  .showreel-play svg { width: 24px; height: 24px; fill: var(--white); margin-left: 3px; }
-  .showreel-label { font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; }
-
-  .reels-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 6px;
-    margin-top: 6px;
-  }
-
-  .reel-item {
-    aspect-ratio: 16/9;
-    background: #111;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    border-radius: 2px;
-  }
-
-  .reel-placeholder {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: .4rem;
-    color: rgba(255,255,255,0.2);
-    font-size: .7rem;
-    text-transform: uppercase;
-    letter-spacing: .06em;
-    padding: 1rem;
-    text-align: center;
-  }
-
-  /* PACKS */
-  .packs {
-    background: var(--dark);
-    padding: 6rem 2.5rem;
-    border-top: 0.5px solid rgba(255,255,255,0.06);
-  }
-
-  .packs-inner { max-width: 1100px; margin: 0 auto; }
-  .packs .section-title { color: var(--white); }
-  .packs .section-title span { color: var(--orange); }
-  .packs-subtitle { font-size: .95rem; color: rgba(255,255,255,0.4); margin-top: .8rem; margin-bottom: 3rem; max-width: 480px; line-height: 1.6; }
-  .packs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .pack-card { background: #111; padding: 2.5rem 2rem; position: relative; transition: transform .2s; border: 1px solid rgba(255,255,255,0.03); border-radius: 4px; display: flex; flex-direction: column; justify-content: space-between; }
-  .pack-card:hover { transform: translateY(-3px); border-color: rgba(255,77,0,0.3); }
-  .pack-card.featured { background: var(--orange); border-color: var(--orange); }
-  .pack-badge { font-size: .65rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--orange); margin-bottom: 1rem; }
-  .pack-card.featured .pack-badge { color: rgba(255,255,255,0.7); }
-  .pack-name { font-family: var(--bebas); font-size: 2rem; letter-spacing: .02em; color: var(--white); margin-bottom: .3rem; }
-  .pack-desc { font-size: .82rem; color: rgba(255,255,255,0.4); line-height: 1.6; margin-bottom: 1.8rem; }
-  .pack-card.featured .pack-desc { color: rgba(255,255,255,0.75); }
-  .pack-features { list-style: none; margin-bottom: 2rem; display: flex; flex-direction: column; gap: .7rem; }
-  .pack-feature { font-size: .82rem; color: rgba(255,255,255,0.6); display: flex; align-items: flex-start; gap: .6rem; line-height: 1.4; }
-  .pack-card.featured .pack-feature { color: rgba(255,255,255,0.9); }
-  .pack-feature::before { content: '✓'; color: var(--orange); font-weight: 700; flex-shrink: 0; }
-  .pack-card.featured .pack-feature::before { color: var(--white); }
-  .pack-cta { display: block; text-align: center; font-size: .8rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: .8rem; border-radius: 2px; text-decoration: none; transition: all .2s; border: 1px solid rgba(255,255,255,0.15); color: var(--white); background: transparent; margin-top: auto; }
-  .pack-cta:hover { background: var(--orange); border-color: var(--orange); }
-  .pack-card.featured .pack-cta { background: var(--white); color: var(--orange); border-color: var(--white); }
-  .pack-card.featured .pack-cta:hover { background: var(--black); color: var(--white); border-color: var(--black); }
-  .pack-note { font-size: .75rem; color: rgba(255,255,255,0.25); text-align: center; margin-top: 2rem; }
-
-  /* CONTACTO */
-  .contact {
-    background: var(--cream);
-    padding: 6rem 2.5rem;
-  }
-
-  .contact-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: start;
-  }
-
-  .contact .section-eyebrow { color: var(--orange); }
-  .contact .section-eyebrow::before { background: var(--orange); }
-  .contact .section-title { color: var(--black); }
-  .contact .section-title span { color: var(--orange); }
-  .contact-text { font-size: .9rem; color: #666; line-height: 1.8; margin-top: 1rem; margin-bottom: 2rem; }
-  .contact-links { display: flex; flex-direction: column; gap: .8rem; }
-  .contact-link { display: flex; align-items: center; gap: .8rem; font-size: .85rem; color: #444; text-decoration: none; font-weight: 500; transition: color .2s; }
-  .contact-link:hover { color: var(--orange); }
-  .contact-link-icon { width: 36px; height: 36px; background: var(--black); border-radius: 2px; display: flex; align-items: center; justify-content: center; color: var(--white); font-size: .9rem; flex-shrink: 0; }
-  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .form-group { display: flex; flex-direction: column; gap: .4rem; }
-  .form-label { font-size: .7rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #888; }
-  .form-input, .form-textarea, .form-select { font-family: var(--inter); font-size: .9rem; color: var(--black); background: var(--white); border: 1px solid #ddd; border-radius: 2px; padding: .75rem 1rem; transition: border-color .2s; outline: none; -webkit-appearance: none; }
-  .form-input:focus, .form-textarea:focus, .form-select:focus { border-color: var(--orange); }
-  .form-textarea { resize: vertical; min-height: 120px; }
-  .form-submit { background: var(--orange); color: var(--white); font-family: var(--inter); font-size: .85rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 1rem; border: none; border-radius: 2px; cursor: pointer; transition: background .2s, transform .15s; margin-top: .5rem; }
-  .form-submit:hover { background: #e04300; transform: translateY(-1px); }
-
-  /* FOOTER */
-  footer {
-    background: var(--black);
-    padding: 2.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 0.5px solid rgba(255,255,255,0.06);
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
-  .footer-logo { font-family: var(--bebas); font-size: 1.2rem; color: var(--white); letter-spacing: .04em; }
-  .footer-logo span { color: var(--orange); }
-  .footer-copy { font-size: .75rem; color: rgba(255,255,255,0.25); }
-  .footer-social { display: flex; gap: 1rem; }
-  .footer-social a { font-size: .75rem; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: rgba(255,255,255,0.35); text-decoration: none; transition: color .2s; }
-  .footer-social a:hover { color: var(--orange); }
-
-  .section-divider { height: 1px; background: linear-gradient(to right, transparent, rgba(255,77,0,0.4), transparent); }
-
-  .reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-
-  /* MEDIA QUERIES (ADAPTACIÓN MÓVIL) */
-  @media (max-width: 992px) {
-    .packs-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-
-  @media (max-width: 768px) {
-    nav { padding: 1rem 1.5rem; }
-    
-    /* Mostrar botón hamburguesa */
-    .menu-toggle { display: flex; }
-
-    /* Transformar nav-links en menú móvil desplegable */
-    .nav-links {
-      position: fixed;
-      top: 0; right: -100%;
-      height: 100vh;
-      width: 75%;
-      max-width: 300px;
-      background: rgba(14,14,14,0.98);
-      backdrop-filter: blur(20px);
-      flex-direction: column;
-      justify-content: center;
-      gap: 2.5rem;
-      padding: 2rem;
-      transition: right 0.4s cubic-bezier(0.1, 0.9, 0.2, 1);
-      border-left: 1px solid rgba(255,255,255,0.05);
-      z-index: 1000;
-    }
-
-    .nav-links.active { right: 0; }
-    .nav-links a { font-size: 1.1rem; letter-spacing: .1em; }
-    .nav-cta { padding: .8rem 2rem; width: 100%; text-align: center; }
-
-    /* Animación del icono hamburguesa al activarse */
-    .menu-toggle.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-    .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
-    .menu-toggle.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-
-    /* Ajustes estructurales de secciones */
-    .hero { padding: 6rem 1.5rem 3rem; }
-    .hero-stats { display: none; }
-    .about-inner, .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
-    .about-img { max-width: 400px; margin: 0 auto; width: 100%; }
-    
-    /* Grid de fotos en móvil (2 columnas estables) */
-    .photo-grid { grid-template-columns: repeat(2, 1fr); gap: 4px; }
-    
-    .reels-grid, .packs-grid, .form-row { grid-template-columns: 1fr; }
-    section { padding-left: 1.5rem !important; padding-right: 1.5rem !important; padding-top: 4rem !important; padding-bottom: 4rem !important; }
-    footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; gap: 1.5rem; }
-  }
-
-
- /* ======================================================= */
-/* ANIMACIÓN GLOW RESPIRABLE PARA TARJETAS Y BOTONES */
-/* ======================================================= */
-
-/* 1. Aplicar el efecto a las tarjetas destacadas de tus packs */
-.pack-card {
-  position: relative;
-  animation: glowPulseOrange 4s infinite ease-in-out;
+:root{
+  --bg:#f3f2ee;
+  --paper:#faf9f6;
+  --ink:#11110f;
+  --muted:#77756f;
+  --line:#dcdad4;
+  --dark:#171715;
+  --white:#fff;
+  --accent:#9d7650;
+  --serif:"Instrument Serif",Georgia,serif;
+  --sans:"DM Sans",Arial,sans-serif;
+  --max:1240px;
 }
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);overflow-x:hidden}
+a{color:inherit}
+img{max-width:100%;display:block}
+button,input,textarea,select{font:inherit}
+::selection{background:var(--ink);color:var(--white)}
 
-/* 2. Aplicar el efecto al botón de enviar mensaje del formulario */
-.form-submit {
-  position: relative;
-  animation: glowPulseOrangeButton 4s infinite ease-in-out;
+.container{width:min(calc(100% - 80px),var(--max));margin:auto}
+.eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:12px}
+.eyebrow:before{content:"";width:28px;height:1px;background:currentColor}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:55px}
+.section-title{font-size:clamp(48px,7vw,96px);font-weight:500;line-height:.88;letter-spacing:-.055em}
+.section-title em{font-family:var(--serif);font-weight:400;letter-spacing:-.03em}
+.small-copy{font-size:14px;line-height:1.7;color:var(--muted);max-width:390px}
+
+nav{
+  position:fixed;z-index:1000;top:0;left:0;width:100%;
+  padding:24px 40px;display:flex;justify-content:space-between;align-items:center;
+  color:#fff;transition:.35s ease;
 }
+nav.scrolled{color:var(--ink);background:rgba(243,242,238,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.logo{font-size:17px;font-weight:700;letter-spacing:-.04em;text-decoration:none}
+.logo span{font-weight:400;color:currentColor}
+.nav-links{display:flex;list-style:none;gap:28px;align-items:center}
+.nav-links a{text-decoration:none;font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.75;transition:.2s}
+.nav-links a:hover{opacity:1}
+.nav-contact{border-bottom:1px solid currentColor;padding-bottom:4px}
+.menu{display:none;border:0;background:none;color:inherit;cursor:pointer;width:28px}
+.menu span{height:1px;background:currentColor;display:block;margin:6px 0;transition:.3s}
 
-/* Animación para la tarjeta (resplandor más suave y extendido) */
-@keyframes glowPulseOrange {
-  0% {
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 5px rgba(255, 77, 0, 0.2);
-  }
-  50% {
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(255, 77, 0, 0.6);
-  }
-  100% {
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 5px rgba(255, 77, 0, 0.2);
-  }
+.hero{
+  min-height:100svh;position:relative;display:flex;align-items:end;
+  padding:150px 40px 65px;color:#fff;overflow:hidden;
+  background:#151515 url("images/fondo.png") center/cover no-repeat;
 }
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.65),rgba(0,0,0,.12) 70%),linear-gradient(0deg,rgba(0,0,0,.68),transparent 55%)}
+.hero-content{position:relative;z-index:2;width:min(900px,100%)}
+.hero-kicker{font-size:11px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:24px;opacity:.75}
+.hero h1{font-size:clamp(64px,11vw,165px);font-weight:500;line-height:.79;letter-spacing:-.065em;max-width:1000px}
+.hero h1 em{font-family:var(--serif);font-weight:400}
+.hero-bottom{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-top:48px}
+.hero-intro{font-size:16px;line-height:1.65;max-width:470px;color:rgba(255,255,255,.78)}
+.hero-link{display:inline-flex;align-items:center;gap:15px;color:#fff;text-decoration:none;font-size:11px;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
+.hero-link:after{content:"↘";font-size:18px}
+.hero-meta{position:absolute;right:40px;bottom:68px;z-index:2;text-align:right;font-size:10px;line-height:1.8;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55)}
 
-/* Animación para el botón (resplandor más concentrado) */
-@keyframes glowPulseOrangeButton {
-  0% {
-    box-shadow: 0 4px 15px rgba(255, 77, 0, 0.2);
-    transform: translateY(0);
-  }
-  50% {
-    box-shadow: 0 6px 25px rgba(255, 77, 0, 0.5);
-    transform: translateY(-1px); /* Micro-levitación sutil junto al pulso */
-  }
-  100% {
-    box-shadow: 0 4px 15px rgba(255, 77, 0, 0.2);
-    transform: translateY(0);
-  }
+.about{padding:150px 0;background:var(--bg)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center}
+.about-image{aspect-ratio:4/5;overflow:hidden;background:#ddd}
+.about-image img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.about-image:hover img{transform:scale(1.025)}
+.about-copy{padding-right:7%}
+.about-copy .section-title{margin:20px 0 32px}
+.about-text{font-size:17px;line-height:1.75;color:#4f4d48;max-width:570px}
+.about-text+.about-text{margin-top:18px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:34px}
+.tag{font-size:10px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line);padding:9px 13px;color:var(--muted)}
+.tag.dark{background:var(--ink);border-color:var(--ink);color:#fff}
+
+.work{padding:140px 0;background:var(--paper)}
+.album-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+.album{position:relative;overflow:hidden;cursor:pointer;background:#ddd}
+.album:nth-child(1){grid-column:span 7;aspect-ratio:1.45}
+.album:nth-child(2){grid-column:span 5;aspect-ratio:1.1}
+.album:nth-child(3){grid-column:span 5;aspect-ratio:1.15}
+.album:nth-child(4){grid-column:span 7;aspect-ratio:1.45}
+.album:nth-child(5){grid-column:4/span 6;aspect-ratio:1.25}
+.album img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.album:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.5),transparent 55%);opacity:.7}
+.album:hover img{transform:scale(1.045)}
+.album-info{position:absolute;z-index:2;left:25px;right:25px;bottom:22px;color:#fff;display:flex;justify-content:space-between;align-items:end}
+.album-title{font-size:20px;letter-spacing:-.03em}
+.album-count{font-size:10px;letter-spacing:.14em;text-transform:uppercase;opacity:.75}
+
+.video{padding:150px 0;background:var(--bg)}
+.video-main{margin-bottom:100px}
+.video-frame{aspect-ratio:16/9;background:#111;overflow:hidden}
+.video-frame iframe,.reel iframe{width:100%;height:100%;border:0}
+.video-caption{display:flex;justify-content:space-between;gap:20px;margin-top:16px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.video-list{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.reel{aspect-ratio:9/16;background:#111;overflow:hidden}
+.reels{display:flex;justify-content:center;gap:18px;flex-wrap:wrap}
+.reels .reel{width:min(290px,30vw)}
+
+.services{padding:140px 0;background:var(--dark);color:#fff}
+.services .eyebrow{color:#aaa}
+.services .section-title{margin-top:20px}
+.service-list{margin-top:70px;border-top:1px solid rgba(255,255,255,.16)}
+.service{display:grid;grid-template-columns:70px 1fr 1fr auto;gap:30px;align-items:center;padding:30px 0;border-bottom:1px solid rgba(255,255,255,.16)}
+.service-num{font-size:11px;color:#777}
+.service h3{font-size:28px;font-weight:500;letter-spacing:-.04em}
+.service p{font-size:13px;line-height:1.65;color:#92918d;max-width:390px}
+.service-arrow{font-size:22px;color:#aaa}
+
+.docu{padding:140px 0;background:#111;color:#fff}
+.docu-head{display:flex;justify-content:space-between;gap:40px;align-items:end;margin-bottom:60px}
+.docu .eyebrow{color:#888}
+.docu-title{font-size:clamp(48px,7vw,92px);line-height:.86;letter-spacing:-.055em;font-weight:500}
+.docu-title em{font-family:var(--serif);font-weight:400}
+.docu-copy{color:#888;font-size:14px;line-height:1.7;max-width:350px}
+.docu-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.docu-card{position:relative;aspect-ratio:9/16;background:#191919;overflow:hidden}
+.docu-card iframe{width:100%;height:100%;border:0}
+.day{position:absolute;top:12px;left:12px;padding:6px 9px;background:#fff;color:#111;font-size:9px;letter-spacing:.12em;text-transform:uppercase}
+.coming{display:flex;align-items:center;justify-content:center;text-align:center;color:#666}
+.coming strong{display:block;font-size:20px;color:#aaa;font-weight:500;margin-bottom:7px}
+.coming span{font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+
+.packs{padding:140px 0;background:var(--paper)}
+.pack-switch{display:flex;gap:8px;margin-bottom:55px}
+.switch{border:1px solid var(--line);background:none;padding:11px 17px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;color:var(--muted)}
+.switch.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.pack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.pack{border:1px solid var(--line);padding:34px;min-height:500px;display:flex;flex-direction:column;justify-content:space-between;background:var(--bg);transition:.3s}
+.pack:hover{transform:translateY(-4px);border-color:#bbb}
+.pack.featured{background:var(--ink);color:#fff;border-color:var(--ink)}
+.pack-kicker{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+.featured .pack-kicker{color:#999}
+.pack h3{font-size:30px;font-weight:500;letter-spacing:-.04em}
+.pack-desc{font-size:13px;line-height:1.65;color:var(--muted);margin:13px 0 28px}
+.featured .pack-desc{color:#999}
+.pack ul{list-style:none;display:grid;gap:11px}
+.pack li{font-size:12px;line-height:1.45;color:#555;padding-left:18px;position:relative}
+.featured li{color:#aaa}
+.pack li:before{content:"—";position:absolute;left:0;color:var(--accent)}
+.pack-cta{display:block;text-align:center;text-decoration:none;border:1px solid var(--ink);padding:13px;font-size:10px;letter-spacing:.13em;text-transform:uppercase;margin-top:30px}
+.featured .pack-cta{background:#fff;color:#111;border-color:#fff}
+.pack-note{text-align:center;color:var(--muted);font-size:12px;margin-top:25px}
+
+.faq{padding:140px 0;background:var(--bg)}
+.faq-wrap{max-width:900px;margin:auto}
+.faq-item{border-top:1px solid var(--line)}
+.faq-item:last-child{border-bottom:1px solid var(--line)}
+.faq-q{width:100%;border:0;background:none;padding:25px 0;display:flex;justify-content:space-between;gap:30px;text-align:left;cursor:pointer;font-size:18px;color:var(--ink)}
+.faq-icon{font-size:24px;font-weight:300;transition:.3s}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq-answer p{font-size:14px;line-height:1.8;color:var(--muted);max-width:750px;padding:0 45px 25px 0}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+
+.contact{padding:150px 0;background:var(--paper)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:110px}
+.contact-title{font-size:clamp(60px,9vw,125px);line-height:.8;letter-spacing:-.07em;font-weight:500;margin:22px 0 35px}
+.contact-title em{font-family:var(--serif);font-weight:400}
+.contact-copy{font-size:15px;line-height:1.7;color:var(--muted);max-width:430px}
+.contact-links{margin-top:38px;display:grid;gap:13px}
+.contact-links a{text-decoration:none;font-size:13px}
+.contact-links a:hover{text-decoration:underline}
+form{display:grid;gap:17px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:17px}
+label{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.field{display:grid;gap:8px}
+input,textarea,select{width:100%;border:0;border-bottom:1px solid var(--line);background:transparent;padding:12px 0;color:var(--ink);outline:none;border-radius:0}
+input:focus,textarea:focus,select:focus{border-color:var(--ink)}
+textarea{min-height:130px;resize:vertical}
+.submit{border:0;background:var(--ink);color:#fff;padding:16px;cursor:pointer;font-size:10px;letter-spacing:.14em;text-transform:uppercase;margin-top:8px;transition:.2s}
+.submit:hover{background:#333}
+.submit:disabled{opacity:.5}
+
+footer{background:var(--ink);color:#fff;padding:30px 40px;display:flex;justify-content:space-between;align-items:center;gap:25px;flex-wrap:wrap}
+footer a{text-decoration:none;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#999}
+footer a:hover{color:#fff}
+.footer-logo{font-weight:700;font-size:15px}
+.footer-copy{font-size:10px;color:#666}
+
+.modal{display:none;position:fixed;inset:0;background:#111;z-index:3000;overflow:auto;padding:35px}
+.modal.open{display:block}
+.modal-head{max-width:1200px;margin:0 auto 40px;display:flex;justify-content:space-between;align-items:center;color:#fff}
+.modal-head h2{font-size:clamp(35px,6vw,70px);font-weight:500;letter-spacing:-.05em}
+.close{border:0;background:none;color:#fff;font-size:42px;font-weight:200;cursor:pointer}
+.gallery{max-width:1200px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.gallery-item{aspect-ratio:1/1;overflow:hidden;cursor:pointer;background:#222}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.gallery-item:hover img{transform:scale(1.035)}
+
+.lightbox{display:none;position:fixed;inset:0;z-index:4000;background:rgba(0,0,0,.96);align-items:center;justify-content:center;padding:40px;cursor:zoom-out}
+.lightbox.open{display:flex}
+.lightbox img{max-width:92vw;max-height:90vh;object-fit:contain}
+.lightbox-close{position:absolute;top:20px;right:30px;color:#fff;font-size:40px;font-weight:200}
+
+.reveal{opacity:0;transform:translateY(25px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:1000px){
+  .container{width:min(calc(100% - 48px),var(--max))}
+  nav{padding:20px 24px}
+  .hero{padding:130px 24px 45px}
+  .hero-meta{right:24px;bottom:48px}
+  .about-grid,.contact-grid{gap:55px}
+  .docu-grid{grid-template-columns:repeat(3,1fr)}
+  .pack-grid{grid-template-columns:1fr}
+  .pack{min-height:auto}
+  .service{grid-template-columns:45px 1fr;gap:12px}
+  .service p{grid-column:2}
+  .service-arrow{grid-column:2}
 }
-
-/* ======================================================= */
-/* ANIMACIÓN CINEMÁTICA DE CARGA DE TEXTO ESCALONADA */
-/* ======================================================= */
-
-/* Contenedor del título */
-.animate-text-container {
-  overflow: hidden; /* Oculta el texto mientras sube desde abajo */
-  display: flex;
-  flex-direction: column;
+@media(max-width:700px){
+  .container{width:calc(100% - 36px)}
+  nav{padding:18px}
+  .nav-links{position:fixed;inset:0;background:var(--ink);color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:40px;gap:24px;transform:translateX(100%);transition:.4s}
+  .nav-links.open{transform:none}
+  .nav-links a{font-size:17px}
+  .menu{display:block;z-index:1002}
+  .menu.open span:first-child{transform:translateY(7px) rotate(45deg)}
+  .menu.open span:last-child{transform:translateY(-7px) rotate(-45deg)}
+  .menu.open span:nth-child(2){opacity:0}
+  .hero{min-height:90svh;padding:120px 18px 35px}
+  .hero h1{font-size:clamp(57px,17vw,100px)}
+  .hero-bottom{display:block;margin-top:32px}
+  .hero-intro{font-size:14px}
+  .hero-link{margin-top:25px}
+  .hero-meta{display:none}
+  .about,.work,.video,.services,.docu,.packs,.faq,.contact{padding:90px 0}
+  .about-grid,.contact-grid{grid-template-columns:1fr;gap:50px}
+  .about-copy{padding:0}
+  .section-head,.docu-head{display:block;margin-bottom:38px}
+  .section-head .small-copy,.docu-copy{margin-top:20px}
+  .album-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+  .album:nth-child(n){grid-column:auto;aspect-ratio:1}
+  .album:nth-child(5){grid-column:span 2}
+  .album-info{left:12px;right:12px;bottom:12px}
+  .album-title{font-size:14px}
+  .album-count{display:none}
+  .video-list{grid-template-columns:1fr}
+  .reels .reel{width:calc(50% - 9px)}
+  .docu-grid{grid-template-columns:repeat(2,1fr);gap:7px}
+  .pack-switch{overflow:auto}
+  .form-row{grid-template-columns:1fr}
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  .modal{padding:20px 12px}
+  .modal-head{margin-bottom:25px}
+  .faq-q{font-size:15px}
+  footer{padding:25px 18px}
 }
-
-/* Estilo base para cada línea del título */
-.animated-line {
-  display: block;
-  transform: translateY(100%); /* Empieza totalmente escondida abajo */
-  opacity: 0;
-  animation: revealTextCinema 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-/* Retrasos cronometrados para crear el efecto escalonado (cascada) */
-.animated-line:nth-child(1) {
-  animation-delay: 0.2s; /* La primera línea sale casi al instante */
-}
-
-.animated-line:nth-child(2) {
-  animation-delay: 0.4s; /* La segunda sale un instante después */
-}
-
-.animated-line:nth-child(3) {
-  animation-delay: 0.6s; /* El remate en naranja cierra la animación */
-}
-
-/* Definición de la curva de movimiento cinemático */
-@keyframes revealTextCinema {
-  0% {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-  40% {
-    opacity: 0.5; /* Empieza a desvanecerse suavemente al subir */
-  }
-  100% {
-    transform: translateY(0); /* Queda en su posición original */
-    opacity: 1;
-  }
-}
-
-/* ======================================================= */
-/* MICRO-ZOOM CINEMÁTICO EN FOTOS (HOVER EFFECT)           */
-/* ======================================================= */
-
-/* 1. Aseguramos que el contenedor de la foto no deje salir el zoom */
-.portfolio-item, .gallery-item {
-  overflow: hidden !important;
-  border-radius: 8px; /* Mantiene tus bordes redondeados estéticos */
-}
-
-/* 2. Estilo base de la imagen con transición ultra suave */
-.portfolio-item img, .gallery-item img {
-  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1) !important;
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* 3. El efecto de zoom al pasar el ratón por encima (Hover) */
-.portfolio-item:hover img, .gallery-item:hover img {
-  transform: scale(1.06); /* Aumenta un 6% de tamaño de forma fluida */
-}
-
-/* ======================================================= */
-/* CUADRÍCULA TECNOLÓGICA CON PULSO DE LUZ (CYBERPUNK)    */
-/* ======================================================= */
-
-/* 1. Redefinimos el grid base con tus líneas naranjas sutiles */
-.hero-grid {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1; /* Se queda entre la foto y el texto */
-  pointer-events: none; /* No molesta al hacer clic en botones */
-  
-  /* Creamos el grid usando gradientes sutiles */
-  background-image: 
-    linear-gradient(rgba(255, 77, 0, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 77, 0, 0.08) 1px, transparent 1px);
-  background-size: 60px 60px; /* Tamaño de la cuadrícula */
-}
-
-/* 2. Creamos la "Línea de Escaneo / Pulso" usando un pseudo-elemento */
-.hero-grid::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 3px; /* Grosor del rayo de luz */
-  
-  /* El color del pulso: Un gradiente naranja brillante y desenfocado */
-  background: linear-gradient(
-    90deg, 
-    transparent, 
-    rgba(255, 77, 0, 0.1) 20%, 
-    rgba(255, 77, 0, 0.7) 50%, 
-    rgba(255, 77, 0, 0.1) 80%, 
-    transparent
-  );
-  
-  filter: blur(1px); /* Desenfoque sutil para que parezca luz real */
-  box-shadow: 0 0 15px rgba(255, 77, 0, 0.4); /* Resplandor extra */
-  
-  /* Activamos la animación de barrido */
-  animation: scanningTechPulse 10s infinite ease-out;
-  animation-delay: 3s; /* Empieza después de que cargue el texto */
-  opacity: 0; /* Empieza oculto */
-}
-
-/* 3. Definición del barrido de arriba a abajo */
-@keyframes scanningTechPulse {
-  0% {
-    top: -5%; /* Sale desde arriba de la pantalla */
-    opacity: 0;
-  }
-  10% {
-    opacity: 1; /* Se ilumina rápido al entrar */
-  }
-  90% {
-    opacity: 1; /* Se mantiene brillante durante el recorrido */
-  }
-  100% {
-    top: 105%; /* Desaparece por abajo */
-    opacity: 0; /* Se apaga al salir */
-  }
-}
- 
 </style>
 </head>
+
 <body>
 
-<nav>
-  <a href="#" class="nav-logo">ismaa<span>visuals</span></a>
-  <button class="menu-toggle" aria-label="Abrir menú" onclick="toggleMenu()">
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="bar"></span>
-  </button>
-  <ul class="nav-links">
-    <li><a href="#sobremi" onclick="toggleMenu()">Sobre mí</a></li>
-    <li><a href="#fotografia" onclick="toggleMenu()">Fotografía</a></li>
-    <li><a href="#video" onclick="toggleMenu()">Vídeo</a></li>
-    <li><a href="#docuserie" onclick="toggleMenu()" style="color: var(--orange); font-weight: 600;">Proyecto Personal</a></li>
-    <li><a href="#packs" onclick="toggleMenu()">Packs</a></li>
-    <li><a href="#faq" onclick="toggleMenu()">FAQ</a></li>
-    <li><a href="#contacto" class="nav-cta" onclick="toggleMenu()">Contacto</a></li>
+<nav id="nav">
+  <a class="logo" href="#">ismaa<span>visuals</span></a>
+  <button class="menu" id="menu" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#trabajo">Trabajo</a></li>
+    <li><a href="#video">Vídeo</a></li>
+    <li><a href="#sobremi">Sobre mí</a></li>
+    <li><a href="#packs">Servicios</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a class="nav-contact" href="#contacto">Contacto</a></li>
   </ul>
 </nav>
 
-<section class="hero" style="background: url('images/fondo.png') no-repeat center center/cover;">
-  <div class="hero-bg" style="background: linear-gradient(180deg, rgba(14,14,14,0.4) 0%, rgba(14,14,14,0.95) 100%);"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-content reveal">
-    <div class="hero-eyebrow">Valencia · Fitness & Nightlife</div>
-    <h1 class="hero-title animate-text-container">
-      <span class="animated-line">FOTOGRAFÍA</span>
-      <span class="animated-line">&amp; VÍDEO</span>
-      <span class="animated-line" style="color: var(--orange);">CINEMATOGRÁFICO</span>
-   </h1>
-    <p class="hero-sub">Creo contenido visual para gimnasios, deportistas y DJs que quieren destacar en redes y conseguir más clientes.</p>
-    <div class="hero-actions">
-      <a href="#packs" class="btn-primary">Ver packs</a>
-      <a href="#fotografia" class="btn-secondary">Ver trabajos</a>
+<header class="hero">
+  <div class="hero-content">
+    <div class="hero-kicker">Valencia · Spain · Photographer & Filmmaker</div>
+    <h1>IMAGES<br>THAT <em>MOVE.</em></h1>
+    <div class="hero-bottom">
+      <p class="hero-intro">Fotografía y vídeo para marcas, atletas, gimnasios, DJs y eventos que quieren una imagen que se recuerde.</p>
+      <a class="hero-link" href="#trabajo">Ver selección</a>
     </div>
   </div>
-  <div class="hero-stats">
-    <div class="stat">
-      <div class="stat-num">2</div>
-      <div class="stat-label">Nichos</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">Valencia</div>
-      <div class="stat-label">Disponible para viajar</div>
-    </div>
-  </div>
-</section>
- 
-<div class="section-divider"></div>
+  <div class="hero-meta">Fitness · Nightlife · Commercial<br>Disponible para viajar</div>
+</header>
 
 <section class="about" id="sobremi">
-  <div class="about-inner">
-    <div class="reveal">
-      <div class="section-eyebrow">Sobre mí</div>
-      <h2 class="section-title">ISMA<br><span>VISUALS</span></h2>
-      <p class="about-text">Fotógrafo, filmmaker y especialista en marketing visual. Combino dos mundos que aparentemente no tienen nada en común — el nightlife y el fitness — porque los dos necesitan lo mismo: contenido que transmita emoción antes de que el espectador pueda salir del scroll.</p>
-      <p class="about-text">Basado en Valencia. Disponible para viajar a donde el trabajo lo requiera.</p>
-      <div class="about-tags">
-        <span class="tag tag-orange">Fotografía</span>
-        <span class="tag tag-dark">Vídeo</span>
-        <span class="tag tag-outline">Fitness</span>
-        <span class="tag tag-outline">Nightlife</span>
-        <span class="tag tag-outline">Marketing Visual</span>
-        <span class="tag tag-outline">Valencia</span>
+  <div class="container about-grid">
+    <div class="about-image reveal"><img src="images/me.jpeg" alt="Isma Visuals"></div>
+    <div class="about-copy reveal">
+      <div class="eyebrow">01 / Sobre mí</div>
+      <h2 class="section-title">ISMA<br><em>VISUALS</em></h2>
+      <p class="about-text">Fotógrafo, filmmaker y creador de contenido visual. Trabajo entre el fitness, el nightlife y la producción comercial, buscando siempre una imagen limpia, real y con intención.</p>
+      <p class="about-text">Estoy basado en Valencia y disponible para desplazarme. Más que entregar archivos, mi objetivo es crear contenido que tenga sentido para tu marca y funcione cuando llegue a redes.</p>
+      <div class="tags">
+        <span class="tag dark">Fotografía</span><span class="tag">Vídeo</span><span class="tag">Fitness</span><span class="tag">Nightlife</span><span class="tag">Contenido</span><span class="tag">Valencia</span>
       </div>
-    </div>
-    <div class="about-img reveal">
-      <img src="images/me.jpeg" alt="Isma Visuals" style="width:100%; height:100%; object-fit:cover; display:block;">
-      <div class="about-img-badge">ismaavisuals</div>
     </div>
   </div>
 </section>
 
-<div class="section-divider"></div>
-
-<!-- ======================================================= -->
-<!-- SECCIÓN: FOTOGRAFÍA (SISTEMA DE ÁLBUMES MODAL)          -->
-<!-- ======================================================= -->
-<section class="photography" id="fotografia" style="padding-bottom: 5rem;">
-  <div class="photography-inner">
-    
-    <div class="section-header reveal">
-      <div>
-        <div class="section-eyebrow">Portfolio</div>
-        <h2 class="section-title">FOTO<span style="color:var(--orange)">GRAFÍA</span></h2>
-      </div>
+<section class="work" id="trabajo">
+  <div class="container">
+    <div class="section-head reveal">
+      <div><div class="eyebrow">02 / Selección</div><h2 class="section-title">TRABAJO<br><em>SELECCIONADO</em></h2></div>
+      <p class="small-copy">Una selección de proyectos. Entra en cada categoría para ver la galería completa.</p>
     </div>
-    
-    <!-- ========================================================= -->
-    <!-- PORTADAS MINIMALISTAS                                     -->
-    <!-- ========================================================= -->
-    <div class="photo-grid reveal" id="albums-view">
-      
-      <!-- PORTADA: NIGHTLIFE -->
-      <div class="photo-item" onclick="openAlbumModal('modal-nightlife', 'NIGHTLIFE')" style="cursor: pointer; position: relative; overflow: hidden; border-radius: 4px;">
-        <img src="images/dj1.jpeg" alt="Nightlife" style="width:100%; height:100%; object-fit:cover; display:block; transition: transform 0.5s ease;">
-        <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.25); display: flex; align-items: center; justify-content: center; pointer-events: none;">
-          <span style="color: #fff; font-size: 2rem; letter-spacing: 4px; font-family: var(--bebas); font-weight: 400; text-shadow: 0 4px 15px rgba(0,0,0,0.5);">NIGHTLIFE</span>
-        </div>
-      </div>
-
-      <!-- PORTADA: PRODUCTO -->
-      <div class="photo-item" onclick="openAlbumModal('modal-productos', 'PRODUCTO')" style="cursor: pointer; position: relative; overflow: hidden; border-radius: 4px;">
-        <img src="images/silla1.jpeg" alt="Producto" style="width:100%; height:100%; object-fit:cover; display:block; transition: transform 0.5s ease;">
-        <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.25); display: flex; align-items: center; justify-content: center; pointer-events: none;">
-          <span style="color: #fff; font-size: 2rem; letter-spacing: 4px; font-family: var(--bebas); font-weight: 400; text-shadow: 0 4px 15px rgba(0,0,0,0.5);">PRODUCTO</span>
-        </div>
-      </div>
-
-      <!-- PORTADA: FITNESS -->
-      <div class="photo-item" onclick="openAlbumModal('modal-fitness', 'FITNESS')" style="cursor: pointer; position: relative; overflow: hidden; border-radius: 4px;">
-        <img src="images/fitness3.jpeg" alt="Fitness" style="width:100%; height:100%; object-fit:cover; display:block; transition: transform 0.5s ease;">
-        <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.25); display: flex; align-items: center; justify-content: center; pointer-events: none;">
-          <span style="color: #fff; font-size: 2rem; letter-spacing: 4px; font-family: var(--bebas); font-weight: 400; text-shadow: 0 4px 15px rgba(0,0,0,0.5);">FITNESS</span>
-        </div>
-      </div>
-      
-      <!-- PORTADA: MOROS Y CRISTIANOS -->
-      <div class="photo-item" onclick="openAlbumModal('modal-moros', 'MOROS Y CRISTIANOS')" style="cursor: pointer; position: relative; overflow: hidden; border-radius: 4px;">
-        <img src="images/moros9.jpeg" alt="Moros y Cristianos" style="width:100%; height:100%; object-fit:cover; display:block; transition: transform 0.5s ease;">
-        <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.25); display: flex; align-items: center; justify-content: center; pointer-events: none; text-align: center;">
-          <span style="color: #fff; font-size: 2rem; letter-spacing: 4px; font-family: var(--bebas); font-weight: 400; text-shadow: 0 4px 15px rgba(0,0,0,0.5);">MOROS Y CRISTIANOS</span>
-        </div>
-      </div>
-
-      <!-- PORTADA: OTROS -->
-      <div class="photo-item" onclick="openAlbumModal('modal-others', 'OTROS')" style="cursor: pointer; position: relative; overflow: hidden; border-radius: 4px;">
-        <img src="images/montca2.jpeg" alt="Otros" style="width:100%; height:100%; object-fit:cover; display:block; transition: transform 0.5s ease;">
-        <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.25); display: flex; align-items: center; justify-content: center; pointer-events: none;">
-          <span style="color: #fff; font-size: 2rem; letter-spacing: 4px; font-family: var(--bebas); font-weight: 400; text-shadow: 0 4px 15px rgba(0,0,0,0.5);">OTROS</span>
-        </div>
-      </div>
-
+    <div class="album-grid reveal">
+      <div class="album" onclick="openAlbum('nightlife','NIGHTLIFE')"><img src="images/dj1.jpeg" alt="Nightlife"><div class="album-info"><span class="album-title">Nightlife</span><span class="album-count">15 imágenes</span></div></div>
+      <div class="album" onclick="openAlbum('productos','PRODUCTO')"><img src="images/silla1.jpeg" alt="Producto"><div class="album-info"><span class="album-title">Producto</span><span class="album-count">7 imágenes</span></div></div>
+      <div class="album" onclick="openAlbum('fitness','FITNESS')"><img src="images/fitness3.jpeg" alt="Fitness"><div class="album-info"><span class="album-title">Fitness</span><span class="album-count">5 imágenes</span></div></div>
+      <div class="album" onclick="openAlbum('moros','MOROS Y CRISTIANOS')"><img src="images/moros9.jpeg" alt="Moros y Cristianos"><div class="album-info"><span class="album-title">Moros y Cristianos</span><span class="album-count">16 imágenes</span></div></div>
+      <div class="album" onclick="openAlbum('otros','OTROS')"><img src="images/montca2.jpeg" alt="Otros"><div class="album-info"><span class="album-title">Otros</span><span class="album-count">5 imágenes</span></div></div>
     </div>
   </div>
 </section>
 
-<!-- ========================================================= -->
-<!-- VENTANA EMERGENTE (MODAL) PARA LAS GALERÍAS COMPLETAS     -->
-<!-- ========================================================= -->
-<div id="fullScreenAlbumModal" style="display: none; position: fixed; inset: 0; background: var(--black); z-index: 8000; overflow-y: auto; padding: 2rem 5%; animation: fadeIn 0.3s ease;">
-  
-  <div style="max-width: 1200px; margin: 0 auto; padding-top: 2rem;">
-    
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem;">
-      <h3 id="modal-title" style="color: var(--white); font-family: var(--bebas); font-size: 3rem; margin: 0; letter-spacing: 2px;">TÍTULO</h3>
-      <button onclick="closeAlbumModal()" style="background: none; border: none; color: var(--orange); font-size: 3rem; cursor: pointer; line-height: 1; padding: 0;">&times;</button>
+<section class="video" id="video">
+  <div class="container">
+    <div class="section-head reveal">
+      <div><div class="eyebrow">03 / Motion</div><h2 class="section-title">VÍDEO<br><em>COMERCIAL</em></h2></div>
+      <p class="small-copy">Contenido horizontal, vertical y piezas pensadas para redes sociales.</p>
     </div>
 
-    <!-- GALERÍA 1: NIGHTLIFE -->
-    <div class="photo-grid modal-gallery" id="modal-nightlife" style="display: none;">
-      <!-- ESTAS SON LAS 5 FOTOS NUEVAS (Aparecerán las primeras) -->
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/1.JPG" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/2.JPG" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/3.JPG" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/4.JPG" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/5.JPG" style="width:100%; height:100%; object-fit:cover;"></div>
-      
-      <!-- FOTOS ANTERIORES -->
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/dj1.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/dj2.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/dj3.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/dj4.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/dj5.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/dj6.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/galan1.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/galan2.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/galan3.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+    <div class="video-main reveal">
+      <div class="video-frame"><iframe src="https://www.youtube.com/embed/85W0xm7VLpM" allowfullscreen loading="lazy"></iframe></div>
+      <div class="video-caption"><span>Featured film</span><span>16 : 09</span></div>
     </div>
 
-    <!-- GALERÍA 2: PRODUCTOS -->
-    <div class="photo-grid modal-gallery" id="modal-productos" style="display: none;">
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/silla1.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/silla2.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/silla3.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/silla4.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/silla5.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/silla6.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/silla7.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+    <div class="video-list reveal">
+      <div><div class="video-frame"><iframe src="https://www.youtube.com/embed/_Wwpe8285qo" allowfullscreen loading="lazy"></iframe></div></div>
+      <div><div class="video-frame"><iframe src="https://www.youtube.com/embed/BDSpXHmrEuo" allowfullscreen loading="lazy"></iframe></div></div>
     </div>
 
-    <!-- GALERÍA 3: FITNESS -->
-    <div class="photo-grid modal-gallery" id="modal-fitness" style="display: none;">
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/fitness1.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/fitness2.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/fitness3.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/fitness4.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/fitness5.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+    <div style="margin:90px 0 30px" class="eyebrow">Reels / Shorts</div>
+    <div class="reels reveal">
+      <div class="reel"><iframe src="https://www.youtube.com/embed/ot6k_m3HqTw" allowfullscreen loading="lazy"></iframe></div>
+      <div class="reel"><iframe src="https://www.youtube.com/embed/fZ19NfEYd-o" allowfullscreen loading="lazy"></iframe></div>
+      <div class="reel"><iframe src="https://www.youtube.com/embed/nQ_p2gdqMMM" allowfullscreen loading="lazy"></iframe></div>
+      <div class="reel"><iframe src="https://www.youtube.com/embed/TL3KEvYK-Zc" allowfullscreen loading="lazy"></iframe></div>
+      <div class="reel"><iframe src="https://www.youtube.com/embed/ftpyt2ZxIuE" allowfullscreen loading="lazy"></iframe></div>
     </div>
-
-    <!-- GALERÍA 4: MOROS Y CRISTIANOS (16 FOTOS) -->
-    <div class="photo-grid modal-gallery" id="modal-moros" style="display: none;">
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/moros1.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/moros2.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/moros3.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/moros4.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/moros5.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/moros6.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/moros7.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/moros8.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/moros9.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/moros10.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/moros11.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/moros12.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/moros13.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/moros14.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/moros15.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/moros16.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-    </div>
-
-    <!-- GALERÍA 5: OTROS -->
-    <div class="photo-grid modal-gallery" id="modal-others" style="display: none;">
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/montca1.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/montca2.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/montca3.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/montca4.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-      <div class="photo-item" onclick="openLightbox(this)"><img src="images/montca5.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-    </div>
-
-  </div>
-</div>
-
-<!-- ========================================================= -->
-<!-- LIGHTBOX (ZOOM FOTOS INDIVIDUALES)                        -->
-<!-- ========================================================= -->
-<div id="customLightbox" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.95); z-index:9999; justify-content:center; align-items:center; opacity:0; transition:opacity 0.3s ease; cursor:zoom-out;" onclick="closeLightbox()">
-  <span style="position:absolute; top:20px; right:30px; color:#fff; font-size:50px; font-weight:300; cursor:pointer; font-family:sans-serif;">&times;</span>
-  <img id="lightboxImg" src="" alt="Vista ampliada" style="max-width:90%; max-height:85vh; border-radius:4px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); object-fit:contain;">
-</div>
-
-<script>
-  function openAlbumModal(albumId, title) {
-    document.getElementById('modal-title').innerText = title;
-    document.querySelectorAll('.modal-gallery').forEach(el => el.style.display = 'none');
-    document.getElementById(albumId).style.display = 'grid';
-    document.getElementById('fullScreenAlbumModal').style.display = 'block';
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeAlbumModal() {
-    document.getElementById('fullScreenAlbumModal').style.display = 'none';
-    document.body.style.overflow = 'auto';
-  }
-
-  function openLightbox(element) {
-    const imgSrc = element.querySelector('img').src;
-    const lightbox = document.getElementById('customLightbox');
-    const lightboxImg = document.getElementById('lightboxImg');
-    lightboxImg.src = imgSrc;
-    lightbox.style.display = 'flex';
-    setTimeout(() => { lightbox.style.opacity = '1'; }, 10);
-  }
-
-  function closeLightbox() {
-    const lightbox = document.getElementById('customLightbox');
-    lightbox.style.opacity = '0';
-    setTimeout(() => { lightbox.style.display = 'none'; }, 300);
-  }
-</script>
- 
-<div class="section-divider"></div>
-
-
-<section class="video-section" id="video" style="background: var(--cream); padding-top: 4rem; padding-bottom: 6rem !important;">
-  <div class="video-inner" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-    
-    <!-- HEADER PRINCIPAL -->
-    <div class="reveal" style="text-align: center; margin-bottom: 4rem;">
-      <div class="section-eyebrow">Portfolio</div>
-      <h2 class="section-title" style="color:var(--black);">VÍ<span style="color:var(--orange)">DEO</span> COMERCIAL</h2>
-      <p style="font-size: .95rem; color: #666; margin-top: .5rem;">Contenido visual y publicitario de alto impacto en todos los formatos.</p>
-    </div>
-    
-    <!-- ========================================================== -->
-    <!-- SUB-SECCIÓN 1: VÍDEOS HORIZONTALES (LOS 2 QUE HABÍA + 1)   -->
-    <!-- ========================================================== -->
-    <div class="reveal" style="margin-bottom: 5rem;">
-      <h3 style="text-align: center; color: var(--black); font-family: var(--bebas); font-size: 2.2rem; letter-spacing: 2px; margin-bottom: 3rem;">
-        SESIONES <span style="color:var(--orange)">&</span> CINEMÁTICO
-      </h3>
-      
-      <div class="horizontal-video-container" style="width: 100%; max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 4rem;">
-        
-        <!-- Horizontal 1 -->
-        <div style="aspect-ratio: 16/9; width: 100%;">
-          <iframe src="https://www.youtube.com/embed/85W0xm7VLpM" style="width:100%; height:100%; border:none; border-radius: 12px; box-shadow: 0 15px 40px rgba(0,0,0,0.15);" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-
-        <!-- Horizontal 2 -->
-        <div style="aspect-ratio: 16/9; width: 100%;">
-          <iframe src="https://www.youtube.com/embed/_Wwpe8285qo" style="width:100%; height:100%; border:none; border-radius: 12px; box-shadow: 0 15px 40px rgba(0,0,0,0.15);" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-
-        <!-- Horizontal 3 (EL NUEVO) -->
-        <div style="aspect-ratio: 16/9; width: 100%;">
-          <!-- 👇 CAMBIA ID_NUEVO_HORIZONTAL POR TU NUEVO VÍDEO 👇 -->
-          <iframe src="https://www.youtube.com/embed/BDSpXHmrEuo" style="width:100%; height:100%; border:none; border-radius: 12px; box-shadow: 0 15px 40px rgba(0,0,0,0.15);" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- SEPARADOR VISUAL SUTIL -->
-    <div class="reveal" style="width: 60px; height: 4px; background: var(--orange); margin: 0 auto 5rem auto; border-radius: 2px;"></div>
-
-    <!-- ========================================================== -->
-    <!-- SUB-SECCIÓN 2: VÍDEOS VERTICALES (LOS 4 QUE HABÍA + 1)     -->
-    <!-- ========================================================== -->
-    <div class="reveal">
-      <h3 style="text-align: center; color: var(--black); font-family: var(--bebas); font-size: 2.2rem; letter-spacing: 2px; margin-bottom: 3rem;">
-        REELS <span style="color:var(--orange)">&</span> SHORTS
-      </h3>
-
-      <div class="videos-vertical-container" style="display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap;">
-        
-        <!-- Vertical 1 -->
-        <div class="vertical-reel-item" style="flex: 1 1 280px; max-width: 320px; aspect-ratio: 9/16;">
-          <iframe src="https://www.youtube.com/embed/ot6k_m3HqTw" style="width:100%; height:100%; border:none; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-
-        <!-- Vertical 2 -->
-        <div class="vertical-reel-item" style="flex: 1 1 280px; max-width: 320px; aspect-ratio: 9/16;">
-          <iframe src="https://www.youtube.com/embed/fZ19NfEYd-o" style="width:100%; height:100%; border:none; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        
-        <!-- Vertical 3 -->
-        <div class="vertical-reel-item" style="flex: 1 1 280px; max-width: 320px; aspect-ratio: 9/16;">
-          <iframe src="https://www.youtube.com/embed/nQ_p2gdqMMM" style="width:100%; height:100%; border:none; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        
-        <!-- Vertical 4 -->
-        <div class="vertical-reel-item" style="flex: 1 1 280px; max-width: 320px; aspect-ratio: 9/16;">
-          <iframe src="https://www.youtube.com/embed/TL3KEvYK-Zc" style="width:100%; height:100%; border:none; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-
-        <!-- Vertical 5 (EL NUEVO) -->
-        <div class="vertical-reel-item" style="flex: 1 1 280px; max-width: 320px; aspect-ratio: 9/16;">
-          <!-- 👇 CAMBIA ID_NUEVO_VERTICAL POR TU NUEVO REEL 👇 -->
-          <iframe src="https://www.youtube.com/embed/ftpyt2ZxIuE" style="width:100%; height:100%; border:none; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-
-      </div>
-    </div>
-
   </div>
 </section>
 
-
-
-<section class="video-section" id="docuserie" style="background: var(--black); border-top: 1px solid rgba(255,255,255,0.05); padding-top: 5rem !important;">
-  <div class="video-inner">
-    <div class="reveal">
-      <div class="section-eyebrow" style="color:var(--orange);">Personal Project</div>
-      <h2 class="section-title" style="color:var(--white);">10 DÍAS CREANDO<br><span style="color:var(--orange)">MI EMPRESA</span></h2>
-      <p style="font-size: .95rem; color: rgba(255,255,255,0.4); margin-top: .5rem; margin-bottom: 3rem;">Sigue el proceso diario, los retos y el detrás de cámaras construyendo ismaavisuals desde cero.</p>
-    </div>
-    
-    <div class="vertical-reels-grid reveal">
-      
-    	 <div class="vertical-reel-item docu-item">
-        <iframe src="https://www.youtube.com/embed/VWnizF-P0D4" style="width:100%; height:100%; border:none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <div class="docu-label">DÍA 01</div>
-      </div>
-
-   <div class="vertical-reel-item docu-item">
-        <iframe src="https://www.youtube.com/embed/wfHiClqT9fw" style="width:100%; height:100%; border:none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <div class="docu-label">DÍA 02</div>
-      </div>
-
-      <div class="vertical-reel-item docu-item">
-        <iframe src="https://www.youtube.com/embed/Bs0UpXjsXsk" style="width:100%; height:100%; border:none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <div class="docu-label">DÍA 03</div>
-      </div>
-
-       <div class="vertical-reel-item docu-item">
-        <iframe src="https://www.youtube.com/embed/LXZdyLdCApY" style="width:100%; height:100%; border:none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <div class="docu-label">DÍA 04</div>
-      </div>
-
-     <div class="vertical-reel-item docu-item">
-        <iframe src="https://www.youtube.com/embed/d2W4NYdPjPc" style="width:100%; height:100%; border:none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <div class="docu-label">DÍA 05</div>
-      </div>
-     
-      <div class="vertical-reel-item docu-item">
-        <iframe src="https://www.youtube.com/embed/_av1pDWaZKg" style="width:100%; height:100%; border:none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <div class="docu-label">DÍA 06</div>
-      </div>
-
-      <div class="vertical-reel-item docu-item">
-        <iframe src="https://www.youtube.com/embed/gSorkk1KwI4" style="width:100%; height:100%; border:none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <div class="docu-label">DÍA 07</div>
-      </div>
-
-       <div class="vertical-reel-item docu-item">
-        <iframe src="https://www.youtube.com/embed/1uBZwlHy65A" style="width:100%; height:100%; border:none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <div class="docu-label">DÍA 08</div>
-      </div>
-    
-
-       <div class="vertical-reel-item docu-item">
-        <iframe src="https://www.youtube.com/embed/HdN3hfmdN0k" style="width:100%; height:100%; border:none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <div class="docu-label">DÍA 09</div>
-      </div>
-
-      <div class="vertical-reel-item docu-item coming-soon">
-        <div class="coming-soon-content"><span>🔒</span><p>DÍA 10</p><small>Próximamente</small></div>
-      </div>
-
+<section class="services" id="servicios">
+  <div class="container">
+    <div class="reveal"><div class="eyebrow">04 / Qué hago</div><h2 class="section-title">SERVICIOS<br><em>VISUALES</em></h2></div>
+    <div class="service-list">
+      <div class="service reveal"><span class="service-num">01</span><h3>Fotografía</h3><p>Eventos, nightlife, fitness, producto y contenido para redes.</p><span class="service-arrow">↗</span></div>
+      <div class="service reveal"><span class="service-num">02</span><h3>Vídeo</h3><p>Reels, piezas comerciales, aftermovies y producciones horizontales.</p><span class="service-arrow">↗</span></div>
+      <div class="service reveal"><span class="service-num">03</span><h3>Contenido recurrente</h3><p>Producción mensual para gimnasios, atletas, DJs y marcas que necesitan constancia.</p><span class="service-arrow">↗</span></div>
     </div>
   </div>
-
-  <style>
-    /* Centrar un único vídeo */
-    .single-video-centered {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-    }
-    .single-video-centered .vertical-reel-item {
-      width: 100%;
-      max-width: 320px; /* Tamaño perfecto de teléfono en pantalla grande */
-    }
-
-    /* Cuadrícula de la docuserie */
-    .vertical-reels-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr); /* 5 columnas en PC (2 filas de 5 = 10 días) */
-      gap: 20px;
-    }
-    .vertical-reel-item {
-      aspect-ratio: 9/16;
-      background: #111;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 4px 25px rgba(0,0,0,0.3);
-      position: relative;
-    }
-    
-    /* Etiquetas para los días */
-    .docu-item { border: 1px solid rgba(255,77,0,0.1); }
-    .docu-label {
-      position: absolute;
-      top: 10px; left: 10px;
-      background: var(--orange);
-      color: #fff;
-      font-size: 0.65rem;
-      font-weight: 700;
-      padding: 3px 8px;
-      border-radius: 3px;
-      letter-spacing: 0.05em;
-      pointer-events: none;
-    }
-
-    /* Tarjetas de diseño Próximamente (Ocultas/Candado) */
-    .coming-soon {
-      background: #141414;
-      border: 1px dashed rgba(255,255,255,0.06);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .coming-soon-content {
-      text-align: center;
-      color: rgba(255,255,255,0.2);
-    }
-    .coming-soon-content span { font-size: 1.5rem; display: block; margin-bottom: 5px; opacity: 0.4; }
-    .coming-soon-content p { font-family: var(--bebas); font-size: 1.3rem; letter-spacing: 0.05em; color: rgba(255,255,255,0.3); }
-    .coming-soon-content small { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.5; }
-
-    /* Adaptación móvil estricta */
-    @media (max-width: 1024px) {
-      .vertical-reels-grid { grid-template-columns: repeat(3, 1fr); gap: 15px; }
-    }
-    @media (max-width: 768px) {
-      .vertical-reels-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-      .single-video-centered .vertical-reel-item { max-width: 280px; }
-    }
-  </style>
 </section>
-<!-- ======================================================= -->
-<!-- SECCIÓN: MI FILOSOFÍA / COMPROMISO PRO -->
-<!-- ======================================================= -->
-<section class="philosophy-section" style="background: var(--black); padding: 5rem 0; border-top: 1px solid rgba(255,255,255,0.05);">
-  <div class="philosophy-inner" style="max-width: 1100px; margin: 0 auto; padding: 0 20px;">
-    
-    <div class="philosophy-box" style="background: #0e0e0e; border: 1px solid rgba(255,77,0,0.15); border-radius: 12px; padding: 3.5rem 2.5rem; position: relative; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.5);">
-      
-      <!-- Detalle estético de luces de fondo -->
-      <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: var(--orange); filter: blur(120px); opacity: 0.15; pointer-events: none;"></div>
-      
-      <div class="philosophy-grid">
-        
-        <!-- Bloque Izquierdo: El Gancho -->
-        <div class="ph-left">
-          <div class="section-eyebrow" style="color: var(--orange); margin-bottom: 0.5rem;">Mi Compromiso</div>
-          <h3 style="font-family: var(--bebas); font-size: 2.8rem; color: var(--white); line-height: 1.1; letter-spacing: 0.03em; margin: 0 0 1.5rem 0;">
-            EL CONTENIDO TIENE QUE TRABAJAR <span style="color: var(--orange);">MIENTRAS EL EVENTO AÚN QUEMA</span>
-          </h3>
-          <p style="color: rgba(255,255,255,0.6); font-size: 1rem; line-height: 1.6; margin: 0;">
-            Sé perfectamente cómo funciona el algoritmo y los negocios actuales: un gran vídeo pierde el 50% de su impacto si se publica una semana tarde. Mi filosofía se basa en fusionar una estética cinematográfica salvaje con una velocidad de entrega obsesiva.
-          </p>
-        </div>
-        
-        <!-- Bloque Derecho: Los 3 Pilares -->
-        <div class="ph-right">
-          
-          <div class="pilar-item" style="margin-bottom: 1.8rem; display: flex; gap: 15px;">
-            <div style="font-size: 1.8rem; color: var(--orange); line-height: 1;">⚡</div>
-            <div>
-              <h4 style="color: var(--white); font-size: 1.1rem; font-weight: 600; margin: 0 0 0.3rem 0;">Entrega en Tiempo Récord</h4>
-              <p style="color: rgba(255,255,255,0.45); font-size: 0.9rem; margin: 0; line-height: 1.4;">Tus fotos premium y Reels listos en un plazo de 48 a 72 horas. Sin excusas ni esperas eternas.</p>
-            </div>
-          </div>
 
-          <div class="pilar-item" style="margin-bottom: 1.8rem; display: flex; gap: 15px;">
-            <div style="font-size: 1.8rem; color: var(--orange); line-height: 1;">🔥</div>
-            <div>
-              <h4 style="color: var(--white); font-size: 1.1rem; font-weight: 600; margin: 0 0 0.3rem 0;">Retención y Alto Impacto</h4>
-              <p style="color: rgba(255,255,255,0.45); font-size: 0.9rem; margin: 0; line-height: 1.4;">Edición frenética, ganchos visuales potentes y diseño de sonido diseñado específicamente para enganchar al usuario al instante.</p>
-            </div>
-          </div>
-
-          <div class="pilar-item" style="display: flex; gap: 15px;">
-            <div style="font-size: 1.8rem; color: var(--orange); line-height: 1;">🌍</div>
-            <div>
-              <h4 style="color: var(--white); font-size: 1.1rem; font-weight: 600; margin: 0 0 0.3rem 0;">Movilidad Sin Barreras</h4>
-              <p style="color: rgba(255,255,255,0.45); font-size: 0.9rem; margin: 0; line-height: 1.4;">Basado en Valencia, pero con equipo ligero y listo para viajar a cualquier festival, club o centro deportivo que requiera calidad pro.</p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
+<section class="docu" id="docuserie">
+  <div class="container">
+    <div class="docu-head reveal">
+      <div><div class="eyebrow">05 / Personal project</div><h2 class="docu-title">10 DÍAS<br>CREANDO <em>MI EMPRESA</em></h2></div>
+      <p class="docu-copy">El proceso real de construir ismaavisuals: trabajo, decisiones, errores y todo lo que sucede detrás de una empresa creativa.</p>
+    </div>
+    <div class="docu-grid reveal">
+      <div class="docu-card"><iframe src="https://www.youtube.com/embed/VWnizF-P0D4" allowfullscreen loading="lazy"></iframe><span class="day">Día 01</span></div>
+      <div class="docu-card"><iframe src="https://www.youtube.com/embed/wfHiClqT9fw" allowfullscreen loading="lazy"></iframe><span class="day">Día 02</span></div>
+      <div class="docu-card"><iframe src="https://www.youtube.com/embed/Bs0UpXjsXsk" allowfullscreen loading="lazy"></iframe><span class="day">Día 03</span></div>
+      <div class="docu-card"><iframe src="https://www.youtube.com/embed/LXZdyLdCApY" allowfullscreen loading="lazy"></iframe><span class="day">Día 04</span></div>
+      <div class="docu-card"><iframe src="https://www.youtube.com/embed/d2W4NYdPjPc" allowfullscreen loading="lazy"></iframe><span class="day">Día 05</span></div>
+      <div class="docu-card"><iframe src="https://www.youtube.com/embed/_av1pDWaZKg" allowfullscreen loading="lazy"></iframe><span class="day">Día 06</span></div>
+      <div class="docu-card"><iframe src="https://www.youtube.com/embed/gSorkk1KwI4" allowfullscreen loading="lazy"></iframe><span class="day">Día 07</span></div>
+      <div class="docu-card"><iframe src="https://www.youtube.com/embed/1uBZwlHy65A" allowfullscreen loading="lazy"></iframe><span class="day">Día 08</span></div>
+      <div class="docu-card"><iframe src="https://www.youtube.com/embed/HdN3hfmdN0k" allowfullscreen loading="lazy"></iframe><span class="day">Día 09</span></div>
+      <div class="docu-card coming"><div><strong>Día 10</strong><span>Próximamente</span></div></div>
     </div>
   </div>
-
-  <!-- ESTILOS RESPONSIVE PARA EL BANNER -->
-  <style>
-    .philosophy-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 50px;
-      align-items: center;
-    }
-    @media (max-width: 900px) {
-      .philosophy-grid {
-        grid-template-columns: 1fr;
-        gap: 35px;
-      }
-      .philosophy-box {
-        padding: 2.5rem 1.5rem !important;
-      }
-    }
-  </style>
 </section>
 
-<div class="section-divider"></div>
- 
-
-<!-- SERVICIOS / PACKS INTERACTIVOS CON PESTAÑAS (ESTILO FOTOGRAFÍA) -->
 <section class="packs" id="packs">
-  <div class="packs-inner">
-    <div class="reveal">
-      <div class="section-eyebrow">Servicios</div>
-      <h2 class="section-title">PACK<span style="color:var(--orange)">S</span></h2>
-      <p class="packs-subtitle">Todo lo que necesitas para que tu negocio o proyecto se vea como lo que es — profesional.</p>
+  <div class="container">
+    <div class="section-head reveal">
+      <div><div class="eyebrow">06 / Servicios</div><h2 class="section-title">PACKS<br><em>DE CONTENIDO</em></h2></div>
+      <p class="small-copy">Soluciones para nightlife, gimnasios, atletas y marcas. Si necesitas algo diferente, preparo una propuesta a medida.</p>
     </div>
 
-    <!-- Pestañas interactivas idénticas a la sección de fotografía -->
-    <div class="filter-tabs" style="margin-bottom: 3rem; display: flex; justify-content: center; gap: 10px;">
-      <button class="filter-tab active" id="btn-pack-dj" onclick="switchPacks('dj')">Nightlife & DJs</button>
-      <button class="filter-tab" id="btn-pack-fit" onclick="switchPacks('fitness')">Fitness & Gyms</button>
-    </div>
-    
-    <!-- ========================================== -->
-    <!-- BLOQUE 1: NIGHTLIFE & DJs (ACTIVO POR DEFECTO) -->
-    <!-- ========================================== -->
-    <div class="packs-grid reveal" id="grid-packs-dj">
-
-      <div class="pack-card">
-        <div>
-          <div class="pack-badge">Pack Básico</div>
-          <div class="pack-name">BÁSICO</div>
-          <p class="pack-desc">Cobertura de hasta 1 hora en 1 sala o discoteca. Ideal para empezar.</p>
-          <ul class="pack-features">
-            <li class="pack-feature">Hasta 1 hora de cobertura</li>
-            <li class="pack-feature">1 sala / discoteca</li>
-            <li class="pack-feature">10 fotos de alta resolución editadas</li>
-            <li class="pack-feature">Clips de vídeo en bruto para Instagram Stories</li>
-            <li class="pack-feature">Galería online en 48 horas</li>
-          </ul>
-        </div>
-        <a href="#contacto" class="pack-cta">Solicitar info</a>
-      </div>
-
-      <div class="pack-card featured">
-        <div>
-          <div class="pack-badge">⭐ Más solicitado</div>
-          <div class="pack-name">ESTÁNDAR</div>
-          <p class="pack-desc">El equilibrio perfecto entre calidad y cobertura para eventos de DJ.</p>
-          <ul class="pack-features">
-            <li class="pack-feature">Hasta 3 horas de cobertura</li>
-            <li class="pack-feature">1 sala / discoteca</li>
-            <li class="pack-feature">1 Reel épico cinematográfico (con diseño de sonido y color)</li>
-            <li class="pack-feature">15 fotos de alta resolución editadas</li>
-            <li class="pack-feature">Clips seleccionados en bruto para Instagram Stories</li>
-            <li class="pack-feature">Galería online en 1-3 días</li>
-          </ul>
-        </div>
-        <a href="#contacto" class="pack-cta">Solicitar info</a>
-      </div>
-
-      <div class="pack-card">
-        <div>
-          <div class="pack-badge">Pack Premium</div>
-          <div class="pack-name">PREMIUM</div>
-          <p class="pack-desc">Cobertura total del evento. Cabina, backstage y zona VIP incluidos.</p>
-          <ul class="pack-features">
-            <li class="pack-feature">Hasta 4 horas de cobertura completa</li>
-            <li class="pack-feature">Acceso total: cabina + backstage + zona VIP</li>
-            <li class="pack-feature">2 Reels personalizados (1 Drop épico, 1 Tendencias)</li>
-            <li class="pack-feature">25 fotos premium editadas (contenido para todo el mes)</li>
-            <li class="pack-feature">Entrega prioritaria</li>
-            <li class="pack-feature">Galería online prioritaria en 72 horas</li>
-          </ul>
-        </div>
-        <a href="#contacto" class="pack-cta">Solicitar info</a>
-      </div>
-
+    <div class="pack-switch reveal">
+      <button class="switch active" id="btnDJ" onclick="switchPacks('dj')">DJ / Nightlife</button>
+      <button class="switch" id="btnFit" onclick="switchPacks('fit')">Fitness / Gyms</button>
     </div>
 
-    <!-- ========================================== -->
-    <!-- BLOQUE 2: FITNESS & GYMs (OCULTO AL INICIO) -->
-    <!-- ========================================== -->
-    <div class="packs-grid reveal" id="grid-packs-fitness" style="display: none;">
-
-      <div class="pack-card">
-        <div>
-          <div class="pack-badge">Marca Personal</div>
-          <div class="pack-name">ATLETA / COACH</div>
-          <p class="pack-desc">Sesión enfocada en potenciar tus redes, tu físico o tu marca de asesorías online.</p>
-          <ul class="pack-features">
-            <li class="pack-feature">Sesión de fotos y vídeo (hasta 1.5h)</li>
-            <li class="pack-feature">Ubicación a elegir (Gimnasio/Exterior)</li>
-            <li class="pack-feature">1 Reels/TikToks cinematográficos listos para publicar</li>
-            <li class="pack-feature">12 fotos premium editadas (Técnica + Enfoque físico)</li>
-            <li class="pack-feature">Asesoría de ideas y audios en tendencia antes de grabar</li>
-          </ul>
-        </div>
-        <a href="#contacto" class="pack-cta">Solicitar info</a>
-      </div>
-
-      <div class="pack-card featured">
-        <div>
-          <div class="pack-badge">⚡ Contenido Recurrente</div>
-          <div class="pack-name">MENSUAL GYM</div>
-          <p class="pack-desc">Suscripción mensual para centros que necesitan contenido constante de calidad para captar socios.</p>
-          <ul class="pack-features">
-            <li class="pack-feature">2 visitas de rodaje al mes al establecimiento</li>
-            <li class="pack-feature">4 Reels/TikToks al mes (Contenido para cada semana)</li>
-            <li class="pack-feature">20 fotos mensuales (Instalaciones, clases, comunidad)</li>
-            <li class="pack-feature">Contenido optimizado para campañas de anuncios locales</li>
-            <li class="pack-feature">Estrategia y planificación visual incluida</li>
-          </ul>
-        </div>
-        <a href="#contacto" class="pack-cta">Solicitar info</a>
-      </div>
-
-      <div class="pack-card">
-        <div>
-          <div class="pack-badge">Producción Comercial</div>
-          <div class="pack-name">BRANDING</div>
-          <p class="pack-desc">Producción de alta gama para marcas de ropa fitness, suplementación o grandes eventos.</p>
-          <ul class="pack-features">
-            <li class="pack-feature">Media jornada de producción completa (Estudio/Gym)</li>
-            <li class="pack-feature">Dirección de modelos o atletas destacados en acción</li>
-            <li class="pack-feature">1 Vídeo promocional principal con estética de cine</li>
-            <li class="pack-feature">3 Clips cortos verticales de producto en uso</li>
-            <li class="pack-feature">25 fotos comerciales listas para web y catálogo</li>
-          </ul>
-        </div>
-        <a href="#contacto" class="pack-cta">Solicitar info</a>
-      </div>
-
+    <div class="pack-grid reveal" id="djPacks">
+      <article class="pack"><div><div class="pack-kicker">Contenido esencial</div><h3>STARTER</h3><p class="pack-desc">Una cobertura compacta para tener material de calidad después de tu sesión o evento.</p><ul><li>Hasta 2 horas de cobertura</li><li>1 Reel / vídeo vertical</li><li>10 fotos editadas</li><li>Entrega digital</li><li>Galería online</li></ul></div><a href="#contacto" class="pack-cta">Solicitar info</a></article>
+      <article class="pack featured"><div><div class="pack-kicker">Más solicitado</div><h3>PRO</h3><p class="pack-desc">Contenido completo para generar presencia en redes durante todo el mes.</p><ul><li>Hasta 3 horas de cobertura</li><li>2 Reels personalizados</li><li>20 fotos premium</li><li>Cabina + backstage según evento</li><li>Entrega prioritaria</li></ul></div><a href="#contacto" class="pack-cta">Solicitar info</a></article>
+      <article class="pack"><div><div class="pack-kicker">Cobertura total</div><h3>PREMIUM</h3><p class="pack-desc">Producción completa del evento, pensada para campañas y comunicación continua.</p><ul><li>Hasta 4 horas de cobertura</li><li>2 Reels personalizados</li><li>25 fotos premium</li><li>Cabina + backstage + VIP</li><li>Galería prioritaria en 72 h</li></ul></div><a href="#contacto" class="pack-cta">Solicitar info</a></article>
     </div>
 
-    <p class="pack-note reveal" style="margin-top: 3rem;">¿Necesitas algo diferente? Contáctame para recibir un paquete personalizado.</p>
+    <div class="pack-grid reveal" id="fitPacks" style="display:none">
+      <article class="pack"><div><div class="pack-kicker">Marca personal</div><h3>ATLETA / COACH</h3><p class="pack-desc">Sesión enfocada en potenciar tus redes, físico o marca personal.</p><ul><li>Sesión foto + vídeo hasta 1,5 h</li><li>Gimnasio o exterior</li><li>1 Reel / TikTok</li><li>12 fotos premium</li><li>Ideas y referencias antes de grabar</li></ul></div><a href="#contacto" class="pack-cta">Solicitar info</a></article>
+      <article class="pack featured"><div><div class="pack-kicker">Contenido recurrente</div><h3>MENSUAL GYM</h3><p class="pack-desc">Contenido constante para centros que quieren captar y retener socios.</p><ul><li>2 visitas de rodaje al mes</li><li>4 Reels / TikToks al mes</li><li>20 fotos mensuales</li><li>Contenido para campañas</li><li>Planificación visual</li></ul></div><a href="#contacto" class="pack-cta">Solicitar info</a></article>
+      <article class="pack"><div><div class="pack-kicker">Producción comercial</div><h3>BRANDING</h3><p class="pack-desc">Producción de alta gama para marcas de ropa, suplementación o eventos.</p><ul><li>Media jornada de producción</li><li>Dirección de modelos / atletas</li><li>Vídeo promocional principal</li><li>3 clips verticales</li><li>25 fotos comerciales</li></ul></div><a href="#contacto" class="pack-cta">Solicitar info</a></article>
+    </div>
+    <p class="pack-note">¿Necesitas algo diferente? Escríbeme y preparo una propuesta personalizada.</p>
   </div>
-
-  <!-- SCRIPT AJUSTADO PARA CONMUTAR LOS BLOQUES DE PACKS -->
-  <script>
-    function switchPacks(type) {
-      const djGrid = document.getElementById('grid-packs-dj');
-      const fitGrid = document.getElementById('grid-packs-fitness');
-      const djBtn = document.getElementById('btn-pack-dj');
-      const fitBtn = document.getElementById('btn-pack-fit');
-
-      if (type === 'dj') {
-        djGrid.style.display = 'grid';
-        fitGrid.style.display = 'none';
-        djBtn.classList.add('active');
-        fitBtn.classList.remove('active');
-      } else {
-        djGrid.style.display = 'none';
-        fitGrid.style.display = 'grid';
-        djBtn.classList.remove('active');
-        fitBtn.classList.add('active');
-      }
-    }
-  </script>
 </section>
 
-<div class="section-divider"></div>
- <!-- ======================================================= -->
-<!-- SECCIÓN: PREGUNTAS FRECUENTES (FAQ) -->
-<!-- ======================================================= -->
-<section class="faq-section" id="faq" style="background: var(--black); padding: 6rem 0; border-top: 1px solid rgba(255,255,255,0.05);">
-  <div class="faq-inner" style="max-width: 800px; margin: 0 auto; padding: 0 20px;">
-    
-    <div class="reveal" style="text-align: center; margin-bottom: 3.5rem;">
-      <div class="section-eyebrow" style="color: var(--orange);">Respuestas</div>
-      <h2 class="section-title" style="color: var(--white); margin-bottom: 1rem;">PREGUNTAS <span style="color: var(--orange);">FRECUENTES</span></h2>
-      <p style="color: rgba(255,255,255,0.5); font-size: 0.95rem;">Resuelvo las dudas más comunes antes de empezar a trabajar juntos.</p>
-    </div>
-
-    <div class="faq-accordion reveal">
-      
-      <!-- PREGUNTA 1 -->
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          <span>¿Cuánto tardas en entregar el material editado?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <p>En el sector de la noche y el fitness, el ritmo de las redes es inmediato. Por eso, las fotos optimizadas y los Reels editados (con diseño de sonido y etalonaje de color profesional) se entregan en un plazo de **48 a 72 horas** tras el evento o la sesión. Si necesitas material urgente para Stories al día siguiente, dímelo antes y lo coordinamos.</p>
-        </div>
-      </div>
-
-      <!-- PREGUNTA 2 -->
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          <span>¿Te desplazas fuera de Valencia?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <p>Sí, tengo disponibilidad total para viajar. Trabajo principalmente en **Valencia y alrededores**, pero me puedo desplazar a cualquier punto de España o del extranjero para cubrir festivales, eventos en discotecas o producciones comerciales para marcas de fitness. Los costes de desplazamiento y alojamiento se calculan de forma transparente en el presupuesto final.</p>
-        </div>
-      </div>
-
-      <!-- PREGUNTA 3 -->
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          <span>¿En qué formatos me entregas los vídeos?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <p>Entrego todo el contenido optimizado según su destino final. Para redes sociales como Instagram Reels, TikTok o YouTube Shorts, te entregaré los archivos en formato **vertical nativo (9:16) en alta resolución**. Si necesitas vídeos corporativos para páginas web, pantallas gigantes de salas o canales de YouTube tradicionales, también realizo entregas en formato **horizontal (16:9) en 4K**.</p>
-        </div>
-      </div>
-
-      <!-- PREGUNTA 4 -->
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          <span>¿Qué pasa con la música de los vídeos y el copyright?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <p>Para los Reels de DJs suelo utilizar los propios drops o transiciones de la sesión para que sea 100% real. Para vídeos comerciales de gimnasios o marcas, utilizo plataformas con **licencias oficiales de música**. Así te aseguras de que Instagram, TikTok o YouTube no te silencien el vídeo ni penalicen tu cuenta de empresa por problemas de derechos de autor.</p>
-        </div>
-      </div>
-
-      <!-- PREGUNTA 5 -->
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          <span>¿Cómo se realiza la reserva y el método de pago?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <p>Una vez que elegimos el pack que mejor se adapta a ti o cerramos un presupuesto personalizado, se realiza un pago del **50% en concepto de reserva** para asegurar la fecha en el calendario. El 50% restante se abona una vez finalizada la sesion a realizar. Acepto transferencias bancarias y Bizum para mayor comodidad.</p>
-        </div>
-      </div>
-
+<section class="faq" id="faq">
+  <div class="container faq-wrap">
+    <div class="section-head reveal"><div><div class="eyebrow">07 / FAQ</div><h2 class="section-title">ANTES DE<br><em>EMPEZAR</em></h2></div></div>
+    <div class="faq-list reveal">
+      <div class="faq-item"><button class="faq-q">¿Cuánto tardas en entregar el material? <span class="faq-icon">+</span></button><div class="faq-answer"><p>Las fotos optimizadas y los Reels editados se entregan normalmente en 48–72 horas tras el evento o sesión. Si necesitas material urgente, podemos coordinarlo previamente.</p></div></div>
+      <div class="faq-item"><button class="faq-q">¿Te desplazas fuera de Valencia? <span class="faq-icon">+</span></button><div class="faq-answer"><p>Sí. Trabajo principalmente en Valencia y alrededores, pero estoy disponible para desplazarme a cualquier punto de España o del extranjero. Los gastos de desplazamiento y alojamiento se incluyen de forma transparente en el presupuesto.</p></div></div>
+      <div class="faq-item"><button class="faq-q">¿En qué formatos entregas los vídeos? <span class="faq-icon">+</span></button><div class="faq-answer"><p>Para Instagram, TikTok y Shorts trabajo principalmente en vertical 9:16. También realizo piezas horizontales 16:9 para YouTube, webs, eventos y campañas.</p></div></div>
+      <div class="faq-item"><button class="faq-q">¿Cómo funciona la reserva? <span class="faq-icon">+</span></button><div class="faq-answer"><p>Una vez definido el servicio y la fecha, se reserva el trabajo mediante un 50% de señal. El resto se abona al finalizar la sesión o producción.</p></div></div>
+      <div class="faq-item"><button class="faq-q">¿Puedes crear un pack personalizado? <span class="faq-icon">+</span></button><div class="faq-answer"><p>Sí. Si tu proyecto necesita una combinación diferente de horas, fotografías, Reels o producción comercial, preparo una propuesta adaptada.</p></div></div>
     </div>
   </div>
-
-  <!-- ESTILOS CSS EXCLUSIVOS DE LOS ACORDEONES -->
-  <style>
-    .faq-accordion {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-    .faq-item {
-      background: #111;
-      border: 1px solid rgba(255,255,255,0.05);
-      border-radius: 6px;
-      overflow: hidden;
-      transition: border-color 0.3s ease;
-    }
-    .faq-item:hover {
-      border-color: rgba(255,77,0,0.3);
-    }
-    .faq-question {
-      width: 100%;
-      background: none;
-      border: none;
-      padding: 20px;
-      color: var(--white);
-      font-size: 1.05rem;
-      font-weight: 600;
-      text-align: left;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-      transition: color 0.3s ease;
-    }
-    .faq-question:hover {
-      color: var(--orange);
-    }
-    .faq-icon {
-      font-size: 1.4rem;
-      color: var(--orange);
-      transition: transform 0.3s ease;
-      font-weight: 300;
-    }
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease-out, padding 0.3s ease;
-      padding: 0 20px;
-    }
-    .faq-answer p {
-      color: rgba(255,255,255,0.6);
-      font-size: 0.95rem;
-      line-height: 1.6;
-      padding-bottom: 20px;
-    }
-    /* Clase para cuando esté abierto */
-    .faq-item.active {
-      border-color: var(--orange);
-    }
-    .faq-item.active .faq-icon {
-      transform: rotate(45deg); /* Gira el "+" para que parezca una "x" */
-    }
-  </style>
-
-  <!-- LOGICA JAVASCRIPT PARA DESPLEGAR -->
-  <script>
-    function toggleFaq(button) {
-      const item = button.parentElement;
-      const answer = button.nextElementSibling;
-      
-      // Si el elemento ya está activo, lo cerramos
-      if (item.classList.contains('active')) {
-        item.classList.remove('active');
-        answer.style.maxHeight = null;
-      } else {
-        // Cerramos cualquier otro acordeón abierto para que quede más limpio
-        document.querySelectorAll('.faq-item').forEach(el => {
-          el.classList.remove('active');
-          el.querySelector('.faq-answer').style.maxHeight = null;
-        });
-        
-        // Abrimos el actual calculando su altura real de texto
-        item.classList.add('active');
-        answer.style.maxHeight = answer.scrollHeight + "px";
-      }
-    }
-  </script>
 </section>
- 
-<div class="section-divider"></div>
- 
-<!-- CONTACTO CONECTADO A TU FORMSPREE CON CAMPO DE REDES SOCIALES -->
+
 <section class="contact" id="contacto">
-  <div class="contact-inner">
+  <div class="container contact-grid">
     <div class="reveal">
-      <div class="section-eyebrow">Hablemos</div>
-      <h2 class="section-title">CON<span>TACTO</span></h2>
-      <p class="contact-text">¿Tienes un gimnasio, eres DJ o gestionas eventos en Valencia? Cuéntame tu proyecto y te preparo una propuesta personalizada.</p>
+      <div class="eyebrow">08 / Contacto</div>
+      <h2 class="contact-title">LET'S<br><em>WORK.</em></h2>
+      <p class="contact-copy">Cuéntame qué quieres crear, cuándo lo necesitas y dónde será. Te responderé con disponibilidad y una propuesta adaptada.</p>
       <div class="contact-links">
-        <a href="https://instagram.com/ismaavisuals" target="_blank" class="contact-link">
-          <div class="contact-link-icon">📸</div>
-          @ismaavisuals
-        </a>
-        <a href="mailto:ismavisuals.work@gmail.com" class="contact-link">
-          <div class="contact-link-icon">💬</div>
-          ismavisuals.work@gmail.com
-        </a>
-       <a href="https://wa.me/34644846097?text=Hola%20Isma!%20He%20visto%20tu%20porfolio%20y%20me%20gustar%C3%ADa%20pedirte%20informaci%C3%B3n%20para%20un%20proyecto." 
-           target="_blank" 
-           class="contact-link" 
-           style="color: #25d366; font-weight: 600;">
-          <div class="contact-link-icon" style="background: rgba(37,211,102,0.1);">💬</div>
-          Chatear por WhatsApp
-        </a>
+        <a href="https://instagram.com/ismaavisuals" target="_blank">@ismaavisuals ↗</a>
+        <a href="mailto:ismavisuals.work@gmail.com">ismavisuals.work@gmail.com ↗</a>
+        <a href="https://wa.me/34644846097?text=Hola%20Isma!%20He%20visto%20tu%20porfolio%20y%20me%20gustar%C3%ADa%20pedirte%20informaci%C3%B3n%20para%20un%20proyecto." target="_blank">WhatsApp ↗</a>
       </div>
     </div>
-    
-    <!-- Formulario conectado a tu ID con el nuevo campo de redes sociales -->
-    <form class="contact-form reveal" id="my-form" action="https://formspree.io/f/xdavlarn" method="POST">
+
+    <form id="contactForm" action="https://formspree.io/f/xdavlarn" method="POST" class="reveal">
       <div class="form-row">
-        <div class="form-group">
-          <label class="form-label">Nombre</label>
-          <input type="text" name="name" class="form-input" placeholder="Tu nombre" required>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Email</label>
-          <input type="email" name="email" class="form-input" placeholder="tu@email.com" required>
-        </div>
+        <div class="field"><label>Nombre</label><input name="name" type="text" placeholder="Tu nombre" required></div>
+        <div class="field"><label>Email</label><input name="email" type="email" placeholder="tu@email.com" required></div>
       </div>
-      
-      <div class="form-group">
-        <label class="form-label">Tipo de proyecto</label>
-        <select name="project_type" class="form-select" required>
-          <option value="">Selecciona una opción</option>
-          <option value="Gym">Gym / Box de CrossFit</option>
-          <option value="DJ">DJ / Evento de música</option>
-          <option value="Atleta">Deportista / Atleta</option>
-          <option value="Otro">Otro</option>
-        </select>
-      </div>
-
-      <!-- NUEVO CAMPO: INSTAGRAM / REDES SOCIALES -->
-      <div class="form-group">
-        <label class="form-label">Instagram / Web</label>
-        <input type="text" name="social_media" class="form-input" placeholder="@tuusuario o enlace (Opcional)">
-      </div>
-
-      <div class="form-group">
-        <label class="form-label">Cuéntame tu proyecto</label>
-        <textarea name="message" class="form-textarea" placeholder="¿Qué necesitas? Fechas, tipo de contenido, ubicación..." required></textarea>
-      </div>
-      <button type="submit" class="form-submit" id="my-form-button">Enviar mensaje →</button>
+      <div class="field"><label>Tipo de proyecto</label><select name="project_type" required><option value="">Selecciona una opción</option><option>Gym / Box</option><option>DJ / Evento</option><option>Atleta / Coach</option><option>Marca / Producto</option><option>Otro</option></select></div>
+      <div class="field"><label>Instagram / Web</label><input name="social_media" type="text" placeholder="@usuario o enlace"></div>
+      <div class="field"><label>Cuéntame tu proyecto</label><textarea name="message" placeholder="Fechas, ubicación, contenido que necesitas..." required></textarea></div>
+      <button class="submit" id="submitBtn" type="submit">Enviar mensaje →</button>
     </form>
   </div>
-
-  <!-- SCRIPT AJAX: Envía los datos en segundo plano sin recargar la web -->
-  <script>
-    const form = document.getElementById("my-form");
-    
-    async function handleSubmit(event) {
-      event.preventDefault();
-      const button = document.getElementById("my-form-button");
-      const data = new FormData(event.target);
-      
-      button.disabled = true;
-      button.textContent = "Enviando...";
-
-      fetch(event.target.action, {
-        method: form.method,
-        body: data,
-        headers: {
-            'Accept': 'application/json'
-        }
-      }).then(response => {
-        if (response.ok) {
-          button.textContent = "✓ ¡Mensaje enviado con éxito!";
-          button.style.background = "#28a745";
-          form.reset();
-          setTimeout(() => {
-            button.style.background = "";
-            button.textContent = "Enviar mensaje →";
-            button.disabled = false;
-          }, 4000);
-        } else {
-          response.json().then(data => {
-            if (Object.hasOwn(data, 'errors')) {
-              button.textContent = "❌ Error al enviar";
-            } else {
-              button.textContent = "❌ Algo salió mal";
-            }
-            button.style.background = "#dc3545";
-            setTimeout(() => {
-              button.style.background = "";
-              button.textContent = "Enviar mensaje →";
-              button.disabled = false;
-            }, 4000);
-          })
-        }
-      }).catch(error => {
-        button.textContent = "❌ Error de conexión";
-        button.style.background = "#dc3545";
-        setTimeout(() => {
-          button.style.background = "";
-          button.textContent = "Enviar mensaje →";
-          button.disabled = false;
-        }, 4000);
-      });
-    }
-    
-    form.addEventListener("submit", handleSubmit);
-  </script>
 </section>
- 
+
 <footer>
   <div class="footer-logo">ismaa<span>visuals</span></div>
   <div class="footer-copy">© 2026 ismaavisuals · Valencia, España</div>
-    <p style="color: rgba(255,255,255,0.4); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin: 0;">
-      Diseñado y desarrollado por <span style="color: var(--orange); font-weight: 600;">Isma</span>
-    </p>
-  <div class="footer-social">
-    <a href="https://instagram.com/ismaavisuals" target="_blank">Instagram</a>
-    <a href="https://www.tiktok.com/@ismaavisuals" target="_blank">TikTok</a>
-  </div>
+  <div><a href="https://instagram.com/ismaavisuals" target="_blank">Instagram</a> &nbsp;&nbsp; <a href="https://www.tiktok.com/@ismaavisuals" target="_blank">TikTok</a></div>
 </footer>
- 
-<script>
-  // Control de menú móvil desplegable
-  function toggleMenu() {
-    // Solo actúa en pantallas móviles
-    if (window.innerWidth <= 768) {
-      const navLinks = document.querySelector('.nav-links');
-      const menuToggle = document.querySelector('.menu-toggle');
-      navLinks.classList.toggle('active');
-      menuToggle.classList.toggle('active');
-    }
-  }
 
-  // Scroll reveal
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
+<!-- GALERÍA -->
+<div class="modal" id="galleryModal">
+  <div class="modal-head"><h2 id="modalTitle">NIGHTLIFE</h2><button class="close" onclick="closeAlbum()">×</button></div>
+  <div class="gallery" id="gallery"></div>
+</div>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <span class="lightbox-close">×</span>
+  <img id="lightboxImg" src="" alt="Imagen ampliada">
+</div>
+
+<script>
+const albums={
+  nightlife:["1.JPG","2.JPG","3.JPG","4.JPG","5.JPG","dj1.jpeg","dj2.jpeg","dj3.jpeg","dj4.jpeg","dj5.jpeg","dj6.jpeg","galan1.jpeg","galan2.jpeg","galan3.jpeg"],
+  productos:["silla1.jpeg","silla2.jpeg","silla3.jpeg","silla4.jpeg","silla5.jpeg","silla6.jpeg","silla7.jpeg"],
+  fitness:["fitness1.jpeg","fitness2.jpeg","fitness3.jpeg","fitness4.jpeg","fitness5.jpeg"],
+  moros:["moros1.jpeg","moros2.jpeg","moros3.jpeg","moros4.jpeg","moros5.jpeg","moros6.jpeg","moros7.jpeg","moros8.jpeg","moros9.jpeg","moros10.jpeg","moros11.jpeg","moros12.jpeg","moros13.jpeg","moros14.jpeg","moros15.jpeg","moros16.jpeg"],
+  otros:["montca1.jpeg","montca2.jpeg","montca3.jpeg","montca4.jpeg","montca5.jpeg"]
+};
+
+const modal=document.getElementById("galleryModal");
+const gallery=document.getElementById("gallery");
+const modalTitle=document.getElementById("modalTitle");
+
+function openAlbum(id,title){
+  modalTitle.textContent=title;
+  gallery.innerHTML=albums[id].map((img,i)=>`
+    <div class="gallery-item" onclick="openLightbox('${img.replace(/'/g,"\\'")}')">
+      <img src="images/${img}" alt="${title} ${i+1}" loading="lazy">
+    </div>`).join("");
+  modal.classList.add("open");
+  document.body.style.overflow="hidden";
+}
+function closeAlbum(){modal.classList.remove("open");document.body.style.overflow=""}
+function openLightbox(src){
+  document.getElementById("lightboxImg").src="images/"+src;
+  document.getElementById("lightbox").classList.add("open");
+}
+function closeLightbox(e){
+  if(e && e.target.id==="lightboxImg")return;
+  document.getElementById("lightbox").classList.remove("open");
+}
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape"){closeAlbum();closeLightbox()}
+});
+
+const menu=document.getElementById("menu"),links=document.getElementById("navLinks");
+menu.addEventListener("click",()=>{menu.classList.toggle("open");links.classList.toggle("open")});
+document.querySelectorAll(".nav-links a").forEach(a=>a.addEventListener("click",()=>{menu.classList.remove("open");links.classList.remove("open")}));
+
+window.addEventListener("scroll",()=>{
+  document.getElementById("nav").classList.toggle("scrolled",scrollY>40);
+},{passive:true});
+
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");observer.unobserve(e.target)}});
+},{threshold:.08});
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+
+function switchPacks(type){
+  const dj=document.getElementById("djPacks"),fit=document.getElementById("fitPacks");
+  const bd=document.getElementById("btnDJ"),bf=document.getElementById("btnFit");
+  const isDJ=type==="dj";
+  dj.style.display=isDJ?"grid":"none";
+  fit.style.display=isDJ?"none":"grid";
+  bd.classList.toggle("active",isDJ);
+  bf.classList.toggle("active",!isDJ);
+}
+
+document.querySelectorAll(".faq-q").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    const item=btn.parentElement,answer=btn.nextElementSibling;
+    const open=item.classList.contains("open");
+    document.querySelectorAll(".faq-item").forEach(i=>{
+      i.classList.remove("open");
+      i.querySelector(".faq-answer").style.maxHeight=null;
     });
-  }, { threshold: 0.1 });
-  reveals.forEach(el => observer.observe(el));
-
-  // Nav active style on scroll
-  window.addEventListener('scroll', () => {
-    const nav = document.querySelector('nav');
-    nav.style.borderBottomColor = window.scrollY > 50
-      ? 'rgba(255,77,0,0.2)'
-      : 'rgba(255,255,255,0.06)';
+    if(!open){
+      item.classList.add("open");
+      answer.style.maxHeight=answer.scrollHeight+"px";
+    }
   });
+});
+
+const form=document.getElementById("contactForm");
+form.addEventListener("submit",async e=>{
+  e.preventDefault();
+  const btn=document.getElementById("submitBtn");
+  btn.disabled=true;btn.textContent="Enviando...";
+  try{
+    const res=await fetch(form.action,{method:"POST",body:new FormData(form),headers:{Accept:"application/json"}});
+    if(res.ok){
+      btn.textContent="Mensaje enviado ✓";form.reset();
+      setTimeout(()=>{btn.textContent="Enviar mensaje →";btn.disabled=false},3500);
+    }else throw new Error();
+  }catch{
+    btn.textContent="No se pudo enviar";
+    setTimeout(()=>{btn.textContent="Enviar mensaje →";btn.disabled=false},3500);
+  }
+});
 </script>
- 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
-
-<script>
-  // 1. Efecto 3D para las tarjetas de los Packs de servicios
-  VanillaTilt.init(document.querySelectorAll(".pack-card"), {
-    max: 12,                // Grados máximos de inclinación 3D
-    speed: 400,             // Velocidad a la que vuelve a su sitio original
-    glare: true,            // Activa el reflejo de luz (efecto cristal)
-    "max-glare": 0.25,      // Opacidad máxima del brillo de luz (25%)
-    scale: 1.02             // Hace que la tarjeta se acerque muy sutilmente hacia ti
-  });
-
-  // 2. Efecto 3D para las fotos de la Galería
-  VanillaTilt.init(document.querySelectorAll(".portfolio-item, .gallery-item"), {
-    max: 8,                 // Inclinación un poco más suave para no marear en las fotos
-    speed: 400,
-    glare: true,
-    "max-glare": 0.35,      // Brillo un poco más fuerte para que parezca una pantalla
-    scale: 1.02
-  });
-</script>
- 
 </body>
 </html>
