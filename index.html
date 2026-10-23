@@ -10,7 +10,7 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --orange: #FF4D00;
+    --blue: #0055FF;
     --black: #0e0e0e;
     --dark: #1a1a1a;
     --cream: #F7F4EF;
@@ -54,7 +54,7 @@
     z-index: 1001;
   }
 
-  .nav-logo span { color: var(--orange); }
+  .nav-logo span { color: var(--blue); }
 
   .nav-links {
     display: flex;
@@ -73,17 +73,17 @@
     transition: color .2s;
   }
 
-  .nav-links a:hover { color: var(--orange); }
+  .nav-links a:hover { color: var(--blue); }
 
   .nav-cta {
-    background: var(--orange);
+    background: var(--blue);
     color: var(--white) !important;
     padding: .45rem 1.2rem;
     border-radius: 2px;
     font-weight: 600 !important;
   }
 
-  .nav-cta:hover { background: #e04300; color: var(--white) !important; }
+  .nav-cta:hover { background: #0055FF; color: var(--white) !important; }
 
   /* MENÚ HAMBURGUESA (MÓVIL) */
   .menu-toggle {
@@ -121,8 +121,8 @@
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(ellipse 60% 50% at 70% 40%, rgba(255,77,0,0.12) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(255,77,0,0.06) 0%, transparent 60%);
+      radial-gradient(ellipse 60% 50% at 70% 40%, rgba(0, 85, 255, 0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(0, 85, 255, 0.06) 0%, transparent 60%);
   }
 
   .hero-grid {
@@ -139,7 +139,7 @@
   .hero-eyebrow {
     font-size: .75rem;
     font-weight: 500;
-    color: var(--orange);
+    color: var(--blue);
     letter-spacing: .12em;
     text-transform: uppercase;
     margin-bottom: 1rem;
@@ -153,7 +153,7 @@
     display: block;
     width: 24px;
     height: 1.5px;
-    background: var(--orange);
+    background: var(--blue);
   }
 
   .hero-title {
@@ -165,7 +165,7 @@
   }
 
   .hero-title .line-1 { color: var(--white); display: block; }
-  .hero-title .line-2 { color: var(--orange); display: block; }
+  .hero-title .line-2 { color: var(--blue); display: block; }
   .hero-title .line-3 { color: var(--white); display: block; }
 
   .hero-sub {
@@ -179,7 +179,7 @@
   .hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
 
   .btn-primary {
-    background: var(--orange);
+    background: var(--blue);
     color: var(--white);
     font-family: var(--inter);
     font-size: .85rem;
@@ -195,7 +195,7 @@
     display: inline-block;
   }
 
-  .btn-primary:hover { background: #e04300; transform: translateY(-1px); }
+  .btn-primary:hover { background: #0055FF; transform: translateY(-1px); }
 
   .btn-secondary {
     color: rgba(255,255,255,0.6);
@@ -222,7 +222,7 @@
   }
 
   .stat { text-align: right; }
-  .stat-num { font-family: var(--bebas); font-size: 2.2rem; color: var(--orange); line-height: 1; }
+  .stat-num { font-family: var(--bebas); font-size: 2.2rem; color: var(--blue); line-height: 1; }
   .stat-label { font-size: .7rem; color: rgba(255,255,255,0.35); letter-spacing: .08em; text-transform: uppercase; }
 
   /* SECTION BASE */
@@ -231,7 +231,7 @@
   .section-eyebrow {
     font-size: .7rem;
     font-weight: 600;
-    color: var(--orange);
+    color: var(--blue);
     letter-spacing: .14em;
     text-transform: uppercase;
     margin-bottom: .6rem;
@@ -245,7 +245,7 @@
     display: block;
     width: 16px;
     height: 1.5px;
-    background: var(--orange);
+    background: var(--blue);
   }
 
   .section-title {
@@ -270,10 +270,10 @@
     align-items: center;
   }
 
-  .about .section-eyebrow { color: var(--orange); }
-  .about .section-eyebrow::before { background: var(--orange); }
+  .about .section-eyebrow { color: var(--blue); }
+  .about .section-eyebrow::before { background: var(--blue); }
   .about .section-title { color: var(--black); }
-  .about .section-title span { color: var(--orange); }
+  .about .section-title span { color: var(--blue); }
   .about-text { font-size: .95rem; color: #555; line-height: 1.8; margin-top: 1.2rem; }
   .about-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.5rem; }
 
@@ -286,7 +286,7 @@
     border-radius: 2px;
   }
 
-  .tag-orange { background: var(--orange); color: var(--white); }
+  .tag-blue { background: var(--blue); color: var(--white); }
   .tag-dark { background: var(--black); color: var(--white); }
   .tag-outline { border: 1px solid #ccc; color: #555; }
 
@@ -305,7 +305,7 @@
     position: absolute;
     bottom: 1.2rem;
     left: 1.2rem;
-    background: var(--orange);
+    background: var(--blue);
     color: var(--white);
     font-family: var(--bebas);
     font-size: 1.1rem;
@@ -324,7 +324,7 @@
 
   .photography-inner { max-width: 1200px; margin: 0 auto; }
   .photography .section-title { color: var(--white); }
-  .photography .section-title span { color: var(--orange); }
+  .photography .section-title span { color: var(--blue); }
 
   .album-grid {
     display: grid;
@@ -367,7 +367,7 @@
   }
 
   .album:hover .album-info {
-    border-color: var(--orange);
+    border-color: var(--blue);
   }
 
   .album-title {
@@ -407,9 +407,9 @@
 
   .video-inner { max-width: 1100px; margin: 0 auto; }
   .video-section .section-title { color: var(--black); }
-  .video-section .section-title span { color: var(--orange); }
-  .video-section .section-eyebrow { color: var(--orange); }
-  .video-section .section-eyebrow::before { background: var(--orange); }
+  .video-section .section-title span { color: var(--blue); }
+  .video-section .section-eyebrow { color: var(--blue); }
+  .video-section .section-eyebrow::before { background: var(--blue); }
 
   /* PACKS */
   .packs {
@@ -420,13 +420,13 @@
 
   .packs-inner { max-width: 1100px; margin: 0 auto; }
   .packs .section-title { color: var(--white); }
-  .packs .section-title span { color: var(--orange); }
+  .packs .section-title span { color: var(--blue); }
   .packs-subtitle { font-size: .95rem; color: rgba(255,255,255,0.4); margin-top: .8rem; margin-bottom: 3rem; max-width: 480px; line-height: 1.6; }
   .packs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
   .pack-card { background: #111; padding: 2.5rem 2rem; position: relative; transition: transform .2s; border: 1px solid rgba(255,255,255,0.03); border-radius: 4px; display: flex; flex-direction: column; justify-content: space-between; }
-  .pack-card:hover { transform: translateY(-3px); border-color: rgba(255,77,0,0.3); }
-  .pack-card.featured { background: var(--orange); border-color: var(--orange); }
-  .pack-badge { font-size: .65rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--orange); margin-bottom: 1rem; }
+  .pack-card:hover { transform: translateY(-3px); border-color: rgba(0, 85, 255, 0.3); }
+  .pack-card.featured { background: var(--blue); border-color: var(--blue); }
+  .pack-badge { font-size: .65rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); margin-bottom: 1rem; }
   .pack-card.featured .pack-badge { color: rgba(255,255,255,0.7); }
   .pack-name { font-family: var(--bebas); font-size: 2rem; letter-spacing: .02em; color: var(--white); margin-bottom: .3rem; }
   .pack-desc { font-size: .82rem; color: rgba(255,255,255,0.4); line-height: 1.6; margin-bottom: 1.8rem; }
@@ -434,17 +434,17 @@
   .pack-features { list-style: none; margin-bottom: 2rem; display: flex; flex-direction: column; gap: .7rem; }
   .pack-feature { font-size: .82rem; color: rgba(255,255,255,0.6); display: flex; align-items: flex-start; gap: .6rem; line-height: 1.4; }
   .pack-card.featured .pack-feature { color: rgba(255,255,255,0.9); }
-  .pack-feature::before { content: '✓'; color: var(--orange); font-weight: 700; flex-shrink: 0; }
+  .pack-feature::before { content: '✓'; color: var(--blue); font-weight: 700; flex-shrink: 0; }
   .pack-card.featured .pack-feature::before { color: var(--white); }
   .pack-cta { display: block; text-align: center; font-size: .8rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: .8rem; border-radius: 2px; text-decoration: none; transition: all .2s; border: 1px solid rgba(255,255,255,0.15); color: var(--white); background: transparent; margin-top: auto; }
-  .pack-cta:hover { background: var(--orange); border-color: var(--orange); }
-  .pack-card.featured .pack-cta { background: var(--white); color: var(--orange); border-color: var(--white); }
+  .pack-cta:hover { background: var(--blue); border-color: var(--blue); }
+  .pack-card.featured .pack-cta { background: var(--white); color: var(--blue); border-color: var(--white); }
   .pack-card.featured .pack-cta:hover { background: var(--black); color: var(--white); border-color: var(--black); }
   .pack-note { font-size: .75rem; color: rgba(255,255,255,0.25); text-align: center; margin-top: 2rem; }
   
   .filter-tabs { display: flex; flex-wrap: wrap; gap: .5rem; }
   .filter-tab { font-size: .75rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: .45rem 1rem; border-radius: 2px; cursor: pointer; border: 1px solid transparent; transition: all .2s; background: none; color: rgba(255,255,255,0.4); border-color: rgba(255,255,255,0.1); }
-  .filter-tab.active, .filter-tab:hover { background: var(--orange); color: var(--white); border-color: var(--orange); }
+  .filter-tab.active, .filter-tab:hover { background: var(--blue); color: var(--white); border-color: var(--blue); }
 
   /* CONTACTO */
   .contact {
@@ -461,24 +461,24 @@
     align-items: start;
   }
 
-  .contact .section-eyebrow { color: var(--orange); }
-  .contact .section-eyebrow::before { background: var(--orange); }
+  .contact .section-eyebrow { color: var(--blue); }
+  .contact .section-eyebrow::before { background: var(--blue); }
   .contact .section-title { color: var(--black); }
-  .contact .section-title span { color: var(--orange); }
+  .contact .section-title span { color: var(--blue); }
   .contact-text { font-size: .9rem; color: #666; line-height: 1.8; margin-top: 1rem; margin-bottom: 2rem; }
   .contact-links { display: flex; flex-direction: column; gap: .8rem; }
   .contact-link { display: flex; align-items: center; gap: .8rem; font-size: .85rem; color: #444; text-decoration: none; font-weight: 500; transition: color .2s; }
-  .contact-link:hover { color: var(--orange); }
+  .contact-link:hover { color: var(--blue); }
   .contact-link-icon { width: 36px; height: 36px; background: var(--black); border-radius: 2px; display: flex; align-items: center; justify-content: center; color: var(--white); font-size: .9rem; flex-shrink: 0; }
   .contact-form { display: flex; flex-direction: column; gap: 1rem; }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
   .form-group { display: flex; flex-direction: column; gap: .4rem; }
   .form-label { font-size: .7rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #888; }
   .form-input, .form-textarea, .form-select { font-family: var(--inter); font-size: .9rem; color: var(--black); background: var(--white); border: 1px solid #ddd; border-radius: 2px; padding: .75rem 1rem; transition: border-color .2s; outline: none; -webkit-appearance: none; }
-  .form-input:focus, .form-textarea:focus, .form-select:focus { border-color: var(--orange); }
+  .form-input:focus, .form-textarea:focus, .form-select:focus { border-color: var(--blue); }
   .form-textarea { resize: vertical; min-height: 120px; }
-  .form-submit { background: var(--orange); color: var(--white); font-family: var(--inter); font-size: .85rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 1rem; border: none; border-radius: 2px; cursor: pointer; transition: background .2s, transform .15s; margin-top: .5rem; }
-  .form-submit:hover { background: #e04300; transform: translateY(-1px); }
+  .form-submit { background: var(--blue); color: var(--white); font-family: var(--inter); font-size: .85rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 1rem; border: none; border-radius: 2px; cursor: pointer; transition: background .2s, transform .15s; margin-top: .5rem; }
+  .form-submit:hover { background: #0055FF; transform: translateY(-1px); }
 
   /* FOOTER */
   footer {
@@ -493,13 +493,13 @@
   }
 
   .footer-logo { font-family: var(--bebas); font-size: 1.2rem; color: var(--white); letter-spacing: .04em; }
-  .footer-logo span { color: var(--orange); }
+  .footer-logo span { color: var(--blue); }
   .footer-copy { font-size: .75rem; color: rgba(255,255,255,0.25); }
   .footer-social { display: flex; gap: 1rem; }
   .footer-social a { font-size: .75rem; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: rgba(255,255,255,0.35); text-decoration: none; transition: color .2s; }
-  .footer-social a:hover { color: var(--orange); }
+  .footer-social a:hover { color: var(--blue); }
 
-  .section-divider { height: 1px; background: linear-gradient(to right, transparent, rgba(255,77,0,0.4), transparent); }
+  .section-divider { height: 1px; background: linear-gradient(to right, transparent, rgba(0, 85, 255, 0.4), transparent); }
 
   .reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
@@ -540,17 +540,17 @@
   }
 
 /* ANIMACIÓN GLOW RESPIRABLE PARA TARJETAS Y BOTONES */
-.pack-card { position: relative; animation: glowPulseOrange 4s infinite ease-in-out; }
-.form-submit { position: relative; animation: glowPulseOrangeButton 4s infinite ease-in-out; }
-@keyframes glowPulseOrange {
-  0% { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 5px rgba(255, 77, 0, 0.2); }
-  50% { box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(255, 77, 0, 0.6); }
-  100% { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 5px rgba(255, 77, 0, 0.2); }
+.pack-card { position: relative; animation: glowPulseBlue 4s infinite ease-in-out; }
+.form-submit { position: relative; animation: glowPulseBlueButton 4s infinite ease-in-out; }
+@keyframes glowPulseBlue {
+  0% { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 5px rgba(0, 85, 255, 0.2); }
+  50% { box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(0, 85, 255, 0.6); }
+  100% { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 5px rgba(0, 85, 255, 0.2); }
 }
-@keyframes glowPulseOrangeButton {
-  0% { box-shadow: 0 4px 15px rgba(255, 77, 0, 0.2); transform: translateY(0); }
-  50% { box-shadow: 0 6px 25px rgba(255, 77, 0, 0.5); transform: translateY(-1px); }
-  100% { box-shadow: 0 4px 15px rgba(255, 77, 0, 0.2); transform: translateY(0); }
+@keyframes glowPulseBlueButton {
+  0% { box-shadow: 0 4px 15px rgba(0, 85, 255, 0.2); transform: translateY(0); }
+  50% { box-shadow: 0 6px 25px rgba(0, 85, 255, 0.5); transform: translateY(-1px); }
+  100% { box-shadow: 0 4px 15px rgba(0, 85, 255, 0.2); transform: translateY(0); }
 }
 
 /* ANIMACIÓN CINEMÁTICA DE CARGA DE TEXTO ESCALONADA */
@@ -572,14 +572,14 @@
 .hero-grid {
   position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none;
   background-image: 
-    linear-gradient(rgba(255, 77, 0, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 77, 0, 0.08) 1px, transparent 1px);
+    linear-gradient(rgba(0, 85, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 85, 255, 0.08) 1px, transparent 1px);
   background-size: 60px 60px; 
 }
 .hero-grid::after {
   content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; 
-  background: linear-gradient(90deg, transparent, rgba(255, 77, 0, 0.1) 20%, rgba(255, 77, 0, 0.7) 50%, rgba(255, 77, 0, 0.1) 80%, transparent);
-  filter: blur(1px); box-shadow: 0 0 15px rgba(255, 77, 0, 0.4); 
+  background: linear-gradient(90deg, transparent, rgba(0, 85, 255, 0.1) 20%, rgba(0, 85, 255, 0.7) 50%, rgba(0, 85, 255, 0.1) 80%, transparent);
+  filter: blur(1px); box-shadow: 0 0 15px rgba(0, 85, 255, 0.4); 
   animation: scanningTechPulse 10s infinite ease-out; animation-delay: 3s; opacity: 0; 
 }
 @keyframes scanningTechPulse {
@@ -603,7 +603,7 @@
     <li><a href="#sobremi" onclick="toggleMenu()">Sobre mí</a></li>
     <li><a href="#fotografia" onclick="toggleMenu()">Fotografía</a></li>
     <li><a href="#video" onclick="toggleMenu()">Vídeo</a></li>
-    <li><a href="#docuserie" onclick="toggleMenu()" style="color: var(--orange); font-weight: 600;">Proyecto Personal</a></li>
+    <li><a href="#docuserie" onclick="toggleMenu()" style="color: var(--blue); font-weight: 600;">Proyecto Personal</a></li>
     <li><a href="#packs" onclick="toggleMenu()">Packs</a></li>
     <li><a href="#faq" onclick="toggleMenu()">FAQ</a></li>
     <li><a href="#contacto" class="nav-cta" onclick="toggleMenu()">Contacto</a></li>
@@ -618,7 +618,7 @@
     <h1 class="hero-title animate-text-container">
       <span class="animated-line">FOTOGRAFÍA</span>
       <span class="animated-line">&amp; VÍDEO</span>
-      <span class="animated-line" style="color: var(--orange);">CINEMATOGRÁFICO</span>
+      <span class="animated-line" style="color: var(--blue);">CINEMATOGRÁFICO</span>
    </h1>
     <p class="hero-sub">Creo contenido visual para gimnasios, deportistas y DJs que quieren destacar en redes y conseguir más clientes.</p>
     <div class="hero-actions">
@@ -648,7 +648,7 @@
       <p class="about-text">Fotógrafo, filmmaker y especialista en marketing visual. Combino dos mundos que aparentemente no tienen nada en común — el nightlife y el fitness — porque los dos necesitan lo mismo: contenido que transmita emoción antes de que el espectador pueda salir del scroll.</p>
       <p class="about-text">Basado en Valencia. Disponible para viajar a donde el trabajo lo requiera.</p>
       <div class="about-tags">
-        <span class="tag tag-orange">Fotografía</span>
+        <span class="tag tag-blue">Fotografía</span>
         <span class="tag tag-dark">Vídeo</span>
         <span class="tag tag-outline">Fitness</span>
         <span class="tag tag-outline">Nightlife</span>
@@ -673,7 +673,7 @@
     
     <div class="reveal" style="margin-bottom: 4rem;">
       <div class="section-eyebrow">02 / Selección</div>
-      <h2 class="section-title">TRABAJO<br><span style="color:var(--orange);">SELECCIONADO</span></h2>
+      <h2 class="section-title">TRABAJO<br><span style="color:var(--blue);">SELECCIONADO</span></h2>
       <p style="color: rgba(255,255,255,0.5); font-size: 1.05rem; font-weight: 300; margin-top: 1.5rem; max-width: 500px; line-height: 1.6;">
         Una selección de proyectos. Entra en cada categoría para ver la galería completa.
       </p>
@@ -750,7 +750,7 @@
     
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem;">
       <h3 id="modal-title" style="color: var(--white); font-family: var(--bebas); font-size: 3rem; margin: 0; letter-spacing: 2px;">TÍTULO</h3>
-      <button onclick="closeAlbumModal()" style="background: none; border: none; color: var(--orange); font-size: 3rem; cursor: pointer; line-height: 1; padding: 0;">&times;</button>
+      <button onclick="closeAlbumModal()" style="background: none; border: none; color: var(--blue); font-size: 3rem; cursor: pointer; line-height: 1; padding: 0;">&times;</button>
     </div>
 
     <!-- GALERÍA 1: NIGHTLIFE -->
@@ -870,7 +870,7 @@
     <!-- HEADER PRINCIPAL -->
     <div class="reveal" style="text-align: center; margin-bottom: 4rem;">
       <div class="section-eyebrow">Portfolio</div>
-      <h2 class="section-title" style="color:var(--black);">VÍ<span style="color:var(--orange)">DEO</span> COMERCIAL</h2>
+      <h2 class="section-title" style="color:var(--black);">VÍ<span style="color:var(--blue)">DEO</span> COMERCIAL</h2>
       <p style="font-size: .95rem; color: #666; margin-top: .5rem;">Contenido visual y publicitario de alto impacto en todos los formatos.</p>
     </div>
     
@@ -879,7 +879,7 @@
     <!-- ========================================================== -->
     <div class="reveal" style="margin-bottom: 5rem;">
       <h3 style="text-align: center; color: var(--black); font-family: var(--bebas); font-size: 2.2rem; letter-spacing: 2px; margin-bottom: 3rem;">
-        SESIONES <span style="color:var(--orange)">&</span> CINEMÁTICO
+        SESIONES <span style="color:var(--blue)">&</span> CINEMÁTICO
       </h3>
       
       <div class="horizontal-video-container" style="width: 100%; max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 4rem;">
@@ -903,14 +903,14 @@
     </div>
 
     <!-- SEPARADOR VISUAL SUTIL -->
-    <div class="reveal" style="width: 60px; height: 4px; background: var(--orange); margin: 0 auto 5rem auto; border-radius: 2px;"></div>
+    <div class="reveal" style="width: 60px; height: 4px; background: var(--blue); margin: 0 auto 5rem auto; border-radius: 2px;"></div>
 
     <!-- ========================================================== -->
     <!-- SUB-SECCIÓN 2: VÍDEOS VERTICALES (LOS 4 QUE HABÍA + 1)     -->
     <!-- ========================================================== -->
     <div class="reveal">
       <h3 style="text-align: center; color: var(--black); font-family: var(--bebas); font-size: 2.2rem; letter-spacing: 2px; margin-bottom: 3rem;">
-        REELS <span style="color:var(--orange)">&</span> SHORTS
+        REELS <span style="color:var(--blue)">&</span> SHORTS
       </h3>
 
       <div class="videos-vertical-container" style="display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap;">
@@ -954,8 +954,8 @@
 <section class="video-section" id="docuserie" style="background: var(--black); border-top: 1px solid rgba(255,255,255,0.05); padding-top: 5rem !important;">
   <div class="video-inner">
     <div class="reveal">
-      <div class="section-eyebrow" style="color:var(--orange);">Personal Project</div>
-      <h2 class="section-title" style="color:var(--white);">10 DÍAS CREANDO<br><span style="color:var(--orange)">MI EMPRESA</span></h2>
+      <div class="section-eyebrow" style="color:var(--blue);">Personal Project</div>
+      <h2 class="section-title" style="color:var(--white);">10 DÍAS CREANDO<br><span style="color:var(--blue)">MI EMPRESA</span></h2>
       <p style="font-size: .95rem; color: rgba(255,255,255,0.4); margin-top: .5rem; margin-bottom: 3rem;">Sigue el proceso diario, los retos y el detrás de cámaras construyendo ismaavisuals desde cero.</p>
     </div>
     
@@ -1043,11 +1043,11 @@
     }
     
     /* Etiquetas para los días */
-    .docu-item { border: 1px solid rgba(255,77,0,0.1); }
+    .docu-item { border: 1px solid rgba(0, 85, 255, 0.1); }
     .docu-label {
       position: absolute;
       top: 10px; left: 10px;
-      background: var(--orange);
+      background: var(--blue);
       color: #fff;
       font-size: 0.65rem;
       font-weight: 700;
@@ -1090,18 +1090,18 @@
 <section class="philosophy-section" style="background: var(--black); padding: 5rem 0; border-top: 1px solid rgba(255,255,255,0.05);">
   <div class="philosophy-inner" style="max-width: 1100px; margin: 0 auto; padding: 0 20px;">
     
-    <div class="philosophy-box" style="background: #0e0e0e; border: 1px solid rgba(255,77,0,0.15); border-radius: 12px; padding: 3.5rem 2.5rem; position: relative; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.5);">
+    <div class="philosophy-box" style="background: #0e0e0e; border: 1px solid rgba(0, 85, 255, 0.15); border-radius: 12px; padding: 3.5rem 2.5rem; position: relative; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.5);">
       
       <!-- Detalle estético de luces de fondo -->
-      <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: var(--orange); filter: blur(120px); opacity: 0.15; pointer-events: none;"></div>
+      <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: var(--blue); filter: blur(120px); opacity: 0.15; pointer-events: none;"></div>
       
       <div class="philosophy-grid">
         
         <!-- Bloque Izquierdo: El Gancho -->
         <div class="ph-left">
-          <div class="section-eyebrow" style="color: var(--orange); margin-bottom: 0.5rem;">Mi Compromiso</div>
+          <div class="section-eyebrow" style="color: var(--blue); margin-bottom: 0.5rem;">Mi Compromiso</div>
           <h3 style="font-family: var(--bebas); font-size: 2.8rem; color: var(--white); line-height: 1.1; letter-spacing: 0.03em; margin: 0 0 1.5rem 0;">
-            EL CONTENIDO TIENE QUE TRABAJAR <span style="color: var(--orange);">MIENTRAS EL EVENTO AÚN QUEMA</span>
+            EL CONTENIDO TIENE QUE TRABAJAR <span style="color: var(--blue);">MIENTRAS EL EVENTO AÚN QUEMA</span>
           </h3>
           <p style="color: rgba(255,255,255,0.6); font-size: 1rem; line-height: 1.6; margin: 0;">
             Sé perfectamente cómo funciona el algoritmo y los negocios actuales: un gran vídeo pierde el 50% de su impacto si se publica una semana tarde. Mi filosofía se basa en fusionar una estética cinematográfica salvaje con una velocidad de entrega obsesiva.
@@ -1112,7 +1112,7 @@
         <div class="ph-right">
           
           <div class="pilar-item" style="margin-bottom: 1.8rem; display: flex; gap: 15px;">
-            <div style="font-size: 1.8rem; color: var(--orange); line-height: 1;">⚡</div>
+            <div style="font-size: 1.8rem; color: var(--blue); line-height: 1;">⚡</div>
             <div>
               <h4 style="color: var(--white); font-size: 1.1rem; font-weight: 600; margin: 0 0 0.3rem 0;">Entrega en Tiempo Récord</h4>
               <p style="color: rgba(255,255,255,0.45); font-size: 0.9rem; margin: 0; line-height: 1.4;">Tus fotos premium y Reels listos en un plazo de 48 a 72 horas. Sin excusas ni esperas eternas.</p>
@@ -1120,7 +1120,7 @@
           </div>
 
           <div class="pilar-item" style="margin-bottom: 1.8rem; display: flex; gap: 15px;">
-            <div style="font-size: 1.8rem; color: var(--orange); line-height: 1;">🔥</div>
+            <div style="font-size: 1.8rem; color: var(--blue); line-height: 1;">🔥</div>
             <div>
               <h4 style="color: var(--white); font-size: 1.1rem; font-weight: 600; margin: 0 0 0.3rem 0;">Retención y Alto Impacto</h4>
               <p style="color: rgba(255,255,255,0.45); font-size: 0.9rem; margin: 0; line-height: 1.4;">Edición frenética, ganchos visuales potentes y diseño de sonido diseñado específicamente para enganchar al usuario al instante.</p>
@@ -1128,7 +1128,7 @@
           </div>
 
           <div class="pilar-item" style="display: flex; gap: 15px;">
-            <div style="font-size: 1.8rem; color: var(--orange); line-height: 1;">🌍</div>
+            <div style="font-size: 1.8rem; color: var(--blue); line-height: 1;">🌍</div>
             <div>
               <h4 style="color: var(--white); font-size: 1.1rem; font-weight: 600; margin: 0 0 0.3rem 0;">Movilidad Sin Barreras</h4>
               <p style="color: rgba(255,255,255,0.45); font-size: 0.9rem; margin: 0; line-height: 1.4;">Basado en Valencia, pero con equipo ligero y listo para viajar a cualquier festival, club o centro deportivo que requiera calidad pro.</p>
@@ -1168,7 +1168,7 @@
   <div class="packs-inner">
     <div class="reveal">
       <div class="section-eyebrow">Servicios</div>
-      <h2 class="section-title">PACK<span style="color:var(--orange)">S</span></h2>
+      <h2 class="section-title">PACK<span style="color:var(--blue)">S</span></h2>
       <p class="packs-subtitle">Todo lo que necesitas para que tu negocio o proyecto se vea como lo que es — profesional.</p>
     </div>
 
@@ -1325,8 +1325,8 @@
   <div class="faq-inner" style="max-width: 800px; margin: 0 auto; padding: 0 20px;">
     
     <div class="reveal" style="text-align: center; margin-bottom: 3.5rem;">
-      <div class="section-eyebrow" style="color: var(--orange);">Respuestas</div>
-      <h2 class="section-title" style="color: var(--white); margin-bottom: 1rem;">PREGUNTAS <span style="color: var(--orange);">FRECUENTES</span></h2>
+      <div class="section-eyebrow" style="color: var(--blue);">Respuestas</div>
+      <h2 class="section-title" style="color: var(--white); margin-bottom: 1rem;">PREGUNTAS <span style="color: var(--blue);">FRECUENTES</span></h2>
       <p style="color: rgba(255,255,255,0.5); font-size: 0.95rem;">Resuelvo las dudas más comunes antes de empezar a trabajar juntos.</p>
     </div>
 
@@ -1405,7 +1405,7 @@
       transition: border-color 0.3s ease;
     }
     .faq-item:hover {
-      border-color: rgba(255,77,0,0.3);
+      border-color: rgba(0, 85, 255, 0.3);
     }
     .faq-question {
       width: 100%;
@@ -1424,11 +1424,11 @@
       transition: color 0.3s ease;
     }
     .faq-question:hover {
-      color: var(--orange);
+      color: var(--blue);
     }
     .faq-icon {
       font-size: 1.4rem;
-      color: var(--orange);
+      color: var(--blue);
       transition: transform 0.3s ease;
       font-weight: 300;
     }
@@ -1446,7 +1446,7 @@
     }
     /* Clase para cuando esté abierto */
     .faq-item.active {
-      border-color: var(--orange);
+      border-color: var(--blue);
     }
     .faq-item.active .faq-icon {
       transform: rotate(45deg); /* Gira el "+" para que parezca una "x" */
@@ -1606,7 +1606,7 @@
   <div class="footer-logo">ismaa<span>visuals</span></div>
   <div class="footer-copy">© 2026 ismaavisuals · Valencia, España</div>
     <p style="color: rgba(255,255,255,0.4); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin: 0;">
-      Diseñado y desarrollado por <span style="color: var(--orange); font-weight: 600;">Isma</span>
+      Diseñado y desarrollado por <span style="color: var(--blue); font-weight: 600;">Isma</span>
     </p>
   <div class="footer-social">
     <a href="https://instagram.com/ismaavisuals" target="_blank">Instagram</a>
@@ -1642,7 +1642,7 @@
   window.addEventListener('scroll', () => {
     const nav = document.querySelector('nav');
     nav.style.borderBottomColor = window.scrollY > 50
-      ? 'rgba(255,77,0,0.2)'
+      ? 'rgba(0, 85, 255, 0.2)'
       : 'rgba(255,255,255,0.06)';
   });
 </script>
